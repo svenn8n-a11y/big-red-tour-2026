@@ -481,40 +481,37 @@ function initMusic() {
   audio.volume = 0.35;
   audio.muted  = true;
 
+  // Reaktiv: UI immer auf echten Audio-Events basieren, nie auf Timing
   function updateUI() {
-    const active = !audio.paused && !audio.muted;
-    heroBtn?.classList.toggle('is-playing', active);
-    headerBtn?.classList.toggle('is-playing', active);
+    const playing = !audio.paused && !audio.muted;
+    heroBtn?.classList.toggle('is-playing', playing);
+    headerBtn?.classList.toggle('is-playing', playing);
     headerBtn?.classList.toggle('is-muted', audio.muted);
     headerBtn?.setAttribute('aria-label', audio.muted ? 'Ton einschalten' : 'Ton stumm schalten');
   }
+  audio.addEventListener('play',         updateUI);
+  audio.addEventListener('pause',        updateUI);
+  audio.addEventListener('volumechange', updateUI);
 
-  // Direkter Play-Versuch – Browser queued intern bis Audio bereit
-  const p = audio.play();
-  if (p !== undefined) {
-    p.catch(() => {
-      // Autoplay geblockt (z.B. iOS) – beim ersten Gesture starten
-      const unlock = () => {
-        audio.play().then(() => updateUI()).catch(() => {});
-      };
-      document.addEventListener('click',      unlock, { once: true, capture: true });
-      document.addEventListener('touchstart', unlock, { once: true, capture: true });
-      document.addEventListener('keydown',    unlock, { once: true, capture: true });
-    });
-  }
-  updateUI();
+  // Muted Autoplay – Browser erlaubt stummes Abspielen immer
+  audio.play().catch(() => {
+    // Autoplay geblockt → beim ersten Gesture starten (muted)
+    const unlockOnce = () => { audio.play().catch(() => {}); };
+    document.addEventListener('click',      unlockOnce, { once: true, capture: true });
+    document.addEventListener('touchstart', unlockOnce, { once: true, capture: true });
+  });
 
   function toggleMute() {
     if (audio.paused) {
       audio.muted = false;
-      audio.play().then(() => updateUI()).catch(() => {});
+      audio.play().catch(() => {});
     } else {
       audio.muted = !audio.muted;
-      updateUI();
     }
+    // updateUI wird durch 'play'/'volumechange' Events ausgelöst
   }
 
-  heroBtn?.addEventListener('click', toggleMute);
+  heroBtn?.addEventListener('click',   toggleMute);
   headerBtn?.addEventListener('click', toggleMute);
 }
 
@@ -567,10 +564,16 @@ function initGallery() {
   let current  = 0;
   let timer;
 
-  // Set each slide to exact viewport width (fixes 100%-of-track bug)
+  // Set each slide to exact viewport width (flex: none in CSS, Breite per JS)
   function setWidths() {
     const w = track.parentElement.offsetWidth;
-    slides.forEach(s => { s.style.width = w + 'px'; });
+    slides.forEach(s => {
+      s.style.width     = w + 'px';
+      s.style.flexBasis = w + 'px';
+    });
+    // Position nach Resize korrigieren
+    const slideW = track.parentElement.offsetWidth;
+    track.style.transform = `translateX(-${current * slideW}px)`;
   }
   setWidths();
   window.addEventListener('resize', setWidths, { passive: true });
