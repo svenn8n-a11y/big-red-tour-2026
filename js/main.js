@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCard3D();
   initForm();
   initMusic();
+  initErlebnisScroll();
 });
 
 // ─── 1. COUNTDOWN ───────────────────────────────────────────────────────────
@@ -472,16 +473,32 @@ function initMusic() {
     headerBtn?.setAttribute('aria-label', audio.muted ? 'Ton einschalten' : 'Ton stumm schalten');
   }
 
-  // Stumm starten – das erlauben alle Browser
-  audio.muted = true;
-  audio.play().catch(() => {
-    // Auch stummes Autoplay blockiert (sehr selten) – gar nicht schlimm
-  });
-  updateUI();
+  function tryAutoplay() {
+    audio.muted = true;
+    audio.play().then(() => {
+      updateUI();
+    }).catch(() => {
+      // Autoplay blockiert – beim ersten User-Gesture starten
+      const unlock = () => {
+        audio.muted = true;
+        audio.play().then(() => updateUI()).catch(() => {});
+      };
+      document.addEventListener('click',      unlock, { once: true, capture: true });
+      document.addEventListener('touchstart', unlock, { once: true, capture: true });
+      document.addEventListener('keydown',    unlock, { once: true, capture: true });
+    });
+    updateUI();
+  }
+
+  // Warten bis Audio geladen ist, dann abspielen
+  if (audio.readyState >= 2) {
+    tryAutoplay();
+  } else {
+    audio.addEventListener('canplay', tryAutoplay, { once: true });
+  }
 
   function toggleMute() {
     if (audio.paused) {
-      // Falls Audio noch nicht läuft, starten und direkt laut
       audio.muted = false;
       audio.play().then(() => updateUI()).catch(() => {});
     } else {
@@ -494,7 +511,29 @@ function initMusic() {
   headerBtn?.addEventListener('click', toggleMute);
 }
 
-// ─── 15. SMOOTH SCROLL for anchor links ─────────────────────────────────────
+// ─── 15. ERLEBNIS HORIZONTAL SCROLL ─────────────────────────────────────────
+function initErlebnisScroll() {
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+
+  const section = document.querySelector('.erlebnis');
+  const track   = document.querySelector('.erlebnis__track');
+  if (!section || !track) return;
+
+  gsap.to(track, {
+    x: () => -(track.scrollWidth - section.offsetWidth),
+    ease: 'none',
+    scrollTrigger: {
+      trigger:   section,
+      pin:       true,
+      scrub:     1,
+      start:     'top top',
+      end:       () => `+=${track.scrollWidth - section.offsetWidth}`,
+      invalidateOnRefresh: true,
+    },
+  });
+}
+
+// ─── 16. SMOOTH SCROLL for anchor links ─────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const target = document.querySelector(a.getAttribute('href'));
