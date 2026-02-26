@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milwaukee BIG RED TOUR 2026 – Memmingen | Pöppel</title>
+  <meta name="description" content="Die Milwaukee BIG RED TOUR kommt am 10.04.2026 nach Memmingen. Live-Demos, exklusive Truck-Deals, Feuerwehr-Spektakel. Jetzt kostenlos anmelden und Milwaukee Cap sichern.">
+  <meta name="keywords" content="Milwaukee BIG RED TOUR, Memmingen, Pöppel, Milwaukee Werkzeug, Event 2026">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Milwaukee BIG RED TOUR 2026 – Memmingen">
+  <meta property="og:description" content="10. April 2026 bei Pöppel in Memmingen. Live-Demos, exklusive Deals & Feuerwehr-Spektakel. Jetzt kostenlos anmelden!">
+  <meta property="og:image" content="assets/images/truck.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <div class="header__logos">
+        <img src="assets/images/logo_milwaukee.jpg" alt="Milwaukee Tool" class="header__logo header__logo--mke">
+        <div class="header__divider"></div>
+        <img src="assets/images/logo_poeppel.svg" alt="Pöppel" class="header__logo header__logo--poe"
+             onerror="this.src='assets/images/logo_poeppel.png'">
+      </div>
+      <nav class="header__nav">
+        <a href="#erlebnis" class="header__link">Erlebnis</a>
+        <a href="#zielgruppen" class="header__link">Gewerke</a>
+        <a href="#deals" class="header__link">Deals</a>
+        <a href="#anmeldung" class="btn btn--nav mag-btn">
+          <span>Jetzt anmelden</span>
+        </a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav__close" id="mobileNavClose" aria-label="Menü schließen">✕</button>
+    <a href="#erlebnis" class="mobile-nav__link">Erlebnis</a>
+    <a href="#zielgruppen" class="mobile-nav__link">Gewerke</a>
+    <a href="#deals" class="mobile-nav__link">Deals</a>
+    <a href="#highlight" class="mobile-nav__link">Feuerwehr</a>
+    <a href="#anmeldung" class="mobile-nav__link mobile-nav__link--cta">Jetzt anmelden</a>
+  </div>
+  <div class="mobile-nav__overlay" id="mobileOverlay"></div>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+      <div class="hero__parallax" id="heroParallax">
+        <img src="assets/images/truck.jpg" alt="Milwaukee Big Red Truck" class="hero__img" id="heroImg">
+        <div class="hero__gradient"></div>
+      </div>
+
+      <!-- Noise texture overlay -->
+      <div class="hero__noise"></div>
+
+      <div class="hero__content" id="heroContent">
+        <div class="hero__eyebrow" id="heroEyebrow">
+          <span class="tag tag--red">10. April 2026 · Memmingen · Allgäu</span>
+        </div>
+        <h1 class="hero__h1">
+          <span class="hero__line glitch" data-text="BIG RED" id="heroLine1">BIG RED</span>
+          <span class="hero__line hero__line--accent glitch" data-text="TOUR" id="heroLine2">TOUR</span>
+          <span class="hero__line hero__line--sub" id="heroLine3">kommt nach Memmingen</span>
+        </h1>
+        <p class="hero__desc" id="heroDesc">
+          Einer der größten Milwaukee-Truck-Stops im Allgäu.<br>
+          <strong>Live-Demos · Exklusive Deals · Feuerwehr-Spektakel</strong>
+        </p>
+        <div class="hero__actions" id="heroActions">
+          <a href="#anmeldung" class="btn btn--primary btn--lg mag-btn">
+            <span>Jetzt gratis Ticket sichern</span>
+          </a>
+          <a href="#erlebnis" class="btn btn--ghost btn--lg">
+            Was erwartet mich?
+          </a>
+        </div>
+      </div>
+
+      <!-- Countdown -->
+      <div class="hero__countdown" id="heroCountdown">
+        <div class="countdown">
+          <div class="countdown__item">
+            <span class="countdown__num" id="cDays">00</span>
+            <span class="countdown__label">Tage</span>
+          </div>
+          <div class="countdown__sep">:</div>
+          <div class="countdown__item">
+            <span class="countdown__num" id="cHours">00</span>
+            <span class="countdown__label">Std</span>
+          </div>
+          <div class="countdown__sep">:</div>
+          <div class="countdown__item">
+            <span class="countdown__num" id="cMins">00</span>
+            <span class="countdown__label">Min</span>
+          </div>
+          <div class="countdown__sep">:</div>
+          <div class="countdown__item">
+            <span class="countdown__num" id="cSecs">00</span>
+            <span class="countdown__label">Sek</span>
+          </div>
+        </div>
+        <p class="countdown__label-main">bis zum Event</p>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll">
+        <div class="hero__scroll-line"></div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ========== TICKER / INCENTIVE BANNER ========== -->
+    <div class="ticker">
+      <div class="ticker__track">
+        <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Erste 100 Anmeldungen erhalten eine exklusive bestickte Milwaukee-Cap
+        </span>
+        <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Exklusive Truck-Deals – nur an diesem Tag
+        </span>
+        <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Live-Demos: M12™ · M18™ · MX FUEL™
+        </span>
+        <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Spektakuläre Feuerwehr-Vorführung – Auto aufschneiden live!
+        </span>
+        <!-- duplicate for seamless loop -->
+        <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Erste 100 Anmeldungen erhalten eine exklusive bestickte Milwaukee-Cap
+        </span>
+        <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          Exklusive Truck-Deals – nur an diesem Tag
+        </span>
+        <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Live-Demos: M12™ · M18™ · MX FUEL™
+        </span>
+        <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          Spektakuläre Feuerwehr-Vorführung – Auto aufschneiden live!
+        </span>
+      </div>
+    </div>
+
+    <!-- ========== EVENT INFO STRIP ========== -->
+    <section class="event-strip">
+      <div class="container">
+        <div class="event-strip__grid">
+          <div class="event-strip__item reveal-up">
+            <div class="event-strip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <span class="event-strip__label">Datum</span>
+              <strong class="event-strip__val">10. April 2026</strong>
+            </div>
+          </div>
+          <div class="event-strip__divider"></div>
+          <div class="event-strip__item reveal-up" style="--delay:0.1s">
+            <div class="event-strip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <span class="event-strip__label">Öffnungszeiten</span>
+              <strong class="event-strip__val">8:00 – 17:00 Uhr</strong>
+            </div>
+          </div>
+          <div class="event-strip__divider"></div>
+          <div class="event-strip__item reveal-up" style="--delay:0.2s">
+            <div class="event-strip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <span class="event-strip__label">Location</span>
+              <strong class="event-strip__val">Pöppel · Memmingen</strong>
+            </div>
+          </div>
+          <div class="event-strip__divider"></div>
+          <div class="event-strip__item reveal-up" style="--delay:0.3s">
+            <div class="event-strip__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <div>
+              <span class="event-strip__label">Eintritt</span>
+              <strong class="event-strip__val event-strip__val--green">Kostenlos</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ERLEBNIS ========== -->
+    <section class="section erlebnis" id="erlebnis">
+      <div class="container">
+        <div class="section__head reveal-up">
+          <span class="eyebrow">Was dich erwartet</span>
+          <h2 class="section__h2">Ein Tag voller <em class="red">Heavy Duty</em></h2>
+          <p class="section__lead">Der 16-Meter-Truck kommt direkt zu uns nach Memmingen – mit der kompletten Milwaukee-Range, echten Demos und einem Spektakel, das du so schnell nicht vergisst.</p>
+        </div>
+        <div class="erlebnis__grid">
+          <div class="erlebnis__card card-3d reveal-up" style="--delay:0s">
+            <div class="erlebnis__num">01</div>
+            <div class="erlebnis__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3>Live-Demos im Truck</h3>
+            <p>Teste M12™, M18™ und MX FUEL™ direkt in echten Anwendungen. Bohren, sägen, schleifen, pressen – hands-on mit Milwaukee-Spezialisten an deiner Seite.</p>
+          </div>
+          <div class="erlebnis__card erlebnis__card--hero card-3d reveal-up" style="--delay:0.12s">
+            <div class="erlebnis__num">02</div>
+            <span class="badge badge--pulse">Highlight</span>
+            <div class="erlebnis__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.34 19a10 10 0 1 1 17.32 0"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3>Feuerwehr-Spektakel</h3>
+            <p>Das Highlight: Die lokale Feuerwehr schneidet ein Schrottauto live auf – mit Milwaukee M18 FUEL™ Rettungsgeräten. Das sieht man nicht alle Tage.</p>
+          </div>
+          <div class="erlebnis__card card-3d reveal-up" style="--delay:0.24s">
+            <div class="erlebnis__num">03</div>
+            <div class="erlebnis__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            </div>
+            <h3>Exklusive Truck-Deals</h3>
+            <p>Bucket Deals und Tages-Bundles, die es nur an diesem Tag gibt. Gestaffelte Prämien ab 250 €, 500 € und 1.000 € Einkaufswert – nirgendwo sonst.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ZIELGRUPPEN ========== -->
+    <section class="section zielgruppen" id="zielgruppen">
+      <div class="container">
+        <div class="section__head reveal-up">
+          <span class="eyebrow">Für dein Gewerk</span>
+          <h2 class="section__h2">Was steckt drin <em class="red">für dich?</em></h2>
+        </div>
+
+        <div class="tabs reveal-up" style="--delay:0.1s">
+          <!-- Tab Navigation -->
+          <div class="tabs__nav" role="tablist">
+            <button class="tab-btn active" data-tab="holz" role="tab" aria-selected="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              Holz &amp; Metall
+            </button>
+            <button class="tab-btn" data-tab="kfz" role="tab">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="2"/><circle cx="12" cy="21" r="1"/><circle cx="20" cy="21" r="1"/></svg>
+              KFZ
+            </button>
+            <button class="tab-btn" data-tab="shk" role="tab">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              SHK
+            </button>
+            <button class="tab-btn" data-tab="bau" role="tab">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              Bau
+            </button>
+            <button class="tab-btn" data-tab="fw" role="tab">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+              Feuerwehr
+            </button>
+            <button class="tab-btn" data-tab="bestand" role="tab">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Stammkunden
+            </button>
+          </div>
+
+          <!-- Tab Panels -->
+          <div class="tabs__content">
+            <div class="tab-panel active" id="tab-holz" role="tabpanel">
+              <div class="tab-panel__inner">
+                <div class="tab-panel__text">
+                  <h3>Holzabteilung &amp; Metall-/Zerspanung</h3>
+                  <p class="tab-panel__hook">"Deine Säge- und Bohrhalle auf 16 Metern."</p>
+                  <ul class="check-list">
+                    <li>Handkreissägen, Tauchkreissägen &amp; Bandsägen live testen</li>
+                    <li>Metall-Trennschneider &amp; Winkelschleifer in Aktion</li>
+                    <li>Präzisionsbohrungen direkt an der Demostation</li>
+                    <li>Milwaukee-Spezialisten für Holz &amp; Metall persönlich vor Ort</li>
+                  </ul>
+                  <div class="tab-panel__tags">
+                    <span class="tag">M12™</span><span class="tag">M18™</span><span class="tag">MX FUEL™</span>
+                    <span class="tag">Sägen</span><span class="tag">Bohren</span><span class="tag">Schleifen</span>
+                  </div>
+                  <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
+                </div>
+                <div class="tab-panel__visual">
+                  <div class="tab-panel__spec-card">
+                    <div class="spec-line"><span>Produktlinie</span><strong>M12™ · M18™ · MX FUEL™</strong></div>
+                    <div class="spec-line"><span>Demofläche</span><strong>Truck + Outdoor</strong></div>
+                    <div class="spec-line"><span>Beste Zeit</span><strong>9–12 Uhr</strong></div>
+                    <div class="spec-line"><span>Gewerke</span><strong>Tischler · Metallbauer · CNC</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="tab-kfz" role="tabpanel">
+              <div class="tab-panel__inner">
+                <div class="tab-panel__text">
+                  <h3>KFZ-Werkstätten &amp; Autohäuser</h3>
+                  <p class="tab-panel__hook">"So schnell war dein Reifenservice noch nie."</p>
+                  <ul class="check-list">
+                    <li>High-Torque Schlagschrauber – Druckluft war gestern</li>
+                    <li>Unterhauben-Leuchten (M12 System) direkt testen</li>
+                    <li>Rostiger Motorblock: Schraube raus in Sekunden, live</li>
+                    <li>Exklusive Werkstatt-Bundle-Deals nur am Eventtag</li>
+                  </ul>
+                  <div class="tab-panel__tags">
+                    <span class="tag">High Torque</span><span class="tag">M12™ Licht</span><span class="tag">Schlagschrauber</span>
+                    <span class="tag">Akku-Kompressor</span>
+                  </div>
+                  <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
+                </div>
+                <div class="tab-panel__visual">
+                  <div class="tab-panel__spec-card">
+                    <div class="spec-line"><span>Produktlinie</span><strong>M12™ · M18™ High Torque</strong></div>
+                    <div class="spec-line"><span>Demofläche</span><strong>Truck + KFZ-Station</strong></div>
+                    <div class="spec-line"><span>Beste Zeit</span><strong>10–14 Uhr</strong></div>
+                    <div class="spec-line"><span>Gewerke</span><strong>Werkstatt · Autohaus · Kfz</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="tab-shk" role="tabpanel">
+              <div class="tab-panel__inner">
+                <div class="tab-panel__text">
+                  <h3>Sanitär &amp; Heizungsbau (SHK)</h3>
+                  <p class="tab-panel__hook">"Sauber pressen statt nacharbeiten."</p>
+                  <ul class="check-list">
+                    <li>M12 &amp; M18 Presszangen live an Kupfer- und Edelstahlrohren</li>
+                    <li>Akku-Rohrabschneider im Live-Einsatz</li>
+                    <li>Inspektionskameras &amp; Entstopfer testen</li>
+                    <li>SHK-Beratung direkt mit Milwaukee-Spezialisten</li>
+                  </ul>
+                  <div class="tab-panel__tags">
+                    <span class="tag">Presszangen</span><span class="tag">Rohrabschneider</span>
+                    <span class="tag">M12™</span><span class="tag">M18™</span>
+                  </div>
+                  <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
+                </div>
+                <div class="tab-panel__visual">
+                  <div class="tab-panel__spec-card">
+                    <div class="spec-line"><span>Produktlinie</span><strong>M12™ · M18™ SHK-Set</strong></div>
+                    <div class="spec-line"><span>Demofläche</span><strong>SHK-Outdoor-Station</strong></div>
+                    <div class="spec-line"><span>Beste Zeit</span><strong>9–13 Uhr</strong></div>
+                    <div class="spec-line"><span>Gewerke</span><strong>Sanitär · Heizung · Klima</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="tab-bau" role="tabpanel">
+              <div class="tab-panel__inner">
+                <div class="tab-panel__text">
+                  <h3>Baufirmen (Hoch-/Tiefbau)</h3>
+                  <p class="tab-panel__hook">"Von Rohbau bis Tiefbau – Akku statt Kabel."</p>
+                  <ul class="check-list">
+                    <li>MX FUEL™ Abbruchhammer &amp; Trennschleifer live</li>
+                    <li>Kernbohrung an echter Betonplatte vor Ort</li>
+                    <li>Bewehrungsschneider im Praxistest</li>
+                    <li>Bucket Deals für Bau-Investitionen ab 1.000 €</li>
+                  </ul>
+                  <div class="tab-panel__tags">
+                    <span class="tag">MX FUEL™</span><span class="tag">Abbruchhammer</span>
+                    <span class="tag">Trennschleifer</span><span class="tag">M18™</span>
+                  </div>
+                  <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
+                </div>
+                <div class="tab-panel__visual">
+                  <div class="tab-panel__spec-card">
+                    <div class="spec-line"><span>Produktlinie</span><strong>MX FUEL™ · M18™ Heavy Duty</strong></div>
+                    <div class="spec-line"><span>Demofläche</span><strong>Truck + Beton-Station</strong></div>
+                    <div class="spec-line"><span>Beste Zeit</span><strong>10–15 Uhr</strong></div>
+                    <div class="spec-line"><span>Gewerke</span><strong>Hoch- · Tiefbau · Abbruch</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="tab-fw" role="tabpanel">
+              <div class="tab-panel__inner">
+                <div class="tab-panel__text">
+                  <h3>Feuerwehr &amp; Rettungsdienste</h3>
+                  <p class="tab-panel__hook">"Einsatzbereit ohne Steckdose."</p>
+                  <ul class="check-list">
+                    <li>M18 FUEL™ Super-Säbelsägen für Rettungseinsätze live testen</li>
+                    <li>Milwaukee Flutlichtsysteme – kein Generator nötig</li>
+                    <li>Fahrzeugaufschnitt live mit der lokalen Feuerwehr</li>
+                    <li>Exklusives Blue-Light-Zeitfenster 8–9 Uhr</li>
+                  </ul>
+                  <div class="tab-panel__tags">
+                    <span class="tag">Rettungssäge</span><span class="tag">Akku-Flutlicht</span>
+                    <span class="tag">MX FUEL™</span><span class="tag tag--red">Blue-Light Hour</span>
+                  </div>
+                  <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
+                </div>
+                <div class="tab-panel__visual">
+                  <div class="tab-panel__spec-card">
+                    <div class="spec-line"><span>Produktlinie</span><strong>M18 FUEL™ · MX FUEL™</strong></div>
+                    <div class="spec-line"><span>VIP-Fenster</span><strong>8:00 – 9:00 Uhr</strong></div>
+                    <div class="spec-line"><span>Spektakel</span><strong>Fahrzeugaufschnitt live</strong></div>
+                    <div class="spec-line"><span>Gewerke</span><strong>Feuerwehr · THW · Rettung</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="tab-bestand" role="tabpanel">
+              <div class="tab-panel__inner">
+                <div class="tab-panel__text">
+                  <h3>Stammkunden &amp; Bestandskunden</h3>
+                  <p class="tab-panel__hook">"Du kennst uns – jetzt kommt der ganze Truck."</p>
+                  <ul class="check-list">
+                    <li>Exklusives Stammkunden-Zeitfenster 8–9 Uhr</li>
+                    <li>Zusätzliches Milwaukee-Goodie beim VIP-Check-in</li>
+                    <li>Bevorzugte Beratung &amp; persönliche Angebote</li>
+                    <li>Up- &amp; Cross-Sell direkt mit deinem Ansprechpartner</li>
+                  </ul>
+                  <div class="tab-panel__tags">
+                    <span class="tag tag--red">VIP 8–9 Uhr</span><span class="tag">Exklusiv-Goodie</span>
+                    <span class="tag">Persönliche Beratung</span>
+                  </div>
+                  <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
+                </div>
+                <div class="tab-panel__visual">
+                  <div class="tab-panel__spec-card">
+                    <div class="spec-line"><span>VIP-Fenster</span><strong>8:00 – 9:00 Uhr</strong></div>
+                    <div class="spec-line"><span>Vorteil</span><strong>Extra Goodie + Vorabzugang</strong></div>
+                    <div class="spec-line"><span>Eintritt</span><strong>Kostenlos</strong></div>
+                    <div class="spec-line"><span>Für</span><strong>Alle Pöppel-Bestandskunden</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEUERWEHR HIGHLIGHT ========== -->
+    <section class="highlight" id="highlight">
+      <div class="highlight__bg">
+        <div class="highlight__overlay"></div>
+      </div>
+      <div class="container">
+        <div class="highlight__inner">
+          <div class="highlight__content reveal-up">
+            <span class="eyebrow eyebrow--light">Das Highlight des Tages</span>
+            <h2 class="highlight__h2">
+              Feuerwehr<br><em class="red">trifft</em> Milwaukee
+            </h2>
+            <p class="highlight__desc">
+              Die lokale Feuerwehr schneidet ein echtes Schrottauto auf – live vor deinen Augen, mit Milwaukee M18 FUEL™ Rettungsgeräten. Ohne Steckdose. Ohne Generator. Nur Akku-Power.
+            </p>
+            <div class="highlight__specs">
+              <div class="highlight__spec">
+                <span class="highlight__spec-val">M18</span>
+                <span class="highlight__spec-key">FUEL™ Super-Säbelsäge</span>
+              </div>
+              <div class="highlight__spec">
+                <span class="highlight__spec-val">The</span>
+                <span class="highlight__spec-key">Torch Nitrus Carbide Blätter</span>
+              </div>
+              <div class="highlight__spec">
+                <span class="highlight__spec-val">100%</span>
+                <span class="highlight__spec-key">Akkubetrieb – kein Generator</span>
+              </div>
+            </div>
+            <a href="#anmeldung" class="btn btn--primary btn--lg mag-btn">
+              <span>Dabei sein – kostenlos anmelden</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BUCKET DEALS ========== -->
+    <section class="section deals" id="deals">
+      <div class="container">
+        <div class="section__head reveal-up">
+          <span class="eyebrow">Exklusive Tages-Deals</span>
+          <h2 class="section__h2">Nur an <em class="red">diesem Tag</em></h2>
+          <p class="section__lead">Bucket Deals, die es nur während der BIG RED TOUR bei uns gibt. Investiere, und wir legen drauf.</p>
+        </div>
+        <div class="deals__grid">
+          <div class="deals__card reveal-up" style="--delay:0s">
+            <div class="deals__tier-label">ab</div>
+            <div class="deals__amount">250 €</div>
+            <div class="deals__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <h3 class="deals__name">Starter-Goodie</h3>
+            <p class="deals__desc">Milwaukee Profi-Goodie deiner Wahl – wird vor Ort enthüllt. Für jeden Einkauf ab 250 €.</p>
+            <div class="deals__cta">
+              <a href="#anmeldung" class="btn btn--outline btn--sm">Anmelden</a>
+            </div>
+          </div>
+
+          <div class="deals__card deals__card--featured reveal-up" style="--delay:0.12s">
+            <span class="badge badge--top">Beliebt</span>
+            <div class="deals__tier-label">ab</div>
+            <div class="deals__amount">500 €</div>
+            <div class="deals__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="deals__name">Power-Prämie</h3>
+            <p class="deals__desc">Exklusives Milwaukee Truck-Bundle – mehr Infos direkt beim Check-in. Für Einkäufe ab 500 €.</p>
+            <div class="deals__cta">
+              <a href="#anmeldung" class="btn btn--primary mag-btn btn--sm"><span>Anmelden</span></a>
+            </div>
+          </div>
+
+          <div class="deals__card reveal-up" style="--delay:0.24s">
+            <div class="deals__tier-label">ab</div>
+            <div class="deals__amount">1.000 €</div>
+            <div class="deals__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <h3 class="deals__name">Profi-Prämie</h3>
+            <p class="deals__desc">Premium Milwaukee Profi-Prämie + persönliche Beratung durch unser Team. Für die dicken Investitionen.</p>
+            <div class="deals__cta">
+              <a href="#anmeldung" class="btn btn--outline btn--sm">Anmelden</a>
+            </div>
+          </div>
+        </div>
+        <p class="deals__disclaimer reveal-up" style="--delay:0.3s">
+          * Alle Deals gelten ausschließlich am 10.04.2026 vor Ort bei Pöppel Memmingen. Nicht kombinierbar mit anderen Aktionen. Solange der Vorrat reicht.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========== VIDEO SECTION ========== -->
+    <section class="section video-sec">
+      <div class="container">
+        <div class="section__head reveal-up">
+          <span class="eyebrow">Vorschau</span>
+          <h2 class="section__h2">Was dich <em class="red">im Truck erwartet</em></h2>
+        </div>
+        <div class="video-sec__wrap reveal-up" style="--delay:0.1s">
+          <div class="video-sec__frame">
+            <iframe
+              src="https://www.youtube.com/embed/GQ0OVEmIYp8"
+              title="Milwaukee BIG RED TOUR Vorschau"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WETTERFEST ========== -->
+    <section class="section wetterfest">
+      <div class="container">
+        <div class="wetterfest__inner">
+          <div class="wetterfest__text reveal-up">
+            <span class="eyebrow">Allgäu-Wetter? Kein Problem.</span>
+            <h2 class="section__h2">Wir sind <em class="red">wetterfest.</em></h2>
+            <p>Truck draußen, Power-Zone drinnen. Überdachte Bereiche, heiße Getränke und eine Indoor-Demofläche – egal ob Sonne oder Allgäu-Niesel.</p>
+            <ul class="wetterfest__list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                16-Meter Big Red Truck auf unserem Hof
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Indoor Power-Zone in unserer Halle
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Überdachte Demo-Stationen &amp; Zeltbereiche
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Heiße Getränke, Verpflegung &amp; Snacks
+              </li>
+            </ul>
+          </div>
+          <div class="wetterfest__visual reveal-up" style="--delay:0.15s">
+            <div class="wetterfest__card">
+              <div class="wetterfest__icon">⛺</div>
+              <p>Truck draußen,<br><strong>Power-Zone drinnen</strong></p>
+            </div>
+            <div class="wetterfest__card">
+              <div class="wetterfest__icon">☕</div>
+              <p>Heiße Getränke<br><strong>inklusive</strong></p>
+            </div>
+            <div class="wetterfest__card">
+              <div class="wetterfest__icon">🏠</div>
+              <p>Halle als<br><strong>Regen-Fallback</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ANMELDUNG / FORM ========== -->
+    <section class="section anmeldung" id="anmeldung">
+      <div class="container">
+        <div class="section__head reveal-up">
+          <span class="eyebrow">Kostenlose Registrierung</span>
+          <h2 class="section__h2">Jetzt deinen <em class="red">Platz sichern</em></h2>
+          <p class="section__lead">Meld dich jetzt an – kostenlos, unverbindlich und in 60 Sekunden erledigt.<br>Die ersten 100 Angemeldeten erhalten eine exklusive bestickte Milwaukee-Cap.</p>
+        </div>
+        <div class="anmeldung__wrap">
+
+          <!-- Incentive Sidebar -->
+          <div class="anmeldung__sidebar reveal-up">
+            <div class="cap-box">
+              <div class="cap-box__badge">
+                <span class="cap-box__num">100</span>
+                <span class="cap-box__text">Limitierte<br>Milwaukee Caps</span>
+              </div>
+              <p>Die ersten 100 Gäste erhalten beim Check-in eine exklusiv bestickte Milwaukee-Cap – gratis.</p>
+            </div>
+            <div class="anmeldung__benefits">
+              <div class="benefit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Kostenloser Eintritt
+              </div>
+              <div class="benefit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Stammkunden: VIP 8–9 Uhr
+              </div>
+              <div class="benefit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Exklusive Truck-Deals
+              </div>
+              <div class="benefit">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Feuerwehr-Spektakel live
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="anmeldung__form reveal-up" id="regForm" style="--delay:0.1s"
+                action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="vorname">Vorname *</label>
+                <input type="text" id="vorname" name="vorname" required placeholder="Max" autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <label for="nachname">Nachname *</label>
+                <input type="text" id="nachname" name="nachname" required placeholder="Mustermann" autocomplete="family-name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="firma">Firma / Betrieb *</label>
+              <input type="text" id="firma" name="firma" required placeholder="Muster GmbH" autocomplete="organization">
+            </div>
+            <div class="form-group">
+              <label for="email">E-Mail-Adresse *</label>
+              <input type="email" id="email" name="email" required placeholder="max@muster.de" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="branche">Dein Gewerk *</label>
+              <select id="branche" name="branche" required>
+                <option value="" disabled selected>Bitte wählen...</option>
+                <option value="holz-metall">Holz &amp; Metall / Zerspanung</option>
+                <option value="kfz">KFZ-Werkstatt / Autohaus</option>
+                <option value="shk">SHK (Sanitär / Heizung / Klima)</option>
+                <option value="bau">Baufirma (Hoch-/Tiefbau)</option>
+                <option value="feuerwehr">Feuerwehr / Rettungsdienst</option>
+                <option value="sonstige">Sonstige</option>
+              </select>
+            </div>
+            <div class="form-group form-group--check">
+              <label class="check-label">
+                <input type="checkbox" name="stammkunde" id="stammkunde">
+                <span class="check-box"></span>
+                <span>Ich bin Bestandskunde bei Pöppel und möchte das exklusive VIP-Zeitfenster (8–9 Uhr) nutzen.</span>
+              </label>
+            </div>
+            <div class="form-group form-group--check">
+              <label class="check-label">
+                <input type="checkbox" name="datenschutz" id="datenschutz" required>
+                <span class="check-box"></span>
+                <span>Ich stimme der Verarbeitung meiner Daten gemäß <a href="#" class="link">Datenschutzerklärung</a> zu. *</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--full mag-btn" id="submitBtn">
+              <span>Jetzt gratis Ticket &amp; Cap sichern 🎟️</span>
+            </button>
+            <p class="form-note">* Pflichtfelder. Kein Spam – deine Daten werden nur für die Eventorganisation genutzt.</p>
+          </form>
+
+          <!-- Success Message -->
+          <div class="form-success" id="formSuccess">
+            <div class="form-success__icon">✓</div>
+            <h3>Anmeldung erfolgreich!</h3>
+            <p>Danke – du bist dabei! Wir schicken dir eine Bestätigung an deine E-Mail-Adresse.<br>Bis zum 10. April in Memmingen!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="section faq">
+      <div class="container">
+        <div class="section__head reveal-up">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section__h2">Häufige <em class="red">Fragen</em></h2>
+        </div>
+        <div class="faq__list">
+          <div class="faq__item reveal-up">
+            <button class="faq__q" aria-expanded="false">
+              Ist das Event wirklich kostenlos?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq__a"><p>Ja, der Eintritt ist vollständig kostenlos. Registriere dich einfach vorab und sichere dir deinen Platz sowie ggf. die exklusive Milwaukee-Cap.</p></div>
+          </div>
+          <div class="faq__item reveal-up" style="--delay:0.05s">
+            <button class="faq__q" aria-expanded="false">
+              Was passiert bei schlechtem Wetter?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq__a"><p>Das Event findet bei jedem Wetter statt. Wir haben überdachte Demo-Stationen, Zelte direkt am Truck und eine Indoor Power-Zone in unserer Halle als Regen-Alternative.</p></div>
+          </div>
+          <div class="faq__item reveal-up" style="--delay:0.1s">
+            <button class="faq__q" aria-expanded="false">
+              Kann ich ohne Voranmeldung kommen?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq__a"><p>Spontane Besuche sind möglich, aber nur Voranmelder haben garantierten Zugang zum Stammkunden-Zeitfenster (8–9 Uhr) und sichern sich die Chance auf die limitierte Milwaukee-Cap.</p></div>
+          </div>
+          <div class="faq__item reveal-up" style="--delay:0.15s">
+            <button class="faq__q" aria-expanded="false">
+              Wann findet die Feuerwehr-Aktion statt?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq__a"><p>Den genauen Zeitslot teilen wir kurz vor dem Event mit. Alle angemeldeten Teilnehmer werden per E-Mail rechtzeitig informiert.</p></div>
+          </div>
+          <div class="faq__item reveal-up" style="--delay:0.2s">
+            <button class="faq__q" aria-expanded="false">
+              Gibt es Parkplätze vor Ort?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq__a"><p>Ja, auf unserem Hof stehen ausreichend Parkplätze zur Verfügung. Eine genaue Anfahrtsbeschreibung erhältst du mit deiner Anmeldebestätigung.</p></div>
+          </div>
+          <div class="faq__item reveal-up" style="--delay:0.25s">
+            <button class="faq__q" aria-expanded="false">
+              Wie lange sind die Bucket Deals gültig?
+              <svg class="faq__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq__a"><p>Alle Truck-Deals gelten ausschließlich am 10.04.2026 während der Öffnungszeiten des Events. Kein Online-Kauf – nur vor Ort, solange der Vorrat reicht.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col">
+          <img src="assets/images/logo_poeppel.svg" alt="Pöppel" class="footer__logo"
+               onerror="this.src='assets/images/logo_poeppel.png'">
+          <p class="footer__tagline">Offizieller Milwaukee-Partner in Memmingen</p>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__h4">Milwaukee BIG RED TOUR 2026</h4>
+          <p>10. April 2026<br>8:00 – 17:00 Uhr<br>Pöppel · Memmingen</p>
+        </div>
+        <div class="footer__col">
+          <h4 class="footer__h4">Links</h4>
+          <a href="#anmeldung" class="footer__link">Jetzt anmelden</a>
+          <a href="#" class="footer__link">Datenschutz</a>
+          <a href="#" class="footer__link">Impressum</a>
+          <a href="https://www.milwaukeetool.eu" target="_blank" rel="noopener" class="footer__link">Milwaukee Tool Europa</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Pöppel · Memmingen. Alle Rechte vorbehalten.</p>
+        <p>In Kooperation mit <strong>Milwaukee Tool</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
