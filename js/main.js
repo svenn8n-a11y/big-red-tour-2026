@@ -338,15 +338,15 @@ function initHeroParallax() {
   // Scroll parallax
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
-    img.style.transform = `scale(1.15) translateY(${y * 0.25}px)`;
+    img.style.transform = `translateY(${y * 0.2}px)`;
   }, { passive: true });
 
   // Mouse parallax (subtle)
   if (window.matchMedia('(min-width: 769px)').matches) {
     document.addEventListener('mousemove', (e) => {
-      const dx = (e.clientX / window.innerWidth  - 0.5) * 12;
-      const dy = (e.clientY / window.innerHeight - 0.5) * 8;
-      img.style.transform = `scale(1.15) translate(${dx}px, ${dy}px)`;
+      const dx = (e.clientX / window.innerWidth  - 0.5) * 10;
+      const dy = (e.clientY / window.innerHeight - 0.5) * 6;
+      img.style.transform = `translate(${dx}px, ${dy}px)`;
     });
   }
 }

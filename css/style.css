@@ -504,9 +504,8 @@ ul { list-style: none; }
 .hero__img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 80% 20%;
-  transform: scale(1.15);
+  object-fit: contain;
+  object-position: center 35%;
 }
 
 .hero__gradient {
@@ -847,11 +846,10 @@ ul { list-style: none; }
 }
 
 .event-strip__grid {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 1.5rem 4rem;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem 3rem;
 }
 
 .event-strip__divider {
@@ -903,6 +901,15 @@ ul { list-style: none; }
 }
 
 .event-strip__val--green { color: var(--green); }
+
+.event-strip__sub {
+  display: block;
+  font-family: var(--font-sub);
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
 
 /* 10. ERLEBNIS
    ===================================================== */
@@ -1974,4 +1981,172 @@ ul { list-style: none; }
 @media (max-width: 600px) {
   .music-btn { display: none; } /* auf Mobile verstecken */
   .hero__countdown { bottom: 3rem; }
+}
+
+/* =====================================================
+   EVENT-STRIP – Mobile responsive
+   ===================================================== */
+@media (max-width: 500px) {
+  .event-strip__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem 0;
+  }
+}
+
+/* =====================================================
+   HIGHLIGHT – KFZ Pit-Stop & weitere Sektionen
+   ===================================================== */
+.highlight--kfz {
+  background: #030508;
+}
+.highlight--kfz::before {
+  background: radial-gradient(ellipse at 40% 50%, rgba(200,16,46,0.15) 0%, transparent 65%);
+}
+
+/* =====================================================
+   HIGHLIGHT – Georg Prinz (Split: Bild links, Text rechts)
+   ===================================================== */
+.highlight--georg {
+  background: #020a02;
+}
+.highlight--georg::before {
+  background: radial-gradient(ellipse at 30% 50%, rgba(34,120,46,0.15) 0%, transparent 65%);
+}
+
+.highlight__inner--split {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.highlight__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.highlight__person-img {
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(-15px 0 40px rgba(34,120,46,0.5))
+    drop-shadow(0 10px 30px rgba(0,0,0,0.7));
+}
+
+.highlight__yt-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255,0,0,0.08);
+  border: 1px solid rgba(255,0,0,0.25);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: var(--white);
+  transition: background 0.25s, border-color 0.25s, transform 0.2s;
+  width: 100%;
+  max-width: 300px;
+}
+.highlight__yt-link:hover {
+  background: rgba(255,0,0,0.18);
+  border-color: rgba(255,0,0,0.5);
+  transform: translateY(-2px);
+}
+.highlight__yt-link svg { flex-shrink: 0; color: #FF0000; }
+.highlight__yt-info { display: flex; flex-direction: column; line-height: 1.3; }
+.highlight__yt-handle { font-weight: 600; font-size: 0.85rem; }
+.highlight__yt-sub { font-size: 0.72rem; color: var(--muted); }
+
+.highlight__yt-logo {
+  height: 32px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+}
+
+@media (max-width: 860px) {
+  .highlight__inner--split {
+    grid-template-columns: 1fr;
+  }
+  .highlight__figure {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .highlight__person-img { max-width: 220px; }
+}
+
+/* =====================================================
+   SHK AKTIONEN SECTION
+   ===================================================== */
+.shk-section { background: var(--bg); }
+
+.shk__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.shk__card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.shk__card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,16,46,0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.shk__card:hover {
+  border-color: var(--border-red);
+  transform: translateY(-4px);
+  background: var(--card-hover);
+}
+.shk__card:hover::before { opacity: 1; }
+
+.shk__icon {
+  width: 52px; height: 52px;
+  background: rgba(200,16,46,0.1);
+  border: 1px solid var(--border-red);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--red);
+}
+.shk__icon svg { width: 26px; height: 26px; }
+
+.shk__card h3 {
+  font-family: var(--font-sub);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.6rem;
+  color: var(--white);
+}
+
+.shk__card p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.65;
+}
+
+@media (max-width: 768px) {
+  .shk__grid { grid-template-columns: 1fr; }
 }
