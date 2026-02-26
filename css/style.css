@@ -2505,10 +2505,21 @@ ul { list-style: none; }
   gap: 1rem;
 }
 .food__item-icon {
-  font-size: 2rem;
   flex-shrink: 0;
   width: 3rem;
-  text-align: center;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(200,16,46,0.12);
+  border: 1px solid rgba(200,16,46,0.25);
+  border-radius: 10px;
+  color: var(--red);
+}
+.food__item-icon svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
 }
 .food__item strong {
   display: block;
