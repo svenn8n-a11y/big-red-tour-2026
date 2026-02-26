@@ -1229,6 +1229,36 @@ ul { list-style: none; }
   color: var(--red);
 }
 
+/* Feuerwehrmann-Bild – rechts, flush mit Section-Unterkante */
+.highlight__firefighter {
+  position: absolute;
+  right: clamp(0px, 3vw, 60px);
+  bottom: 0;
+  height: 100%;
+  width: auto;
+  max-width: 42%;
+  object-fit: contain;
+  object-position: bottom center;
+  pointer-events: none;
+  z-index: 2;
+  /* Rotes Leuchten hinter der Figur */
+  filter:
+    drop-shadow(-20px 0 50px rgba(200, 16, 46, 0.8))
+    drop-shadow(-40px 0 100px rgba(200, 16, 46, 0.4))
+    drop-shadow(0 -10px 30px rgba(200, 16, 46, 0.3));
+}
+
+@media (max-width: 900px) {
+  .highlight__firefighter {
+    max-width: 38%;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 600px) {
+  .highlight__firefighter { display: none; }
+}
+
 .highlight__spec-key {
   font-family: var(--font-sub);
   font-size: 0.75rem;

@@ -453,8 +453,8 @@ shakeStyle.textContent = `
 document.head.appendChild(shakeStyle);
 
 // ─── 14. MUSIC CONTROL ──────────────────────────────────────────────────────
-// Versucht Autoplay beim Seitenaufruf – fällt bei Browser-Sperre auf
-// erste Nutzerinteraktion zurück. Buttons schalten Ton stumm/ein (nicht Stop).
+// Muted Autoplay: Browser erlaubt stummes Autoplay immer.
+// Musik startet sofort, Button-Klick hebt die Stummschaltung auf.
 //
 function initMusic() {
   const heroBtn   = document.getElementById('musicBtn');
@@ -463,53 +463,31 @@ function initMusic() {
   if (!audio) return;
 
   audio.volume = 0.35;
-  let started = false;
 
   function updateUI() {
-    const soundOn = !audio.muted && !audio.paused;
-    const muted   = audio.muted;
-
-    if (heroBtn) {
-      heroBtn.classList.toggle('is-playing', soundOn);
-    }
-    if (headerBtn) {
-      headerBtn.classList.toggle('is-playing', soundOn);
-      headerBtn.classList.toggle('is-muted',   muted);
-      headerBtn.setAttribute('aria-label', muted ? 'Ton einschalten' : 'Ton stumm schalten');
-    }
+    const active = !audio.paused && !audio.muted;
+    heroBtn?.classList.toggle('is-playing', active);
+    headerBtn?.classList.toggle('is-playing', active);
+    headerBtn?.classList.toggle('is-muted', audio.muted);
+    headerBtn?.setAttribute('aria-label', audio.muted ? 'Ton einschalten' : 'Ton stumm schalten');
   }
 
-  function tryAutoplay() {
-    if (started) return;
-    audio.muted = false;
-    audio.play().then(() => {
-      started = true;
-      updateUI();
-    }).catch(() => {
-      // Browser blockiert – warten auf Nutzerinteraktion
-    });
-  }
+  // Stumm starten – das erlauben alle Browser
+  audio.muted = true;
+  audio.play().catch(() => {
+    // Auch stummes Autoplay blockiert (sehr selten) – gar nicht schlimm
+  });
+  updateUI();
 
-  // Sofort versuchen
-  tryAutoplay();
-
-  // Fallback: bei erster Interaktion starten
-  const events = ['click', 'touchstart', 'scroll', 'keydown'];
-  function onInteraction() {
-    tryAutoplay();
-    events.forEach(ev => window.removeEventListener(ev, onInteraction));
-  }
-  events.forEach(ev => window.addEventListener(ev, onInteraction, { once: true, passive: true }));
-
-  // Mute-Toggle für beide Buttons
   function toggleMute() {
-    if (!started) {
+    if (audio.paused) {
+      // Falls Audio noch nicht läuft, starten und direkt laut
       audio.muted = false;
-      audio.play().then(() => { started = true; updateUI(); }).catch(() => {});
-      return;
+      audio.play().then(() => updateUI()).catch(() => {});
+    } else {
+      audio.muted = !audio.muted;
+      updateUI();
     }
-    audio.muted = !audio.muted;
-    updateUI();
   }
 
   heroBtn?.addEventListener('click', toggleMute);
