@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initForm();
   initMusic();
   initErlebnisScroll();
+  initGallery();
 });
 
 // ─── 1. COUNTDOWN ───────────────────────────────────────────────────────────
@@ -546,3 +547,53 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     window.scrollTo({ top, behavior: 'smooth' });
   });
 });
+
+// ─── 17. GALLERY SLIDER ──────────────────────────────────────────────────────
+function initGallery() {
+  const track  = document.getElementById('galleryTrack');
+  const dotsWrap = document.getElementById('galleryDots');
+  const prevBtn  = document.getElementById('galleryPrev');
+  const nextBtn  = document.getElementById('galleryNext');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.gallery__slide');
+  const total  = slides.length;
+  let current  = 0;
+  let timer;
+
+  // Create dot buttons
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'gallery__dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Bild ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap?.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = ((index % total) + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsWrap?.querySelectorAll('.gallery__dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+    resetTimer();
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  track.parentElement.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.parentElement.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+  });
+
+  resetTimer();
+}

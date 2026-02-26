@@ -102,14 +102,6 @@
           <span class="hero__line hero__line--accent glitch" data-text="TOUR" id="heroLine2">TOUR</span>
           <span class="hero__line hero__line--sub" id="heroLine3">
             <span class="hero__sub-text">kommt nach Memmingen</span>
-            <span class="hero__inline-logo" id="heroPoeppelLogo">
-              <img src="assets/images/logo_poeppel.svg" alt="Pöppel"
-                   onerror="this.src='assets/images/logo_poeppel.png'">
-              <img src="assets/images/logo_poeppel.svg" class="hero__logo-glitch hero__logo-glitch--a" aria-hidden="true"
-                   onerror="this.src='assets/images/logo_poeppel.png'">
-              <img src="assets/images/logo_poeppel.svg" class="hero__logo-glitch hero__logo-glitch--b" aria-hidden="true"
-                   onerror="this.src='assets/images/logo_poeppel.png'">
-            </span>
           </span>
         </h1>
         <p class="hero__desc" id="heroDesc">
@@ -170,6 +162,16 @@
       <audio id="heroAudio" loop preload="auto">
         <source src="assets/music/rockmusik-BIG-RED.mp3" type="audio/mpeg">
       </audio>
+
+    <!-- Pöppel Logo rechts – auf Höhe BIG RED -->
+    <div class="hero__logo-right" id="heroPoeppelLogo">
+      <img src="assets/images/logo_poeppel.svg" alt="Pöppel"
+           onerror="this.src='assets/images/logo_poeppel.png'">
+      <img src="assets/images/logo_poeppel.svg" class="hero__logo-glitch hero__logo-glitch--a" aria-hidden="true"
+           onerror="this.src='assets/images/logo_poeppel.png'">
+      <img src="assets/images/logo_poeppel.svg" class="hero__logo-glitch hero__logo-glitch--b" aria-hidden="true"
+           onerror="this.src='assets/images/logo_poeppel.png'">
+    </div>
     </section>
 
     <!-- ========== TICKER / INCENTIVE BANNER ========== -->
@@ -200,6 +202,10 @@
           Georg Prinz live – Forstwirt &amp; YouTuber mit 55K Abonnenten
         </span>
         <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Neuheiten 2026 – Erste Blicke auf brandneue Milwaukee-Produkte!
+        </span>
+        <span class="ticker__item">
           <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           SHK-Aktionen: Kernbohren · Rohrverstopfung · Rohrschneider live
         </span>
@@ -227,6 +233,10 @@
         <span class="ticker__item">
           <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
           Georg Prinz live – Forstwirt &amp; YouTuber mit 55K Abonnenten
+        </span>
+        <span class="ticker__item">
+          <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Neuheiten 2026 – Erste Blicke auf brandneue Milwaukee-Produkte!
         </span>
         <span class="ticker__item">
           <svg class="ticker__icon" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -346,6 +356,16 @@
           <h3>Georg Prinz <em class="red">Live</em></h3>
           <p>Forstwirt, Sicherheitsexperte & YouTuber mit 55K Abonnenten. Live-Demo M18 FUEL™ Kettensäge und Forstwerkzeuge.</p>
           <a href="#georg" class="erlebnis__cta">Mehr erfahren →</a>
+        </div>
+        <div class="erlebnis__card erlebnis__card--cta card-3d">
+          <div class="erlebnis__cta-inner">
+            <div class="erlebnis__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
+            <h3>Jetzt dabei sein</h3>
+            <p>Sichere dir deinen kostenlosen Platz – solange Plätze verfügbar sind.</p>
+            <a href="#anmeldung" class="btn btn--ghost-white btn--sm">Jetzt anmelden</a>
+          </div>
         </div>
       </div>
     </section>
@@ -561,6 +581,36 @@
       </div>
     </section>
 
+    <!-- ========== GALERIE ========== -->
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <div class="section__head reveal-up">
+          <span class="eyebrow">Milwaukee in Aktion</span>
+          <h2 class="section__h2">Eindrücke von <em class="red">der BIG RED TOUR</em></h2>
+        </div>
+      </div>
+      <div class="gallery__viewport">
+        <div class="gallery__track" id="galleryTrack">
+          <figure class="gallery__slide">
+            <img src="assets/images/Gallery/M12-Family-Shot.webp" alt="Milwaukee M12 Family Shot" loading="lazy">
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/images/Gallery/M18-Family-Shot.webp" alt="Milwaukee M18 Family Shot" loading="lazy">
+          </figure>
+          <figure class="gallery__slide">
+            <img src="assets/images/Gallery/systems-image-03.webp" alt="Milwaukee Systems" loading="lazy">
+          </figure>
+        </div>
+        <button class="gallery__btn gallery__btn--prev" id="galleryPrev" aria-label="Vorheriges Bild">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="22" height="22"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="gallery__btn gallery__btn--next" id="galleryNext" aria-label="Nächstes Bild">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="22" height="22"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="gallery__dots" id="galleryDots"></div>
+      </div>
+    </section>
+
     <!-- ========== FEUERWEHR HIGHLIGHT ========== -->
     <section class="highlight" id="highlight">
       <div class="highlight__bg">
@@ -742,7 +792,7 @@
         <div class="deals__grid">
           <div class="deals__card reveal-up" style="--delay:0s">
             <div class="deals__img-wrap">
-              <img src="assets/images/t-shirt.jpeg" alt="Milwaukee T-Shirt" class="deals__img" loading="lazy">
+              <img src="assets/images/milwaukee-t-shirt.png" alt="Milwaukee T-Shirt" class="deals__img" loading="lazy">
             </div>
             <div class="deals__tier-label">ab</div>
             <div class="deals__amount">250 €</div>
