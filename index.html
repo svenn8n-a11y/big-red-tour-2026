@@ -10,7 +10,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Milwaukee BIG RED TOUR 2026 – Memmingen">
   <meta property="og:description" content="10. April 2026 bei Pöppel in Memmingen. Live-Demos, exklusive Deals & Feuerwehr-Spektakel. Jetzt kostenlos anmelden!">
-  <meta property="og:image" content="assets/images/truck.jpg">
+  <meta property="og:image" content="assets/images/truck_hd.png">
   <meta property="og:type" content="website">
 
   <!-- Fonts -->
@@ -46,9 +46,23 @@
           <span>Jetzt anmelden</span>
         </a>
       </nav>
-      <button class="burger" id="burger" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="header__actions">
+        <button class="header__mute-btn" id="headerMuteBtn" aria-label="Ton stumm schalten" title="Sound">
+          <svg class="mute-icon--on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+          <svg class="mute-icon--off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        </button>
+        <button class="burger" id="burger" aria-label="Menü öffnen">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -68,7 +82,7 @@
     <!-- ========== HERO ========== -->
     <section class="hero" id="hero">
       <div class="hero__parallax" id="heroParallax">
-        <img src="assets/images/truck.jpg" alt="Milwaukee Big Red Truck" class="hero__img" id="heroImg">
+        <img src="assets/images/truck_hd.png" alt="Milwaukee Big Red Truck" class="hero__img" id="heroImg">
         <div class="hero__gradient"></div>
       </div>
 
@@ -86,6 +100,10 @@
             <span class="hero__sub-text">kommt nach Memmingen</span>
             <span class="hero__inline-logo" id="heroPoeppelLogo">
               <img src="assets/images/logo_poeppel.svg" alt="Pöppel"
+                   onerror="this.src='assets/images/logo_poeppel.png'">
+              <img src="assets/images/logo_poeppel.svg" class="hero__logo-glitch hero__logo-glitch--a" aria-hidden="true"
+                   onerror="this.src='assets/images/logo_poeppel.png'">
+              <img src="assets/images/logo_poeppel.svg" class="hero__logo-glitch hero__logo-glitch--b" aria-hidden="true"
                    onerror="this.src='assets/images/logo_poeppel.png'">
             </span>
           </span>
@@ -145,7 +163,7 @@
       </button>
 
       <!-- Background Audio -->
-      <audio id="heroAudio" loop preload="none">
+      <audio id="heroAudio" loop preload="auto">
         <source src="assets/music/rockmusik-BIG-RED.mp3" type="audio/mpeg">
       </audio>
     </section>

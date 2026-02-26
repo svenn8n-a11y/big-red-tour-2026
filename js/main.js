@@ -453,35 +453,67 @@ shakeStyle.textContent = `
 document.head.appendChild(shakeStyle);
 
 // ─── 14. MUSIC CONTROL ──────────────────────────────────────────────────────
-//
-// HINWEIS: Lege die MP3-Datei unter assets/audio/rock-hero.mp3 ab.
-// Kostenlose Rock-Tracks: pixabay.com/music, bensound.com, freemusicarchive.org
-// Browser blockieren Autoplay mit Sound – der Button ermöglicht manuelles Starten.
+// Versucht Autoplay beim Seitenaufruf – fällt bei Browser-Sperre auf
+// erste Nutzerinteraktion zurück. Buttons schalten Ton stumm/ein (nicht Stop).
 //
 function initMusic() {
-  const btn   = document.getElementById('musicBtn');
-  const audio = document.getElementById('heroAudio');
-  if (!btn || !audio) return;
+  const heroBtn   = document.getElementById('musicBtn');
+  const headerBtn = document.getElementById('headerMuteBtn');
+  const audio     = document.getElementById('heroAudio');
+  if (!audio) return;
 
   audio.volume = 0.35;
-  let playing = false;
+  let started = false;
 
-  btn.addEventListener('click', () => {
-    if (!playing) {
-      audio.play().then(() => {
-        playing = true;
-        btn.classList.add('is-playing');
-      }).catch(() => {
-        // Audio-Datei noch nicht vorhanden oder blockiert
-        btn.style.opacity = '0.4';
-        btn.title = 'Bitte rock-hero.mp3 in assets/audio/ ablegen';
-      });
-    } else {
-      audio.pause();
-      playing = false;
-      btn.classList.remove('is-playing');
+  function updateUI() {
+    const soundOn = !audio.muted && !audio.paused;
+    const muted   = audio.muted;
+
+    if (heroBtn) {
+      heroBtn.classList.toggle('is-playing', soundOn);
     }
-  });
+    if (headerBtn) {
+      headerBtn.classList.toggle('is-playing', soundOn);
+      headerBtn.classList.toggle('is-muted',   muted);
+      headerBtn.setAttribute('aria-label', muted ? 'Ton einschalten' : 'Ton stumm schalten');
+    }
+  }
+
+  function tryAutoplay() {
+    if (started) return;
+    audio.muted = false;
+    audio.play().then(() => {
+      started = true;
+      updateUI();
+    }).catch(() => {
+      // Browser blockiert – warten auf Nutzerinteraktion
+    });
+  }
+
+  // Sofort versuchen
+  tryAutoplay();
+
+  // Fallback: bei erster Interaktion starten
+  const events = ['click', 'touchstart', 'scroll', 'keydown'];
+  function onInteraction() {
+    tryAutoplay();
+    events.forEach(ev => window.removeEventListener(ev, onInteraction));
+  }
+  events.forEach(ev => window.addEventListener(ev, onInteraction, { once: true, passive: true }));
+
+  // Mute-Toggle für beide Buttons
+  function toggleMute() {
+    if (!started) {
+      audio.muted = false;
+      audio.play().then(() => { started = true; updateUI(); }).catch(() => {});
+      return;
+    }
+    audio.muted = !audio.muted;
+    updateUI();
+  }
+
+  heroBtn?.addEventListener('click', toggleMute);
+  headerBtn?.addEventListener('click', toggleMute);
 }
 
 // ─── 15. SMOOTH SCROLL for anchor links ─────────────────────────────────────

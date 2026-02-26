@@ -282,6 +282,44 @@ ul { list-style: none; }
 
 @media (max-width: 900px) { .header__nav { display: none; } }
 
+/* Header right-side actions cluster */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Header Mute Button */
+.header__mute-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.header__mute-btn:hover {
+  border-color: var(--red);
+  color: var(--white);
+}
+
+.header__mute-btn.is-playing {
+  border-color: var(--red);
+  color: var(--red);
+  background: rgba(200, 16, 46, 0.1);
+}
+
+.header__mute-btn .mute-icon--off { display: none; }
+.header__mute-btn.is-muted .mute-icon--on  { display: none; }
+.header__mute-btn.is-muted .mute-icon--off { display: block; }
+
 /* Burger */
 .burger {
   display: none;
@@ -546,18 +584,55 @@ ul { list-style: none; }
 
 /* Pöppel-Logo inline im Hero */
 .hero__inline-logo {
+  position: relative;
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero__inline-logo img {
-  height: clamp(1.75rem, 4.5vw, 4rem);
+  height: clamp(4.5rem, 11vw, 9rem);
   width: auto;
   display: block;
   /* Pöppel-Logo in Rot, passend zu Milwaukee */
   filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(4500%) hue-rotate(338deg) brightness(88%) contrast(100%);
+}
+
+/* Glitch-Duplikate */
+.hero__logo-glitch {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero__logo-glitch--a {
+  filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(4500%) hue-rotate(338deg) brightness(88%) contrast(100%);
+  animation: logo-glitch-a 4s ease-in-out infinite;
+}
+
+.hero__logo-glitch--b {
+  filter: brightness(0) saturate(100%) invert(35%) sepia(100%) saturate(6000%) hue-rotate(310deg) brightness(120%) contrast(120%);
+  animation: logo-glitch-b 4s ease-in-out infinite;
+}
+
+@keyframes logo-glitch-a {
+  0%, 84%, 100% { opacity: 0; transform: translateX(0); clip-path: inset(50% 0 50% 0); }
+  85%           { opacity: 0.9; transform: translateX(-5px); clip-path: inset(8% 0 58% 0); }
+  87%           { opacity: 0.9; transform: translateX(5px);  clip-path: inset(62% 0 8% 0); }
+  89%           { opacity: 0.9; transform: translateX(-3px); clip-path: inset(28% 0 38% 0); }
+  91%           { opacity: 0; }
+}
+
+@keyframes logo-glitch-b {
+  0%, 86%, 100% { opacity: 0; transform: translateX(0); clip-path: inset(50% 0 50% 0); }
+  87%           { opacity: 0.7; transform: translateX(6px);  clip-path: inset(42% 0 18% 0); }
+  89%           { opacity: 0.7; transform: translateX(-3px); clip-path: inset(5% 0 72% 0); }
+  92%           { opacity: 0; }
 }
 
 /* Glitch effect */
