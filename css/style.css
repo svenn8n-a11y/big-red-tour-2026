@@ -546,6 +546,7 @@ ul { list-style: none; }
   width: 100%;
   margin-inline: auto;
   padding-top: 6rem;
+  padding-bottom: clamp(5rem, 10vw, 8rem);
 }
 
 .hero__eyebrow { margin-bottom: 1.25rem; }
