@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroParallax();
   initCard3D();
   initForm();
+  initMusic();
 });
 
 // ─── 1. COUNTDOWN ───────────────────────────────────────────────────────────
@@ -87,13 +88,14 @@ function initCountdown() {
 function initHeroAnimation() {
   const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  tl.from('#heroEyebrow', { opacity: 0, y: 30, duration: 0.8, delay: 0.3 })
-    .from('#heroLine1',   { opacity: 0, y: 60, duration: 0.7 }, '-=0.4')
-    .from('#heroLine2',   { opacity: 0, y: 60, duration: 0.7 }, '-=0.5')
-    .from('#heroLine3',   { opacity: 0, y: 30, duration: 0.6 }, '-=0.4')
-    .from('#heroDesc',    { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
-    .from('#heroActions', { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
-    .from('#heroCountdown', { opacity: 0, x: 30, duration: 0.6 }, '-=0.5');
+  tl.from('#heroEyebrow',      { opacity: 0, y: 30, duration: 0.8, delay: 0.3 })
+    .from('#heroLine1',         { opacity: 0, y: 60, duration: 0.7 }, '-=0.4')
+    .from('#heroLine2',         { opacity: 0, y: 60, duration: 0.7 }, '-=0.5')
+    .from('.hero__sub-text',    { opacity: 0, y: 30, duration: 0.6 }, '-=0.4')
+    .from('#heroPoeppelLogo',   { opacity: 0, x: 120, duration: 0.9, ease: 'power4.out' }, '-=0.2')
+    .from('#heroDesc',          { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
+    .from('#heroActions',       { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
+    .from('#heroCountdown',     { opacity: 0, x: 30, duration: 0.6 }, '-=0.5');
 }
 
 // ─── 3. SCROLL REVEAL ───────────────────────────────────────────────────────
@@ -450,7 +452,39 @@ shakeStyle.textContent = `
 `;
 document.head.appendChild(shakeStyle);
 
-// ─── 14. SMOOTH SCROLL for anchor links ─────────────────────────────────────
+// ─── 14. MUSIC CONTROL ──────────────────────────────────────────────────────
+//
+// HINWEIS: Lege die MP3-Datei unter assets/audio/rock-hero.mp3 ab.
+// Kostenlose Rock-Tracks: pixabay.com/music, bensound.com, freemusicarchive.org
+// Browser blockieren Autoplay mit Sound – der Button ermöglicht manuelles Starten.
+//
+function initMusic() {
+  const btn   = document.getElementById('musicBtn');
+  const audio = document.getElementById('heroAudio');
+  if (!btn || !audio) return;
+
+  audio.volume = 0.35;
+  let playing = false;
+
+  btn.addEventListener('click', () => {
+    if (!playing) {
+      audio.play().then(() => {
+        playing = true;
+        btn.classList.add('is-playing');
+      }).catch(() => {
+        // Audio-Datei noch nicht vorhanden oder blockiert
+        btn.style.opacity = '0.4';
+        btn.title = 'Bitte rock-hero.mp3 in assets/audio/ ablegen';
+      });
+    } else {
+      audio.pause();
+      playing = false;
+      btn.classList.remove('is-playing');
+    }
+  });
+}
+
+// ─── 15. SMOOTH SCROLL for anchor links ─────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const target = document.querySelector(a.getAttribute('href'));
