@@ -1,0 +1,84 @@
+Sektion,Element,Aktueller_Text,Keywords_drin,GEO_Signal,Empfehlung / To-Do
+PAGE,"<title>","Milwaukee BIG RED TOUR 2026 – Memmingen | Pöppel",Milwaukee BIG RED TOUR Memmingen Pöppel,✅ Memmingen,OK – Custom Domain ergänzen wenn vorhanden
+PAGE,Meta Description,"Die Milwaukee BIG RED TOUR kommt am 10.04.2026 nach Memmingen...",Milwaukee Memmingen Truck-Deals Feuerwehr,✅ Memmingen,✅ 155 Zeichen – passt
+PAGE,Canonical URL,(fehlt),,❌,<link rel=canonical> ergänzen wenn Domain steht
+PAGE,og:url,(fehlt),,❌,og:url ergänzen wenn Domain steht
+PAGE,og:image,truck.jpg,,❌,Truck-Bild optimieren: 1200×630 px < 200 KB
+PAGE,Schema.org Event,(fehlt komplett),,❌,KRITISCH: Event-Markup ergänzen (siehe MD-Datei Abschnitt E)
+HERO,H1 Zeile 1,BIG RED,Milwaukee BIG RED,❌,OK – Markenbegriff
+HERO,H1 Zeile 2,TOUR,BIG RED TOUR,❌,OK – Markenbegriff
+HERO,H1 Zeile 3,kommt nach Memmingen,Memmingen,✅ Memmingen,Besser: kommt nach Memmingen im Allgäu
+HERO,Tag / Eyebrow,"10. April 2026 · Memmingen · Allgäu","Memmingen, Allgäu",✅ Memmingen ✅ Allgäu,✅ OK
+HERO,Paragraph,"Einer der größten Milwaukee-Truck-Stops im Allgäu. Live-Demos · Exklusive Deals · Feuerwehr-Spektakel","Milwaukee, Allgäu",✅ Allgäu,Milwaukee Werkzeug Händler Memmingen ergänzen
+HERO,CTA Button,Jetzt gratis Ticket sichern,,❌,OK – Conversion-orientiert
+TICKER,Item 1,Erste 100 Anmeldungen erhalten eine exklusive bestickte Milwaukee-Cap,Milwaukee-Cap,❌,OK
+TICKER,Item 2,Exklusive Truck-Deals – nur an diesem Tag,Truck-Deals,❌,OK
+TICKER,Item 3,"Live-Demos: M12™ · M18™ · MX FUEL™","M12, M18, MX FUEL",❌,OK
+TICKER,Item 4,Spektakuläre Feuerwehr-Vorführung – Auto aufschneiden live!,Feuerwehr,❌,OK
+EVENT-STRIP,Datum,10. April 2026,,❌,OK
+EVENT-STRIP,Öffnungszeiten,8:00 – 17:00 Uhr,,❌,OK
+EVENT-STRIP,Location,Pöppel · Memmingen,"Pöppel, Memmingen",✅ Memmingen,Vollständige Adresse ergänzen → wichtig für Local SEO
+EVENT-STRIP,Eintritt,Kostenlos,kostenlos,❌,OK
+ERLEBNIS,H3 Karte 01,Live-Demos im Truck,"M12, M18, MX FUEL, Milwaukee Demos",❌,in Memmingen ergänzen
+ERLEBNIS,Text Karte 01,"Teste M12™ M18™ und MX FUEL™ direkt in echten Anwendungen...","Milwaukee, M12, M18, MX FUEL",❌,die komplette Milwaukee-Range live in Memmingen...
+ERLEBNIS,H3 Karte 02,Feuerwehr-Spektakel,"Feuerwehr, Rettungsgeräte, Milwaukee M18 FUEL",❌,OK
+ERLEBNIS,Text Karte 02,lokale Feuerwehr schneidet ein Schrottauto live auf,"Feuerwehr, M18 FUEL, Rettungsgerät",❌,OK
+ERLEBNIS,H3 Karte 03,Exklusive Truck-Deals,"Bucket Deals, Truck-Deals",❌,OK
+ERLEBNIS,Text Karte 03,"Bucket Deals und Tages-Bundles, die es nur an diesem Tag gibt...","Bucket Deals, Tages-Bundles",❌,OK
+ZIELGRUPPEN,H3 Holz & Metall,Holzabteilung & Metall-/Zerspanung,"Milwaukee Säge, Milwaukee Bohrer",❌,Milwaukee Säge Bohrer Memmingen ergänzen
+ZIELGRUPPEN,Hook Holz & Metall,Deine Säge- und Bohrhalle auf 16 Metern.,,❌,OK
+ZIELGRUPPEN,H3 KFZ,KFZ-Werkstätten & Autohäuser,"Milwaukee Schlagschrauber, KFZ",❌,Milwaukee Schlagschrauber KFZ Allgäu ergänzen
+ZIELGRUPPEN,Hook KFZ,So schnell war dein Reifenservice noch nie.,,❌,OK
+ZIELGRUPPEN,H3 SHK,Sanitär & Heizungsbau (SHK),"Milwaukee Presszange, SHK",❌,Milwaukee Presszange SHK Bayern ergänzen
+ZIELGRUPPEN,Hook SHK,Sauber pressen statt nacharbeiten.,,❌,OK
+ZIELGRUPPEN,H3 Bau,Baufirmen (Hoch-/Tiefbau),"Milwaukee MX FUEL, Abbruchhammer",❌,Milwaukee Abbruchhammer Bau Bayern ergänzen
+ZIELGRUPPEN,Hook Bau,Von Rohbau bis Tiefbau – Akku statt Kabel.,,❌,OK
+ZIELGRUPPEN,H3 Feuerwehr,Feuerwehr & Rettungsdienste,"Milwaukee Rettungssäge, Feuerwehr",❌,Feuerwehr Allgäu ergänzen
+ZIELGRUPPEN,Hook Feuerwehr,Einsatzbereit ohne Steckdose.,,❌,OK
+ZIELGRUPPEN,H3 Stammkunden,Stammkunden & Bestandskunden,Pöppel Stammkunden,❌,OK
+ZIELGRUPPEN,Hook Stammkunden,Du kennst uns – jetzt kommt der ganze Truck.,,❌,OK
+HIGHLIGHT,H2,Feuerwehr trifft Milwaukee,"Feuerwehr, Milwaukee",❌,Feuerwehr Memmingen trifft Milwaukee Power
+HIGHLIGHT,Beschreibung,lokale Feuerwehr schneidet ein echtes Schrottauto auf,"Feuerwehr, M18 FUEL, Rettungsgerät",❌,OK
+HIGHLIGHT,Spec 1,M18 FUEL™ Super-Säbelsäge,M18 FUEL Säbelsäge,❌,OK
+HIGHLIGHT,Spec 2,The Torch Nitrus Carbide Blätter,Torch Sägeblatt,❌,OK
+HIGHLIGHT,Spec 3,100% Akkubetrieb – kein Generator,Akku Rettungsgerät,❌,OK
+DEALS,H2,Nur an diesem Tag,,❌,Nur an diesem Tag in Memmingen
+DEALS,Lead,"Bucket Deals, die es nur während der BIG RED TOUR bei uns gibt.","Bucket Deals, BIG RED TOUR",❌,OK
+DEALS,H3 Karte 1,Starter-Goodie,Milwaukee Goodie,❌,Konkretes Goodie nennen sobald bekannt
+DEALS,Desc Karte 1,Milwaukee Profi-Goodie deiner Wahl – wird vor Ort enthüllt.,Milwaukee Goodie,❌,Konkretes Produkt eintragen (T-Shirt)
+DEALS,H3 Karte 2,Power-Prämie,"Milwaukee Bundle, Truck-Deal",❌,Konkretes Produkt eintragen (Pullover)
+DEALS,Desc Karte 2,Exklusives Milwaukee Truck-Bundle – mehr Infos direkt beim Check-in.,"Milwaukee Bundle, Truck-Deal",❌,Konkretes Produkt eintragen (Pullover Milwaukee)
+DEALS,H3 Karte 3,Profi-Prämie,Milwaukee Profi-Set,❌,Konkretes Produkt eintragen (Ratschensatz)
+DEALS,Desc Karte 3,Premium Milwaukee Profi-Prämie + persönliche Beratung,Milwaukee Profi-Set,❌,Konkretes Produkt eintragen (Ratschensatz Wert)
+VIDEO,H2,Was dich im Truck erwartet,,❌,OK
+VIDEO,iframe title,Milwaukee BIG RED TOUR Vorschau,Milwaukee BIG RED TOUR,❌,OK
+WETTERFEST,Eyebrow,Allgäu-Wetter? Kein Problem.,Allgäu,✅ Allgäu,✅ OK – starkes GEO-Signal
+WETTERFEST,H2,Wir sind wetterfest.,,❌,Wir sind Allgäu-wetterfest.
+WETTERFEST,Text,"Truck draußen, Power-Zone drinnen...","Indoor Power Zone",❌,OK
+ANMELDUNG,H2,Jetzt deinen Platz sichern,,❌,Jetzt deinen Platz in Memmingen sichern
+ANMELDUNG,Lead,"Meld dich jetzt an – kostenlos, unverbindlich...",kostenlos,❌,OK
+ANMELDUNG,Cap-Box,Erste 100 Gäste erhalten beim Check-in eine exklusiv bestickte Milwaukee-Cap,Milwaukee Cap,❌,OK
+ANMELDUNG,Button,Jetzt gratis Ticket & Cap sichern,"gratis, Ticket",❌,OK
+FAQ,Frage 1,Ist das Event wirklich kostenlos?,"kostenlos, Eintritt",❌,Antwort: Pöppel Memmingen nennen
+FAQ,Frage 2,Was passiert bei schlechtem Wetter?,"Wetter, Halle, Indoor",❌,Allgäu-Wetter in der Antwort erwähnen
+FAQ,Frage 3,Kann ich ohne Voranmeldung kommen?,"Voranmeldung, Stammkunden",❌,OK
+FAQ,Frage 4,Wann findet die Feuerwehr-Aktion statt?,"Feuerwehr, Zeitslot",❌,OK
+FAQ,Frage 5,Gibt es Parkplätze?,Parkplätze,❌,Adresse / Google Maps Link ergänzen
+FAQ,Frage 6,Wie lange sind die Bucket Deals gültig?,"Deals, Tagesaktion",❌,Pöppel Memmingen in der Antwort nennen
+FOOTER,Tagline,Offizieller Milwaukee-Partner in Memmingen,"Milwaukee Partner, Memmingen",✅ Memmingen,✅ OK
+FOOTER,Adressblock,"10. April 2026 / Pöppel · Memmingen","Pöppel, Memmingen",✅ Memmingen,Vollständige Adresse + Telefon ergänzen (Local SEO!)
+GEO-PRIO,Memmingen,Aktuell 5×,Ziel: 10-12×,✅ Kritisch,Mind. in H1 / Description / Form / FAQ / Footer
+GEO-PRIO,Allgäu,Aktuell 3×,Ziel: 6-8×,✅ Kritisch,"Hero, Wetterfest, Footer"
+GEO-PRIO,Bayern,Aktuell 0×,Ziel: 2-3×,❌ Wichtig,"SHK-Tab, Bau-Tab, FAQ"
+GEO-PRIO,Schwaben,Aktuell 0×,Ziel: 1×,Optional,1× in Recherche-Copy
+GEO-PRIO,Pöppel,Aktuell 6×,Ziel: ✅ Gut,,OK
+GEO-PRIO,Milwaukee,Aktuell 25+,Ziel: ✅ Sehr gut,,OK
+TODO,🔴 Kritisch,Schema.org Event-Markup ergänzen,,,15 Min
+TODO,🔴 Kritisch,Vollständige Adresse in Footer + Schema,,,5 Min
+TODO,🔴 Kritisch,og:url + canonical ergänzen wenn Domain steht,,,5 Min
+TODO,🟠 Hoch,GEO-Terme Memmingen / Allgäu in Zielgruppen-Tabs,,,30 Min
+TODO,🟠 Hoch,"Truck-Bild optimieren (1200×630, <200 KB, Alt-Text)",,,20 Min
+TODO,🟡 Mittel,Bayern 2-3× ergänzen (SHK / Bau / FAQ),,,20 Min
+TODO,🟡 Mittel,FAQ-Antworten mit Ortsnennung,,,15 Min
+TODO,🟢 Optional,Sitemap XML + robots.txt,,,10 Min
+TODO,🟢 Optional,Google Search Console verknüpfen,,,10 Min
