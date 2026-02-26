@@ -97,8 +97,22 @@ function initHeroAnimation() {
     .from('#heroPoeppelLogo',   { opacity: 0, x: 120, duration: 0.9, ease: 'power4.out' }, '-=0.2')
     .from('#heroDesc',          { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
     .from('#heroActions',       { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
-    .from('#heroCountdown',     { opacity: 0, x: 30, duration: 0.6 }, '-=0.5');
+    .from('#heroCountdown',     { opacity: 0, x: 30, duration: 0.6 }, '-=0.5')
+    .call(alignLogoToH1);
 }
+
+// ─── 2b. LOGO-ALIGNMENT: Oberkante Logo = Oberkante "BIG RED" ───────────────
+function alignLogoToH1() {
+  const line1    = document.getElementById('heroLine1');
+  const logoWrap = document.querySelector('.hero__logo-right');
+  if (!line1 || !logoWrap) return;
+  const parent = logoWrap.offsetParent;
+  if (!parent) return;
+  const parentTop = parent.getBoundingClientRect().top;
+  const lineTop   = line1.getBoundingClientRect().top;
+  logoWrap.style.top = (lineTop - parentTop) + 'px';
+}
+window.addEventListener('resize', alignLogoToH1, { passive: true });
 
 // ─── 3. SCROLL REVEAL ───────────────────────────────────────────────────────
 function initScrollReveal() {
@@ -456,7 +470,7 @@ document.head.appendChild(shakeStyle);
 
 // ─── 14. MUSIC CONTROL ──────────────────────────────────────────────────────
 // Muted Autoplay: Browser erlaubt stummes Autoplay immer.
-// Musik startet sofort, Button-Klick hebt die Stummschaltung auf.
+// Direktes play() – Browser queued intern bis Audio bereit (kein canplay-Race).
 //
 function initMusic() {
   const heroBtn   = document.getElementById('musicBtn');
@@ -465,6 +479,7 @@ function initMusic() {
   if (!audio) return;
 
   audio.volume = 0.35;
+  audio.muted  = true;
 
   function updateUI() {
     const active = !audio.paused && !audio.muted;
@@ -474,29 +489,20 @@ function initMusic() {
     headerBtn?.setAttribute('aria-label', audio.muted ? 'Ton einschalten' : 'Ton stumm schalten');
   }
 
-  function tryAutoplay() {
-    audio.muted = true;
-    audio.play().then(() => {
-      updateUI();
-    }).catch(() => {
-      // Autoplay blockiert – beim ersten User-Gesture starten
+  // Direkter Play-Versuch – Browser queued intern bis Audio bereit
+  const p = audio.play();
+  if (p !== undefined) {
+    p.catch(() => {
+      // Autoplay geblockt (z.B. iOS) – beim ersten Gesture starten
       const unlock = () => {
-        audio.muted = true;
         audio.play().then(() => updateUI()).catch(() => {});
       };
       document.addEventListener('click',      unlock, { once: true, capture: true });
       document.addEventListener('touchstart', unlock, { once: true, capture: true });
       document.addEventListener('keydown',    unlock, { once: true, capture: true });
     });
-    updateUI();
   }
-
-  // Warten bis Audio geladen ist, dann abspielen
-  if (audio.readyState >= 2) {
-    tryAutoplay();
-  } else {
-    audio.addEventListener('canplay', tryAutoplay, { once: true });
-  }
+  updateUI();
 
   function toggleMute() {
     if (audio.paused) {
@@ -561,6 +567,14 @@ function initGallery() {
   let current  = 0;
   let timer;
 
+  // Set each slide to exact viewport width (fixes 100%-of-track bug)
+  function setWidths() {
+    const w = track.parentElement.offsetWidth;
+    slides.forEach(s => { s.style.width = w + 'px'; });
+  }
+  setWidths();
+  window.addEventListener('resize', setWidths, { passive: true });
+
   // Create dot buttons
   slides.forEach((_, i) => {
     const dot = document.createElement('button');
@@ -572,7 +586,8 @@ function initGallery() {
 
   function goTo(index) {
     current = ((index % total) + total) % total;
-    track.style.transform = `translateX(-${current * 100}%)`;
+    const slideW = track.parentElement.offsetWidth;
+    track.style.transform = `translateX(-${current * slideW}px)`;
     dotsWrap?.querySelectorAll('.gallery__dot').forEach((d, i) => {
       d.classList.toggle('active', i === current);
     });
