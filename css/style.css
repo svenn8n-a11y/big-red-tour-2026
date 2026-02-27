@@ -2611,8 +2611,8 @@ ul { list-style: none; }
   max-width: 460px;
   height: auto;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.85;
+  filter: invert(1);
+  opacity: 0.9;
 }
 /* Trennlinie */
 .food__group-label {
@@ -2631,43 +2631,45 @@ ul { list-style: none; }
   background: #04060a;
   position: relative;
   overflow: hidden;
-  padding: clamp(4rem, 8vw, 6rem) 0;
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(5rem, 12vw, 9rem);
 }
 .heigl::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(200,16,46,0.1) 0%, transparent 55%);
+  background: radial-gradient(ellipse at 15% 60%, rgba(200,16,46,0.12) 0%, transparent 50%);
   pointer-events: none;
 }
-.heigl__inner {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr 1fr;
-  gap: clamp(1.5rem, 3vw, 3rem);
-  align-items: center;
+/* Auto – absolut positioniert, fährt von links ins Bild */
+.heigl__car-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: clamp(320px, 42vw, 600px);
+  z-index: 1;
+  pointer-events: none;
+  transform: translateX(-105%);
+  transition: transform 1.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-/* Auto-Spalte */
-.heigl__car-col {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  overflow: hidden;
+.heigl__car-wrap.is-visible {
+  transform: translateX(0);
 }
 .heigl__car {
   width: 100%;
-  max-width: 420px;
   height: auto;
   display: block;
-  transform: translateX(-160%);
-  transition: transform 1.7s cubic-bezier(0.22, 1, 0.36, 1);
   filter:
-    drop-shadow(0 0 10px rgba(200,16,46,0.95))
-    drop-shadow(0 0 28px rgba(200,16,46,0.6))
-    drop-shadow(0 0 60px rgba(200,16,46,0.3))
-    drop-shadow(0 8px 20px rgba(0,0,0,0.75));
+    drop-shadow(0 0 6px rgba(200,16,46,0.65))
+    drop-shadow(0 0 18px rgba(200,16,46,0.3))
+    drop-shadow(0 6px 16px rgba(0,0,0,0.65));
 }
-.heigl__car.is-visible {
-  transform: translateX(0);
+/* Grid: Text | Stand (2 Spalten, Auto ist absolut) */
+.heigl__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  padding-left: clamp(240px, 36vw, 520px);
 }
 /* Text-Spalte */
 .heigl__text {
@@ -2726,9 +2728,15 @@ ul { list-style: none; }
 @media (max-width: 860px) {
   .heigl__inner {
     grid-template-columns: 1fr;
+    padding-left: 0;
     text-align: center;
   }
-  .heigl__car { transform: translateX(0); max-width: 260px; margin: 0 auto; }
+  .heigl__car-wrap {
+    position: static;
+    transform: none;
+    width: clamp(200px, 70vw, 340px);
+    margin: 0 auto 1.5rem;
+  }
   .heigl__stand { justify-content: center; }
 }
 
