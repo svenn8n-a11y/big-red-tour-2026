@@ -603,23 +603,39 @@ ul { list-style: none; }
 /* Fallback: JS (alignLogoToH1) überschreibt top nach dem Paint präzise */
 .hero__logo-right {
   position: absolute;
-  top: clamp(9rem, 20vh, 14rem);
   right: clamp(2rem, 5vw, 6rem);
   z-index: 3;
   pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: clamp(140px, 18vw, 240px);
+  /* top + height werden per JS gesetzt */
 }
 
-.hero__logo-right img:first-child {
-  height: clamp(6rem, 14vw, 11rem);
-  width: auto;
+.hero__logo-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.hero__logo-img {
+  width: 100%;
+  height: auto;
   display: block;
+}
+
+/* Pöppel: rot */
+.hero__logo-wrap--poeppel .hero__logo-img {
   filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(4500%) hue-rotate(338deg) brightness(88%) contrast(100%);
 }
 
+/* Milwaukee: weiß */
+.hero__logo-wrap--milwaukee .hero__logo-img {
+  filter: brightness(0) invert(1);
+}
+
 @media (max-width: 768px) {
-  .hero__logo-right {
-    display: none;
-  }
+  .hero__logo-right { display: none; }
 }
 
 /* Glitch-Duplikate */
@@ -1158,15 +1174,17 @@ ul { list-style: none; }
 .tabs__nav::-webkit-scrollbar { display: none; }
 
 .tab-btn {
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.6rem;
   font-family: var(--font-sub);
   font-weight: 700;
   font-size: 0.88rem;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  padding: 0.9rem 1.75rem;
+  padding: 0.9rem 1rem;
   color: var(--muted);
   white-space: nowrap;
   background: rgba(255,255,255,0.04);
@@ -2481,6 +2499,35 @@ ul { list-style: none; }
   50%       { text-shadow: 0 0 50px rgba(200,16,46,0.9), 0 0 100px rgba(200,16,46,0.5), 0 0 140px rgba(200,16,46,0.2); }
 }
 
+/* ── DEALS: TOP SECRET STEMPEL ───────────────────────────────────────────── */
+.deals__bonus {
+  position: relative; /* sicherstellen */
+}
+.deals__stamp {
+  position: absolute;
+  right: clamp(1rem, 5%, 4rem);
+  top: 50%;
+  transform: translateY(-50%) rotate(-22deg) scale(0);
+  transform-origin: center center;
+  width: clamp(120px, 18vw, 180px);
+  color: var(--red);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 0 12px rgba(200,16,46,0.5));
+  z-index: 2;
+}
+.deals__stamp svg { width: 100%; height: auto; display: block; }
+.deals__stamp.is-stamped {
+  animation: stamp-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes stamp-in {
+  0%   { transform: translateY(-50%) rotate(-22deg) scale(2.4); opacity: 0; }
+  60%  { transform: translateY(-50%) rotate(-22deg) scale(0.9); opacity: 0.9; }
+  80%  { transform: translateY(-50%) rotate(-22deg) scale(1.05); opacity: 1; }
+  100% { transform: translateY(-50%) rotate(-22deg) scale(1); opacity: 1; }
+}
+
 /* ── FOOD & DRINKS ───────────────────────────────────────────────────────── */
 .food { background: var(--bg-alt); }
 .food__inner {
@@ -2549,20 +2596,80 @@ ul { list-style: none; }
   object-fit: cover;
   border-radius: 12px;
 }
-.food__img-fallback {
+.food__img--stand {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  filter: drop-shadow(0 8px 30px rgba(0,0,0,0.7));
+}
+/* Heigl Logo unter dem Stand-Bild */
+.food__logo-wrap {
+  margin-top: 1rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 1rem;
-  color: var(--muted);
-  text-align: center;
 }
-.food__img-fallback span { font-size: 6rem; }
-.food__img-fallback p {
-  font-size: 1.2rem;
+.food__heigl-logo {
+  height: clamp(2.5rem, 5vw, 4rem);
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
+}
+/* Trennlinie zwischen Kostenlos und Specials */
+.food__group-label {
   font-family: var(--font-sub);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin: 0 0 0.5rem;
 }
+.food__divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0 0.75rem;
+  color: var(--muted);
+}
+.food__divider::before,
+.food__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.food__divider span {
+  font-family: var(--font-sub);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+/* Heigl Auto – fährt von links ein */
+.food { position: relative; overflow: hidden; }
+.food__car-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: clamp(200px, 35vw, 480px);
+  pointer-events: none;
+  z-index: 1;
+  transform: translateX(-110%);
+  transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.food__car-wrap.is-visible {
+  transform: translateX(-5%);
+}
+.food__car {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+}
+.food__grid { margin-bottom: 0.5rem; }
+.food__grid + .food__grid { margin-top: 0; }
 
 /* ── GEWERK SEKTIONEN (KFZ, Bau, Holz, SHK) ─────────────────────────────── */
 .gewerk {
@@ -2649,6 +2756,12 @@ ul { list-style: none; }
   object-fit: contain;
   filter: drop-shadow(0 8px 40px rgba(0,0,0,0.8)) drop-shadow(-8px 0 40px rgba(200,16,46,0.2));
   border-radius: 8px;
+}
+/* KFZ: Mann 50% größer */
+.gewerk__img--kfz {
+  max-width: 720px;
+  transform: scale(1.5);
+  transform-origin: center bottom;
 }
 
 /* ── GEWERK REVERSED (Bild links, Text rechts) ──────────────────────────── */

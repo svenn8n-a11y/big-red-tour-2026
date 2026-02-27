@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initMusic();
   initErlebnisScroll();
   initGallery();
+  initDealStamp();
+  initHeiglCar();
 });
 
 // ─── 1. COUNTDOWN ───────────────────────────────────────────────────────────
@@ -101,16 +103,19 @@ function initHeroAnimation() {
     .call(alignLogoToH1);
 }
 
-// ─── 2b. LOGO-ALIGNMENT: Oberkante Logo = Oberkante "BIG RED" ───────────────
+// ─── 2b. LOGO-ALIGNMENT: Pöppel-OK = BIG RED-OK · Milwaukee-UK = TOUR-UK ────
 function alignLogoToH1() {
   const line1    = document.getElementById('heroLine1');
-  const logoWrap = document.querySelector('.hero__logo-right');
-  if (!line1 || !logoWrap) return;
+  const line2    = document.getElementById('heroLine2');
+  const logoWrap = document.getElementById('heroPoeppelLogo');
+  if (!line1 || !line2 || !logoWrap) return;
   const parent = logoWrap.offsetParent;
   if (!parent) return;
-  const parentTop = parent.getBoundingClientRect().top;
-  const lineTop   = line1.getBoundingClientRect().top;
-  logoWrap.style.top = (lineTop - parentTop) + 'px';
+  const parentRect = parent.getBoundingClientRect();
+  const line1Rect  = line1.getBoundingClientRect();
+  const line2Rect  = line2.getBoundingClientRect();
+  logoWrap.style.top    = (line1Rect.top    - parentRect.top) + 'px';
+  logoWrap.style.height = (line2Rect.bottom - line1Rect.top)  + 'px';
 }
 window.addEventListener('resize', alignLogoToH1, { passive: true });
 
@@ -614,4 +619,28 @@ function initGallery() {
   });
 
   resetTimer();
+}
+
+// ─── TOP SECRET STEMPEL ─────────────────────────────────────────────────────
+function initDealStamp() {
+  const stamp = document.getElementById('dealsStamp');
+  if (!stamp) return;
+  ScrollTrigger.create({
+    trigger: stamp,
+    start: 'top 80%',
+    once: true,
+    onEnter: () => stamp.classList.add('is-stamped')
+  });
+}
+
+// ─── HEIGL AUTO EINFAHRT ────────────────────────────────────────────────────
+function initHeiglCar() {
+  const carWrap = document.querySelector('.food__car-wrap');
+  if (!carWrap) return;
+  ScrollTrigger.create({
+    trigger: '#food',
+    start: 'top 70%',
+    once: true,
+    onEnter: () => carWrap.classList.add('is-visible')
+  });
 }

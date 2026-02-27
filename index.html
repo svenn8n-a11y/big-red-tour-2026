@@ -163,14 +163,22 @@
         <source src="assets/music/rockmusik-BIG-RED.mp3" type="audio/mpeg">
       </audio>
 
-    <!-- Pöppel Logo rechts – auf Höhe BIG RED -->
+    <!-- Logos rechts: Pöppel oben (Glitch), Milwaukee unten – per JS an BIG RED/TOUR ausgerichtet -->
     <div class="hero__logo-right" id="heroPoeppelLogo">
-      <img src="assets/images/logo_poeppel.svg" alt="Pöppel"
-           onerror="this.src='assets/images/logo_poeppel.png'">
-      <img src="assets/images/logo_poeppel.svg" class="hero__logo-glitch hero__logo-glitch--a" aria-hidden="true"
-           onerror="this.src='assets/images/logo_poeppel.png'">
-      <img src="assets/images/logo_poeppel.svg" class="hero__logo-glitch hero__logo-glitch--b" aria-hidden="true"
-           onerror="this.src='assets/images/logo_poeppel.png'">
+      <!-- Pöppel Logo (oben) mit Glitch -->
+      <div class="hero__logo-wrap hero__logo-wrap--poeppel">
+        <img src="assets/images/logo_poeppel_NEU.svg" alt="Pöppel"
+             class="hero__logo-img" onerror="this.src='assets/images/logo_poeppel.png'">
+        <img src="assets/images/logo_poeppel_NEU.svg" class="hero__logo-glitch hero__logo-glitch--a" aria-hidden="true"
+             onerror="this.src='assets/images/logo_poeppel.png'">
+        <img src="assets/images/logo_poeppel_NEU.svg" class="hero__logo-glitch hero__logo-glitch--b" aria-hidden="true"
+             onerror="this.src='assets/images/logo_poeppel.png'">
+      </div>
+      <!-- Milwaukee Logo (unten, gleiche Breite) -->
+      <div class="hero__logo-wrap hero__logo-wrap--milwaukee">
+        <img src="assets/images/MILWAUKEE_TOOL_LOGO-50.svg" alt="Milwaukee Tool"
+             class="hero__logo-img">
+      </div>
     </div>
     </section>
 
@@ -390,8 +398,8 @@
           <!-- Tab Navigation -->
           <div class="tabs__nav" role="tablist">
             <button class="tab-btn active" data-tab="holz" role="tab" aria-selected="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5.22 5.22l1.42 1.42M17.36 17.36l1.42 1.42M18.78 5.22l-1.42 1.42M6.64 17.36l-1.42 1.42"/></svg>
-              Holz &amp; Metall
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M17 8c0-2.76-2.24-5-5-5S7 5.24 7 8c0 1.86 1.01 3.47 2.5 4.35V21h5v-8.65C15.99 11.47 17 9.86 17 8z"/><path d="M9.5 16h5"/></svg>
+              Georg Prinz
             </button>
             <button class="tab-btn" data-tab="kfz" role="tab">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><line x1="12" y1="9.5" x2="12" y2="3"/><line x1="9.84" y1="10.25" x2="4.59" y2="7.5"/><line x1="14.16" y1="10.25" x2="19.41" y2="7.5"/></svg>
@@ -408,10 +416,6 @@
             <button class="tab-btn" data-tab="fw" role="tab">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2c0 0-5 5-5 10a5 5 0 0 0 10 0C17 7 12 2 12 2z"/><path d="M12 12c0 0-2 2-2 4a2 2 0 0 0 4 0C14 14 12 12 12 12z"/></svg>
               Feuerwehr
-            </button>
-            <button class="tab-btn" data-tab="bestand" role="tab">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M2 19h20v2H2z"/><path d="M2 19L5 9l4 5 3-7 3 7 4-5 3 10"/></svg>
-              Stammkunden
             </button>
           </div>
 
@@ -557,33 +561,6 @@
               </div>
             </div>
 
-            <div class="tab-panel" id="tab-bestand" role="tabpanel">
-              <div class="tab-panel__inner">
-                <div class="tab-panel__text">
-                  <h3>Stammkunden &amp; Bestandskunden</h3>
-                  <p class="tab-panel__hook">"Du kennst uns – jetzt kommt der ganze Truck."</p>
-                  <ul class="check-list">
-                    <li>Exklusives Stammkunden-Zeitfenster 8–9 Uhr</li>
-                    <li>Zusätzliches Milwaukee-Goodie beim VIP-Check-in</li>
-                    <li>Bevorzugte Beratung &amp; persönliche Angebote</li>
-                    <li>Up- &amp; Cross-Sell direkt mit deinem Ansprechpartner</li>
-                  </ul>
-                  <div class="tab-panel__tags">
-                    <span class="tag tag--red">VIP 8–9 Uhr</span><span class="tag">Exklusiv-Goodie</span>
-                    <span class="tag">Persönliche Beratung</span>
-                  </div>
-                  <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
-                </div>
-                <div class="tab-panel__visual">
-                  <div class="tab-panel__spec-card">
-                    <div class="spec-line"><span>VIP-Fenster</span><strong>8:00 – 9:00 Uhr</strong></div>
-                    <div class="spec-line"><span>Vorteil</span><strong>Extra Goodie + Vorabzugang</strong></div>
-                    <div class="spec-line"><span>Eintritt</span><strong>Kostenlos</strong></div>
-                    <div class="spec-line"><span>Für</span><strong>Alle Pöppel-Bestandskunden</strong></div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -747,23 +724,8 @@
               <a href="#pitstop" class="btn btn--ghost btn--lg"><span>Zur Pit-Stop Challenge →</span></a>
             </div>
           </div>
-          <div class="gewerk__figure reveal-up" style="--delay:0.15s">
-            <img src="assets/images/KFZ_mann.png" alt="KFZ-Profi testet Milwaukee Schlagschrauber in Werkstatt Memmingen" class="gewerk__img" loading="lazy">
-            <!-- Floating Tool Chips -->
-            <div class="gewerk__tool-chips">
-              <div class="gewerk__chip">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><circle cx="8" cy="8" r="5"/><line x1="8" y1="3" x2="8" y2="1"/><line x1="8" y1="13" x2="8" y2="15"/><line x1="3" y1="8" x2="1" y2="8"/><line x1="13" y1="8" x2="15" y2="8"/></svg>
-                M18 FUEL™ Schlagschrauber
-              </div>
-              <div class="gewerk__chip">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="2" y="5" width="12" height="9" rx="1.5"/><path d="M5 5V3.5a3 3 0 0 1 6 0V5"/></svg>
-                PACKOUT™ System
-              </div>
-              <div class="gewerk__chip">
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><circle cx="8" cy="8" r="5.5"/><path d="M5.5 8h5M8 5.5v5"/></svg>
-                M18 Winkelschleifer
-              </div>
-            </div>
+          <div class="gewerk__figure gewerk__figure--kfz reveal-up" style="--delay:0.15s">
+            <img src="assets/images/KFZ_mann.png" alt="KFZ-Profi testet Milwaukee Schlagschrauber in Werkstatt Memmingen" class="gewerk__img gewerk__img--kfz" loading="lazy">
           </div>
         </div>
       </div>
@@ -1052,6 +1014,21 @@
             <strong>Zusatzrabatt</strong>
             <span>auf alle BIG RED DEALS<br>– exklusiv an diesem Tag</span>
           </div>
+          <!-- Top Secret Stempel -->
+          <div class="deals__stamp" id="dealsStamp" aria-hidden="true">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="6"/>
+              <circle cx="100" cy="100" r="78" stroke="currentColor" stroke-width="2.5"/>
+              <text x="100" y="90" text-anchor="middle" dominant-baseline="middle"
+                    font-family="'Bebas Neue', sans-serif" font-size="36" fill="currentColor"
+                    letter-spacing="4">TOP</text>
+              <text x="100" y="122" text-anchor="middle" dominant-baseline="middle"
+                    font-family="'Bebas Neue', sans-serif" font-size="36" fill="currentColor"
+                    letter-spacing="4">SECRET</text>
+              <line x1="24" y1="108" x2="76" y2="108" stroke="currentColor" stroke-width="2.5"/>
+              <line x1="124" y1="108" x2="176" y2="108" stroke="currentColor" stroke-width="2.5"/>
+            </svg>
+          </div>
         </div>
 
         <div class="deals__grid">
@@ -1125,16 +1102,22 @@
 
     <!-- ========== FOOD & DRINKS ========== -->
     <section class="section food" id="food">
+      <!-- Heigl Auto fährt von links ein -->
+      <div class="food__car-wrap" aria-hidden="true">
+        <img src="assets/images/food/heigl_Auto.png" alt="" class="food__car" id="heiglCar" loading="lazy">
+      </div>
       <div class="container">
         <div class="food__inner">
           <div class="food__content reveal-up">
             <span class="eyebrow">Verpflegung am Event-Tag</span>
             <h2 class="section__h2">Food &amp; <em class="red">Drinks</em></h2>
             <p class="section__lead">Wir sorgen für ordentliches Essen – damit du den ganzen Tag Power hast.</p>
+
+            <!-- Kostenfreie Verpflegung -->
+            <p class="food__group-label">Inklusive für alle Besucher</p>
             <div class="food__grid">
               <div class="food__item">
                 <div class="food__item-icon">
-                  <!-- Burger: Bun + Patty + Veggie-Welle -->
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 9.5a8 8 0 0 1 16 0"/>
                     <circle cx="9.5" cy="7.2" r="0.75" fill="currentColor" stroke="none"/>
@@ -1149,7 +1132,6 @@
               </div>
               <div class="food__item">
                 <div class="food__item-icon">
-                  <!-- Kaffeetasse mit Dampf und Henkel -->
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M6 8h10l-1 9H7L6 8z"/>
                     <path d="M16 10h1.5a2 2 0 0 1 0 4H16"/>
@@ -1161,9 +1143,15 @@
                 </div>
                 <div><strong>Kostenfreie Getränke</strong><p>Kaffee, Wasser und mehr – den ganzen Tag.</p></div>
               </div>
+            </div>
+
+            <!-- Specials Trennlinie -->
+            <div class="food__divider">
+              <span>Außerdem</span>
+            </div>
+            <div class="food__grid">
               <div class="food__item">
                 <div class="food__item-icon">
-                  <!-- Cloche / Glocke: steht für Premium-Speisen -->
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M4 14a8 8 0 0 1 16 0"/>
                     <line x1="2" y1="14" x2="22" y2="14"/>
@@ -1173,17 +1161,19 @@
                     <path d="M9 11 Q10.5 9.5 12 11 Q13.5 12.5 15 11"/>
                   </svg>
                 </div>
-                <div><strong>Spezialitäten für Liebhaber</strong><p>Besondere Schmankerl für alle Feinschmecker.</p></div>
+                <div><strong>Allgäuer Schmankerl</strong><p>Regionale Spezialitäten vom Heigl-Stand.</p></div>
               </div>
             </div>
-            <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Jetzt anmelden &amp; dabei sein</span></a>
+
+            <a href="#anmeldung" class="btn btn--primary mag-btn" style="margin-top:1.5rem"><span>Jetzt anmelden &amp; dabei sein</span></a>
           </div>
-          <div class="food__figure reveal-up" style="--delay:0.15s">
-            <img src="assets/images/foodtruck.jpg" alt="Foodtruck am Event" class="food__img" loading="lazy"
-                 onerror="this.style.display='none'">
-            <div class="food__img-fallback" aria-hidden="true">
-              <span>🚚</span>
-              <p>Foodtruck<br>coming soon</p>
+
+          <div class="food__figure reveal-up" style="--delay:0.1s">
+            <!-- Heigl Stand Bild -->
+            <img src="assets/images/food/Heigl_Stand.png" alt="Heigl Foodstand am BIG RED TOUR Event" class="food__img food__img--stand" loading="lazy">
+            <!-- Heigl Logo -->
+            <div class="food__logo-wrap">
+              <img src="assets/images/food/Heigl_logo.png" alt="Heigl" class="food__heigl-logo" loading="lazy">
             </div>
           </div>
         </div>
