@@ -635,12 +635,12 @@ function initDealStamp() {
 
 // ─── HEIGL AUTO EINFAHRT ────────────────────────────────────────────────────
 function initHeiglCar() {
-  const carWrap = document.querySelector('.food__car-wrap');
-  if (!carWrap) return;
+  const car = document.getElementById('heiglCarImg');
+  if (!car) return;
   ScrollTrigger.create({
-    trigger: '#food',
-    start: 'top 70%',
+    trigger: '#heigl',
+    start: 'top 75%',
     once: true,
-    onEnter: () => carWrap.classList.add('is-visible')
+    onEnter: () => car.classList.add('is-visible')
   });
 }
