@@ -2731,8 +2731,13 @@ ul { list-style: none; }
   border-radius: 12px;
   filter: drop-shadow(0 12px 50px rgba(0,0,0,0.85)) drop-shadow(-10px 0 50px rgba(200,16,46,0.22));
 }
+/* Bau reversed: großes Bild bleibt links */
+.gewerk--reversed .gewerk__inner--bau {
+  grid-template-columns: 1.35fr 1fr;
+}
 @media (max-width: 860px) {
-  .gewerk__inner--bau { grid-template-columns: 1fr; }
+  .gewerk__inner--bau,
+  .gewerk--reversed .gewerk__inner--bau { grid-template-columns: 1fr; }
   .gewerk__figure--bau { min-height: 280px; }
 }
 
