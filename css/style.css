@@ -2608,7 +2608,7 @@ ul { list-style: none; }
 }
 .food__schachen-logo {
   width: 100%;
-  max-width: 320px;
+  max-width: 460px;
   height: auto;
   object-fit: contain;
   filter: brightness(0) invert(1);
@@ -2676,7 +2676,7 @@ ul { list-style: none; }
   z-index: 1;
 }
 .heigl__logo {
-  height: clamp(3rem, 6vw, 5rem);
+  height: clamp(4.5rem, 9vw, 7.5rem);
   width: auto;
   margin: 0 auto 1.25rem;
   display: block;
@@ -2818,10 +2818,15 @@ ul { list-style: none; }
   filter: drop-shadow(0 8px 40px rgba(0,0,0,0.8)) drop-shadow(-8px 0 40px rgba(200,16,46,0.2));
   border-radius: 8px;
 }
-/* KFZ: Mann 50% größer */
+/* KFZ: Mann ~20% kleiner als vorher (war 1.5, jetzt 1.2) */
 .gewerk__img--kfz {
-  max-width: 720px;
-  transform: scale(1.5);
+  max-width: 576px;
+  transform: scale(1.2);
+  transform-origin: center bottom;
+}
+/* Zimmermann/Holz: +15% */
+.gewerk--zimmermann .gewerk__img {
+  transform: scale(1.15);
   transform-origin: center bottom;
 }
 
