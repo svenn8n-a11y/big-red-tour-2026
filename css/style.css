@@ -2134,10 +2134,10 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
   .hero__h1 .hero__line { font-size: clamp(2.8rem, 16vw, 4.5rem); }
-  .hero__content { padding-top: 5.5rem; }
+  .hero__content { padding-top: 7.5rem; }
   .countdown__num { font-size: 1.75rem; }
   .countdown__sep { font-size: 1.5rem; }
-  .hero__line--sub { flex-wrap: wrap; }
+  .hero__line--sub { flex-wrap: wrap; font-size: clamp(0.9rem, 3.5vw, 1.25rem); }
 }
 
 /* =====================================================
@@ -2604,6 +2604,8 @@ ul { list-style: none; }
 
 /* ── FOOD & DRINKS ───────────────────────────────────────────────────────── */
 .food { background: var(--bg-alt); }
+.food__content .eyebrow,
+.food__content .section__h2 { text-align: center; }
 .food__inner {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
