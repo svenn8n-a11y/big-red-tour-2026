@@ -609,22 +609,20 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: clamp(140px, 18vw, 240px);
+  width: auto;
   /* top + height werden per JS gesetzt */
 }
 
 .hero__logo-wrap {
   position: relative;
-  width: 100%;
 }
 
 .hero__logo-img {
   width: auto;
   height: 100%;
-  max-width: 100%;
   display: block;
   object-fit: contain;
-  object-position: left center;
+  object-position: right center;
 }
 
 /* Pöppel: rot */
@@ -2187,12 +2185,12 @@ ul { list-style: none; }
 }
 
 /* =====================================================
-   HIGHLIGHT – Georg Prinz (Split: Bild links, Text rechts)
+   HIGHLIGHT – Gregor Prinz (Split: Bild links, Text rechts)
    ===================================================== */
-.highlight--georg {
+.highlight--gregor {
   background: #020a02;
 }
-.highlight--georg::before {
+.highlight--gregor::before {
   background: radial-gradient(ellipse at 30% 50%, rgba(34,120,46,0.15) 0%, transparent 65%);
 }
 

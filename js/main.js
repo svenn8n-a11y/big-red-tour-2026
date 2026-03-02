@@ -117,12 +117,22 @@ function alignLogoToH1() {
   // Container: von Oberkante BIG RED bis Unterkante TOUR
   logoWrap.style.top    = (line1Rect.top    - parentRect.top) + 'px';
   logoWrap.style.height = (line2Rect.bottom - line1Rect.top)  + 'px';
-  // Einzelne Logos auf Buchstabenhöhe der jeweiligen Zeile skalieren
+  // Höhe direkt auf die img-Elemente setzen (nicht nur den Wrapper)
   const poeppelWrap   = logoWrap.querySelector('.hero__logo-wrap--poeppel');
   const milwaukeeWrap = logoWrap.querySelector('.hero__logo-wrap--milwaukee');
-  if (poeppelWrap)   poeppelWrap.style.height   = line1Rect.height + 'px';
-  if (milwaukeeWrap) milwaukeeWrap.style.height  = line2Rect.height + 'px';
+  if (poeppelWrap) {
+    poeppelWrap.style.height = line1Rect.height + 'px';
+    const img = poeppelWrap.querySelector('.hero__logo-img');
+    if (img) img.style.height = line1Rect.height + 'px';
+  }
+  if (milwaukeeWrap) {
+    milwaukeeWrap.style.height = line2Rect.height + 'px';
+    const img = milwaukeeWrap.querySelector('.hero__logo-img');
+    if (img) img.style.height = line2Rect.height + 'px';
+  }
 }
+// Nochmal nach Font-Load aufrufen (Bebas Neue ändert die Maße)
+document.fonts.ready.then(alignLogoToH1);
 window.addEventListener('resize', alignLogoToH1, { passive: true });
 
 // ─── 3. SCROLL REVEAL ───────────────────────────────────────────────────────
