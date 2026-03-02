@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vorschau: Interne Benachrichtigung – Neue Anmeldung</title>
+  <style>
+    /* === Preview-Wrapper (nur im Browser) === */
+    body { background: #e8e8e8; margin: 0; padding: 32px 16px; font-family: -apple-system, sans-serif; }
+    .preview-bar { max-width: 680px; margin: 0 auto 16px auto; background: #333; color: #fff; border-radius: 6px 6px 0 0; padding: 10px 20px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+    .preview-meta { font-size: 12px; opacity: 0.7; }
+    /* === E-Mail === */
+    .container { max-width: 680px; margin: 0 auto; background: #fff; border-radius: 0 0 8px 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .email-header { background: linear-gradient(135deg, #C8102E, #1a1a1a); color: #fff; padding: 30px 35px; }
+    .email-header h1 { margin: 0 0 6px 0; font-size: 22px; font-weight: 700; }
+    .email-header p { margin: 0; opacity: 0.85; font-size: 14px; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 600; margin-top: 12px; }
+    .section { padding: 28px 35px; border-bottom: 2px solid #f0f0f0; }
+    .section:last-of-type { border-bottom: none; }
+    .section-title { color: #C8102E; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 16px 0; }
+    .info-row { display: flex; margin-bottom: 12px; }
+    .info-label { font-weight: 600; min-width: 150px; color: #666; font-size: 14px; flex-shrink: 0; }
+    .info-value { color: #1a1a1a; font-size: 14px; }
+    .info-value a { color: #C8102E; text-decoration: none; }
+    .vip-badge { background: #C8102E; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .branche-badge { background: #f0f0f0; color: #444; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+    .footer-bar { background: #1a1a1a; color: #888; padding: 16px 35px; text-align: center; font-size: 12px; }
+  </style>
+</head>
+<body>
+
+  <div class="preview-bar">
+    <span>Vorschau: Interne Benachrichtigung (neue Anmeldung)</span>
+    <span class="preview-meta">An: support@poeppel-wkz.de, s.muellers@poeppel-wkz.de</span>
+  </div>
+
+  <div class="container">
+
+    <div class="email-header">
+      <h1>Neue Anmeldung</h1>
+      <p>Milwaukee BIG RED TOUR 2026 &middot; Memmingen</p>
+      <div class="badge">10. April 2026</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Teilnehmer</div>
+      <div class="info-row">
+        <div class="info-label">Name:</div>
+        <div class="info-value"><strong>Max Mustermann</strong></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Firma:</div>
+        <div class="info-value">Muster GmbH</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">E-Mail:</div>
+        <div class="info-value"><a href="mailto:max@musterfirma.de">max@musterfirma.de</a></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Branche:</div>
+        <div class="info-value"><span class="branche-badge">KFZ-Werkstatt / Autohaus</span></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">Stammkunde:</div>
+        <div class="info-value"><span class="vip-badge">VIP Stammkunde</span></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Details</div>
+      <div class="info-row">
+        <div class="info-label">Angemeldet am:</div>
+        <div class="info-value">02.03.2026 um 14:35 Uhr</div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      BIG RED TOUR 2026 &middot; R. P&ouml;ppel GmbH &amp; Co. KG &middot; Memmingen
+    </div>
+
+  </div>
+
+</body>
+</html>

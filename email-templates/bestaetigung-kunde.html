@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vorschau: Bestätigungs-E-Mail an Teilnehmer</title>
+  <style>
+    /* === Preview-Wrapper (nur im Browser, nicht in E-Mail) === */
+    body { background: #e8e8e8; margin: 0; padding: 32px 16px; font-family: -apple-system, sans-serif; }
+    .preview-bar { max-width: 640px; margin: 0 auto 16px auto; background: #333; color: #fff; border-radius: 6px 6px 0 0; padding: 10px 20px; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+    .preview-bar span { opacity: 0.7; }
+    .preview-meta { font-size: 12px; }
+    /* === E-Mail Inhalt === */
+    .container { max-width: 640px; margin: 0 auto; background: #fff; box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    .email-header { background: linear-gradient(135deg, #C8102E 0%, #1a1a1a 100%); color: #fff; padding: 40px 35px; text-align: center; }
+    .email-header h1 { margin: 0 0 8px 0; font-size: 28px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; font-family: -apple-system, sans-serif; }
+    .email-header p { margin: 0; font-size: 16px; opacity: 0.9; }
+    .checkmark { width: 60px; height: 60px; background: rgba(255,255,255,0.15); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .body-section { padding: 32px 35px; border-bottom: 1px solid #f0f0f0; }
+    .body-section:last-of-type { border-bottom: none; }
+    .greeting { font-size: 17px; margin-bottom: 14px; line-height: 1.7; }
+    .event-box { background: #fff8f8; border: 2px solid #C8102E; border-radius: 8px; padding: 20px 24px; margin: 20px 0; }
+    .event-box h3 { color: #C8102E; margin: 0 0 12px 0; font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+    .event-row { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; font-size: 15px; color: #333; }
+    .event-icon { font-size: 18px; flex-shrink: 0; }
+    .vip-box { background: linear-gradient(135deg, #C8102E 0%, #8B0000 100%); color: #fff; border-radius: 8px; padding: 16px 24px; margin: 16px 0; font-size: 15px; }
+    .cap-box { background: #1a1a1a; color: #fff; border-radius: 8px; padding: 18px 24px; margin: 20px 0; font-size: 15px; line-height: 1.6; }
+    .cap-box strong { color: #C8102E; }
+    .steps { margin: 16px 0; }
+    .step { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+    .step-num { background: #C8102E; color: #fff; width: 32px; height: 32px; border-radius: 50%; font-weight: 700; font-size: 15px; text-align: center; line-height: 32px; flex-shrink: 0; font-family: -apple-system, sans-serif; }
+    .step-text h4 { margin: 0 0 3px 0; font-size: 15px; color: #1a1a1a; font-family: -apple-system, sans-serif; }
+    .step-text p { margin: 0; color: #666; font-size: 14px; line-height: 1.6; }
+    .contact-box { background: #f9f9f9; border-radius: 8px; padding: 20px 24px; margin: 16px 0; }
+    .contact-name { font-weight: 700; color: #C8102E; font-size: 16px; margin-bottom: 8px; }
+    .contact-item { font-size: 15px; margin-bottom: 6px; }
+    .contact-item a { color: #C8102E; text-decoration: none; font-weight: 500; }
+    .cta-btn { display: inline-block; background: #C8102E; color: #fff; text-decoration: none; padding: 14px 32px; border-radius: 6px; font-weight: 700; font-size: 15px; margin: 16px 0; }
+    .footer-bar { background: #1a1a1a; color: #888; padding: 24px 35px; text-align: center; font-size: 13px; line-height: 1.8; }
+    .footer-bar a { color: #999; text-decoration: underline; }
+    p { margin: 0 0 12px 0; line-height: 1.7; color: #333; font-size: 15px; }
+  </style>
+</head>
+<body>
+
+  <div class="preview-bar">
+    <span>Vorschau: E-Mail an Teilnehmer (Bestätigung)</span>
+    <span class="preview-meta">Von: noreply@poeppel-wkz.de · An: max@musterfirma.de</span>
+  </div>
+
+  <div class="container">
+
+    <div class="email-header">
+      <div class="checkmark">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>Du bist dabei!</h1>
+      <p>Deine Anmeldung zur BIG RED TOUR 2026 ist bestätigt.</p>
+    </div>
+
+    <div class="body-section">
+      <p class="greeting">Hallo <strong>Max</strong>,</p>
+      <p>vielen Dank für deine Anmeldung! Wir freuen uns, dich am <strong>10. April 2026</strong> bei uns begrüßen zu dürfen. Hier sind alle wichtigen Infos auf einen Blick:</p>
+
+      <div class="event-box">
+        <h3>Veranstaltungsdetails</h3>
+        <div class="event-row">
+          <span class="event-icon">&#128197;</span>
+          <span><strong>Datum:</strong> Freitag, 10. April 2026</span>
+        </div>
+        <div class="event-row">
+          <span class="event-icon">&#128336;</span>
+          <span><strong>Uhrzeit:</strong> 8:00 – 17:00 Uhr (reguläre Öffnung ab 9:00 Uhr)</span>
+        </div>
+        <div class="event-row">
+          <span class="event-icon">&#128205;</span>
+          <span><strong>Ort:</strong> R. Pöppel GmbH & Co. KG, Alpenstraße 45, 87700 Memmingen</span>
+        </div>
+        <div class="event-row">
+          <span class="event-icon">&#127881;</span>
+          <span><strong>Eintritt:</strong> Kostenlos</span>
+        </div>
+      </div>
+
+      <!-- VIP-Box (nur für Stammkunden) -->
+      <div class="vip-box">
+        <strong>&#11088; VIP-Frühöffnung für Stammkunden: 8:00 – 9:00 Uhr</strong><br>
+        Als Stammkunde hast du exklusiven Frühzugang – eine Stunde vor der regulären Öffnung!
+      </div>
+    </div>
+
+    <div class="body-section">
+      <p style="font-weight:600;color:#1a1a1a;margin-bottom:12px;">&#127358; Die ersten 100 Anmeldungen erhalten eine exklusive Milwaukee-Cap – kostenlos!</p>
+      <div class="cap-box">
+        <strong>Dein Tipp:</strong> Komm früh &ndash; die Caps werden am Eingang bei Ankunft ausgegeben, solange der Vorrat reicht.
+      </div>
+    </div>
+
+    <div class="body-section">
+      <p style="font-weight:600;color:#1a1a1a;margin-bottom:16px;">Was erwartet dich?</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Live-Demos &amp; Neuheiten</h4>
+            <p>Die neuesten Milwaukee M18/M12 Tools im Live-Einsatz – erproben statt nur anschauen.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>Feuerwehr-Spektakel</h4>
+            <p>Dramatische Vorführung: Rettungskräfte zeigen live, was Milwaukee Werkzeug in Extremsituationen leistet.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Bucket Deals bis 1.000 €</h4>
+            <p>Exklusive Tages-Deals: Werkzeugpakete ab 250 €, 500 € und 1.000 € – nur an diesem Tag.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-text">
+            <h4>Food &amp; Getränke</h4>
+            <p>Für Verpflegung ist gesorgt: Metzgerei Heigl &amp; Barbecue-Spezialitäten den ganzen Tag.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="body-section">
+      <p style="font-weight:600;color:#1a1a1a;margin-bottom:12px;">Fragen? Wir sind für dich da:</p>
+      <div class="contact-box">
+        <div class="contact-name">Sven Müllers – R. Pöppel GmbH & Co. KG</div>
+        <div class="contact-item">&#128231; <a href="mailto:s.muellers@poeppel-wkz.de">s.muellers@poeppel-wkz.de</a></div>
+        <div class="contact-item">&#128222; <a href="tel:+4983319559-0">+49 8331 9559-0</a></div>
+      </div>
+      <p style="text-align:center; margin-top:8px;">
+        <a href="https://svenn8n-a11y.github.io/big-red-tour-2026/" class="cta-btn">Zur Eventseite</a>
+      </p>
+    </div>
+
+    <div class="footer-bar">
+      <p>R. Pöppel GmbH &amp; Co. KG &middot; Alpenstraße 45 &middot; 87700 Memmingen</p>
+      <p><a href="#">Datenschutz</a> &middot; <a href="#">Impressum</a></p>
+    </div>
+
+  </div>
+
+</body>
+</html>
