@@ -1816,10 +1816,11 @@ ul { list-style: none; }
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 4px;
-  padding: clamp(1.75rem, 4vw, 2.75rem);
+  padding: clamp(1.25rem, 4vw, 2.75rem);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  min-width: 0;
 }
 
 .form-row {
@@ -1847,6 +1848,7 @@ ul { list-style: none; }
 
 .form-group input,
 .form-group select {
+  width: 100%;
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--white);
@@ -2121,9 +2123,12 @@ ul { list-style: none; }
     text-align: left;
   }
 
-  .hero__content {
-    padding-top: 7rem;
+  /* Schrift auf Mobile deutlich kleiner – verhindert Überlappung mit Header */
+  .hero__h1 .hero__line {
+    font-size: clamp(2.5rem, 13vw, 4rem);
+    line-height: 0.95;
   }
+  .hero__content { padding-top: 8.5rem; }
 
   .hero__scroll { display: none; }
 
@@ -2133,8 +2138,11 @@ ul { list-style: none; }
 }
 
 @media (max-width: 480px) {
-  .hero__h1 .hero__line { font-size: clamp(2.8rem, 16vw, 4.5rem); }
-  .hero__content { padding-top: 7.5rem; }
+  .hero__h1 .hero__line {
+    font-size: clamp(2.2rem, 12vw, 3.5rem);
+    line-height: 0.95;
+  }
+  .hero__content { padding-top: 9rem; }
   .countdown__num { font-size: 1.75rem; }
   .countdown__sep { font-size: 1.5rem; }
   .hero__line--sub { flex-wrap: wrap; font-size: clamp(0.9rem, 3.5vw, 1.25rem); }
@@ -2907,6 +2915,9 @@ ul { list-style: none; }
   max-width: 576px;
   transform: scale(1.2);
   transform-origin: center bottom;
+}
+@media (max-width: 860px) {
+  .gewerk__img--kfz { transform: scale(1.08); }
 }
 /* Zimmermann/Holz: +15% */
 .gewerk--zimmermann .gewerk__img {
