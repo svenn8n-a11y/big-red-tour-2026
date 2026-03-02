@@ -477,7 +477,7 @@ ul { list-style: none; }
 
 .btn--lg { padding: 1rem 2rem; font-size: 1rem; }
 .btn--sm { padding: 0.55rem 1.1rem; font-size: 0.8rem; }
-.btn--full { width: 100%; }
+.btn--full { width: 100%; white-space: normal; text-align: center; }
 
 /* Magnetic button — JS handles the transform */
 .mag-btn { transition: transform 0.4s var(--ease), background 0.25s, box-shadow 0.25s, border-color 0.25s; }
