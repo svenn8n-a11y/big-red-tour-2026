@@ -1258,6 +1258,47 @@ ul { list-style: none; }
 
 @media (max-width: 700px) { .tab-panel__text { border-right: none; border-bottom: 1px solid var(--border); } }
 
+/* Scroll-Hinweis unter Zielgruppen-Überschrift */
+.tabs__hint {
+  display: none;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 0.5rem 0 0 0;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sub);
+  letter-spacing: 0.04em;
+}
+.tabs__hint svg { color: var(--red); flex-shrink: 0; }
+@media (max-width: 700px) { .tabs__hint { display: flex; } }
+
+/* Fade-Indikator rechts an der Tab-Leiste */
+@media (max-width: 700px) {
+  .tabs::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 56px;
+    height: 50px;
+    background: linear-gradient(to right, transparent, var(--black) 85%);
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+/* Tab-Buttons auf kleinen Screens: kein flex-stretch, damit Scroll greift */
+@media (max-width: 480px) {
+  .tab-btn {
+    flex: 0 0 auto;
+    min-width: 76px;
+    font-size: 0.78rem;
+    padding: 0.8rem 0.75rem;
+  }
+  .tab-btn svg { display: none; }
+}
+
 .tab-panel__text h3 {
   font-family: var(--font-sub);
   font-size: 1.6rem;
