@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIG RED TOUR 2026 – Flyer A5 Querformat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ─── RESET & VARIABLES ─────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red:   #C8102E;
+      --black: #080808;
+      --bg:    #0f0f0f;
+      --bg2:   #161616;
+      --white: #F0F0F0;
+      --gray:  #888;
+      --head:  'Bebas Neue', sans-serif;
+      --sub:   'Barlow Condensed', sans-serif;
+      --body:  'Inter', sans-serif;
+    }
+
+    html, body { background: #2d2d2d; font-family: var(--body); }
+
+    @page { size: 210mm 148mm; margin: 0; }
+
+    @media print {
+      html, body { background: none; }
+      .page { box-shadow: none !important; margin: 0 !important; }
+    }
+
+    .page {
+      width: 210mm;
+      height: 148mm;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+      color: var(--white);
+      break-after: page;
+      page-break-after: always;
+    }
+
+    @media screen {
+      .page { margin: 10mm auto; box-shadow: 0 8px 48px rgba(0,0,0,0.7); }
+    }
+
+    /* ─── SHARED ────────────────────────────────────────────────── */
+    .eyebrow {
+      font-family: var(--sub);
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    /* Inline SVG Icons – global sizing */
+    .icon { display: block; flex-shrink: 0; }
+    .icon svg { display: block; }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       SEITE 1 — COVER
+    ═══════════════════════════════════════════════════════════════ */
+    .p1 { background: #070707; }
+
+    .p1__truck {
+      position: absolute;
+      right: -8mm; top: 50%;
+      transform: translateY(-50%);
+      height: 115%; width: auto;
+      object-fit: contain; object-position: center right;
+      opacity: 0.45; mix-blend-mode: luminosity;
+    }
+
+    .p1__gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(100deg,
+        #070707 30%, rgba(7,7,7,0.82) 50%,
+        rgba(7,7,7,0.25) 72%, transparent 100%);
+    }
+
+    .p1__accent {
+      position: absolute; top: 0; left: 0;
+      width: 3.5mm; height: 100%; background: var(--red);
+    }
+
+    .p1__content {
+      position: relative; z-index: 2;
+      padding: 7mm 10mm 7mm 13mm;
+      height: 100%; display: flex; flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .p1__partner {
+      font-family: var(--sub); font-size: 7.5pt; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 4mm;
+    }
+
+    .p1__title { font-family: var(--head); line-height: 0.86; margin-bottom: 3mm; }
+    .p1__title .big  { font-size: 48pt; color: var(--white); display: block; }
+    .p1__title .tour { font-size: 48pt; color: var(--red);   display: block; }
+    .p1__title .year { font-size: 20pt; color: rgba(255,255,255,0.2); display: block; letter-spacing: 0.12em; }
+
+    .p1__city {
+      font-family: var(--sub); font-size: 11.5pt; font-weight: 600;
+      color: var(--white); letter-spacing: 0.06em; margin-bottom: 5mm;
+    }
+
+    .p1__badge {
+      display: inline-flex; flex-direction: column;
+      background: var(--red); padding: 2.5mm 5mm; gap: 0.5mm; margin-bottom: 4mm;
+    }
+
+    .p1__badge-date { font-family: var(--head); font-size: 15pt; line-height: 1; color: #fff; }
+    .p1__badge-sub  { font-family: var(--sub);  font-size: 7pt; font-weight: 600; color: rgba(255,255,255,0.88); letter-spacing: 0.06em; }
+
+    .p1__tagline { font-family: var(--sub); font-size: 8pt; color: rgba(255,255,255,0.4); }
+
+    .p1__footer {
+      display: flex; align-items: center; gap: 4mm;
+      padding-top: 3.5mm; border-top: 0.25mm solid rgba(255,255,255,0.12);
+    }
+
+    .p1__logo { height: 7.5mm; width: auto; display: block; }
+    .p1__logo--mke { filter: brightness(0) invert(1); }
+    .p1__logo--poe { filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(4500%) hue-rotate(338deg) brightness(88%) contrast(100%); }
+    .p1__sep { width: 0.25mm; height: 7.5mm; background: rgba(255,255,255,0.18); }
+
+    .p1__free {
+      margin-left: auto; padding: 1.5mm 3.5mm;
+      border: 0.4mm solid var(--red); background: rgba(200,16,46,0.12);
+      font-family: var(--sub); font-size: 7.5pt; font-weight: 700;
+      color: var(--red); letter-spacing: 0.12em; text-transform: uppercase;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       SEITE 2 — WAS ERWARTET DICH?
+    ═══════════════════════════════════════════════════════════════ */
+    .p2 { background: var(--bg); display: flex; flex-direction: column; }
+
+    .p2__header {
+      background: var(--red); padding: 3.5mm 8mm;
+      display: flex; align-items: baseline; gap: 4mm; flex-shrink: 0;
+    }
+
+    .p2__h    { font-family: var(--head); font-size: 21pt; line-height: 1; color: #fff; }
+    .p2__hsub { font-family: var(--sub);  font-size: 8pt;  font-weight: 600; color: rgba(255,255,255,0.78); letter-spacing: 0.04em; }
+
+    .p2__grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 0;
+    }
+
+    .p2__card {
+      display: flex; flex-direction: column;
+      border-right: 0.25mm solid rgba(255,255,255,0.06);
+      border-bottom: 0.25mm solid rgba(255,255,255,0.06);
+      overflow: hidden; position: relative;
+    }
+
+    .p2__card:nth-child(3), .p2__card:nth-child(6) { border-right: none; }
+    .p2__card:nth-child(4), .p2__card:nth-child(5), .p2__card:nth-child(6) { border-bottom: none; }
+    .p2__card--hl { border-left: 2px solid var(--red); }
+
+    .p2__img-wrap {
+      flex-shrink: 0;
+      height: 33mm;
+      overflow: hidden; position: relative;
+      background: #1a1a1a;
+    }
+
+    .p2__img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      opacity: 0.85;
+    }
+
+    .p2__img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(15,15,15,0.9) 100%);
+    }
+
+    .p2__cap-placeholder {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2mm;
+      background: linear-gradient(135deg, #1a1a1a, #111);
+      border: 0.5mm dashed rgba(200,16,46,0.35);
+    }
+
+    .p2__cap-placeholder svg { opacity: 0.3; }
+
+    .p2__cap-ph-text {
+      font-family: var(--sub); font-size: 7pt; font-weight: 600;
+      color: rgba(255,255,255,0.25); letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    .p2__body {
+      flex: 1; padding: 2.5mm 3.5mm;
+      display: flex; flex-direction: column; gap: 1.5mm;
+    }
+
+    .p2__card-top { display: flex; align-items: center; gap: 2mm; }
+
+    .p2__card-icon { color: var(--red); flex-shrink: 0; }
+    .p2__card--hl .p2__card-icon { color: var(--red); }
+
+    .p2__card-h {
+      font-family: var(--head); font-size: 12pt; color: var(--white); line-height: 1;
+    }
+
+    .p2__card--hl .p2__card-h { color: var(--red); }
+
+    .p2__card-t {
+      font-family: var(--sub); font-size: 7pt; font-weight: 400;
+      color: rgba(255,255,255,0.55); line-height: 1.4;
+    }
+
+    .p2__bar {
+      flex-shrink: 0; padding: 2mm 6mm;
+      background: rgba(200,16,46,0.07); border-top: 0.25mm solid rgba(200,16,46,0.18);
+      font-family: var(--sub); font-size: 6.5pt; font-weight: 600;
+      color: rgba(255,255,255,0.35); letter-spacing: 0.04em; text-align: center;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       SEITE 3 — FÜR DEIN GEWERK
+    ═══════════════════════════════════════════════════════════════ */
+    .p3 { background: #0c0c0c; display: flex; flex-direction: column; }
+
+    .p3__header {
+      padding: 4mm 8mm 3mm;
+      border-bottom: 0.25mm solid rgba(200,16,46,0.3);
+      flex-shrink: 0;
+    }
+
+    .p3__h    { font-family: var(--head); font-size: 22pt; line-height: 1; color: var(--white); }
+    .p3__hsub { font-family: var(--sub);  font-size: 8pt;  color: var(--gray); letter-spacing: 0.07em; }
+
+    .p3__grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+    }
+
+    .p3__col {
+      display: flex; flex-direction: column;
+      border-right: 0.25mm solid rgba(255,255,255,0.07);
+      overflow: hidden;
+    }
+
+    .p3__col:last-child { border-right: none; }
+
+    .p3__col-img-wrap {
+      flex-shrink: 0;
+      height: 42mm;
+      position: relative; overflow: hidden;
+      background: #181818;
+    }
+
+    .p3__col-img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      opacity: 0.75;
+    }
+
+    .p3__col-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(12,12,12,0.1) 0%, rgba(12,12,12,0.85) 100%);
+    }
+
+    .p3__col-img-title {
+      position: absolute; bottom: 2.5mm; left: 3mm; right: 3mm;
+      font-family: var(--head); font-size: 12pt; color: var(--white); line-height: 1;
+    }
+
+    .p3__col-img-title span { color: var(--red); }
+
+    .p3__col-body {
+      flex: 1; padding: 3mm 3.5mm 2.5mm;
+      display: flex; flex-direction: column; gap: 0;
+    }
+
+    .p3__list { list-style: none; }
+
+    .p3__list li {
+      font-family: var(--sub); font-size: 7pt; font-weight: 400;
+      color: rgba(255,255,255,0.65);
+      padding: 0.9mm 0 0.9mm 3mm;
+      position: relative; line-height: 1.3;
+    }
+
+    .p3__list li::before {
+      content: '▸'; position: absolute; left: 0;
+      color: var(--red); font-size: 5.5pt; top: 1.3mm;
+    }
+
+    .p3__tag {
+      display: inline-block; margin-top: auto; padding-top: 2mm;
+      font-family: var(--sub); font-size: 6pt; font-weight: 700;
+      color: var(--red); letter-spacing: 0.04em;
+    }
+
+    .p3__footer {
+      flex-shrink: 0; padding: 2mm 8mm;
+      background: rgba(200,16,46,0.08); border-top: 0.25mm solid rgba(200,16,46,0.18);
+      font-family: var(--sub); font-size: 7pt;
+      color: rgba(255,255,255,0.35); text-align: center; letter-spacing: 0.04em;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       SEITE 4 — HIGHLIGHTS
+    ═══════════════════════════════════════════════════════════════ */
+    .p4 {
+      background: #080808;
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+
+    /* LEFT: Feuerwehr */
+    .p4__left {
+      position: relative; overflow: hidden;
+      border-right: 0.25mm solid rgba(200,16,46,0.2);
+    }
+
+    .p4__fw-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      opacity: 0.3; mix-blend-mode: luminosity;
+    }
+
+    .p4__fw-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(8,8,8,0.92) 45%, rgba(8,8,8,0.5) 100%);
+    }
+
+    .p4__left-content {
+      position: relative; z-index: 2;
+      padding: 7mm 6mm 7mm 9mm;
+      height: 100%; display: flex; flex-direction: column; justify-content: space-between;
+    }
+
+    .p4__eyebrow { font-family: var(--sub); font-size: 7pt; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 2mm; }
+
+    .p4__h {
+      font-family: var(--head); font-size: 28pt; line-height: 0.9;
+      color: var(--white); margin-bottom: 3mm;
+    }
+
+    .p4__desc {
+      font-family: var(--sub); font-size: 8pt; font-weight: 400;
+      color: rgba(255,255,255,0.62); line-height: 1.5; margin-bottom: 3mm;
+    }
+
+    .p4__specs { display: flex; gap: 5mm; }
+
+    .p4__spec { display: flex; flex-direction: column; }
+
+    .p4__spec-val { font-family: var(--head); font-size: 17pt; color: var(--red); line-height: 1; }
+    .p4__spec-key { font-family: var(--sub);  font-size: 6pt;  color: var(--gray); line-height: 1.35; }
+
+    /* RIGHT: Gregor + Pit-Stop */
+    .p4__right {
+      display: flex; flex-direction: column;
+    }
+
+    .p4__gregor {
+      flex: 1; position: relative; overflow: hidden;
+      border-bottom: 0.25mm solid rgba(200,16,46,0.2);
+    }
+
+    .p4__gregor-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      opacity: 0.45; mix-blend-mode: luminosity;
+    }
+
+    .p4__gregor-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, rgba(8,8,8,0.92) 40%, rgba(8,8,8,0.5) 100%);
+    }
+
+    .p4__gregor-content {
+      position: relative; z-index: 2;
+      padding: 6mm 8mm 6mm 7mm;
+      height: 100%; display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .p4__gregor-h {
+      font-family: var(--head); font-size: 24pt; line-height: 0.9;
+      color: var(--white); margin-bottom: 2mm;
+    }
+
+    .p4__gregor-desc {
+      font-family: var(--sub); font-size: 7.5pt;
+      color: rgba(255,255,255,0.58); line-height: 1.45; margin-bottom: 1.5mm;
+    }
+
+    .p4__yt {
+      font-family: var(--sub); font-size: 6.5pt;
+      color: rgba(255,255,255,0.32); display: flex; align-items: center; gap: 1.5mm;
+    }
+
+    .p4__yt svg { opacity: 0.6; }
+
+    .p4__pitstop {
+      flex-shrink: 0;
+      position: relative; overflow: hidden;
+    }
+
+    .p4__pitstop-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      opacity: 0.25; mix-blend-mode: luminosity;
+    }
+
+    .p4__pitstop-content {
+      position: relative; z-index: 2;
+      padding: 3.5mm 8mm 3.5mm 7mm;
+      background: rgba(200,16,46,0.1);
+      border-top: 0.3mm solid rgba(200,16,46,0.35);
+    }
+
+    .p4__pitstop-h {
+      font-family: var(--head); font-size: 12pt; color: var(--red);
+      line-height: 1; margin-bottom: 1.5mm; display: flex; align-items: center; gap: 2mm;
+    }
+
+    .p4__pitstop-t {
+      font-family: var(--sub); font-size: 7pt;
+      color: rgba(255,255,255,0.55); line-height: 1.45;
+    }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       SEITE 5 — DEALS & FOOD
+    ═══════════════════════════════════════════════════════════════ */
+    .p5 { background: #0a0a0a; display: flex; flex-direction: column; }
+
+    .p5__header {
+      padding: 4mm 8mm 3.5mm; border-bottom: 0.25mm solid rgba(200,16,46,0.2);
+      display: flex; align-items: baseline; gap: 4mm; flex-shrink: 0;
+    }
+
+    .p5__h    { font-family: var(--head); font-size: 22pt; color: var(--white); line-height: 1; }
+    .p5__hsub { font-family: var(--sub);  font-size: 8.5pt; color: var(--gray); }
+
+    .p5__body { flex: 1; padding: 4mm 7mm 3mm; display: flex; flex-direction: column; gap: 3.5mm; }
+
+    .p5__cap {
+      background: linear-gradient(135deg, rgba(200,16,46,0.18), rgba(200,16,46,0.05));
+      border: 0.5mm solid var(--red); padding: 3mm 5mm;
+      display: flex; align-items: center; gap: 4.5mm;
+    }
+
+    .p5__cap-icon { color: var(--red); flex-shrink: 0; }
+
+    .p5__cap-h   { font-family: var(--head); font-size: 14pt; color: var(--red); line-height: 1; margin-bottom: 1mm; }
+    .p5__cap-sub { font-family: var(--sub);  font-size: 7.5pt; font-weight: 400; color: rgba(255,255,255,0.65); line-height: 1.4; }
+
+    .p5__deals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+
+    .p5__deal {
+      background: rgba(255,255,255,0.03); border: 0.25mm solid rgba(255,255,255,0.1);
+      padding: 3mm 3.5mm; display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 1mm;
+    }
+
+    .p5__deal--hl { border-color: var(--red); background: rgba(200,16,46,0.08); }
+
+    .p5__deal-badge { font-family: var(--sub); font-size: 6pt; font-weight: 700; color: var(--red); letter-spacing: 0.1em; text-transform: uppercase; }
+    .p5__deal-price { font-family: var(--head); font-size: 20pt; line-height: 1; color: var(--white); }
+    .p5__deal--hl .p5__deal-price { color: var(--red); }
+    .p5__deal-label   { font-family: var(--sub); font-size: 7pt; color: var(--gray); }
+    .p5__deal-goodies { font-family: var(--sub); font-size: 7pt; font-weight: 600; color: rgba(255,255,255,0.42); line-height: 1.4; }
+
+    .p5__food {
+      border-top: 0.25mm solid rgba(255,255,255,0.08); padding-top: 3mm;
+      display: flex; align-items: center; gap: 5mm; flex-shrink: 0;
+    }
+
+    .p5__food-icon { color: var(--red); flex-shrink: 0; }
+    .p5__food-label { font-family: var(--sub); font-size: 8pt; font-weight: 700; color: rgba(255,255,255,0.38); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+
+    .p5__food-logos { display: flex; align-items: center; gap: 5mm; }
+
+    .p5__food-logo { height: 7.5mm; width: auto; filter: brightness(0) invert(1); opacity: 0.6; }
+    .p5__food-name { font-family: var(--sub); font-size: 8pt; font-weight: 700; color: rgba(255,255,255,0.38); }
+    .p5__food-note { margin-left: auto; font-family: var(--sub); font-size: 7pt; color: rgba(255,255,255,0.22); }
+
+
+    /* ═══════════════════════════════════════════════════════════════
+       SEITE 6 — RÜCKSEITE / ANMELDUNG
+    ═══════════════════════════════════════════════════════════════ */
+    .p6 { background: #060606; display: grid; grid-template-columns: 1fr auto; }
+
+    .p6__left {
+      padding: 8mm 8mm 8mm 11mm; display: flex; flex-direction: column;
+      justify-content: space-between; border-right: 0.25mm solid rgba(255,255,255,0.07);
+    }
+
+    .p6__title { font-family: var(--head); font-size: 28pt; line-height: 0.9; color: var(--white); margin: 2mm 0 3mm; }
+    .p6__title em { color: var(--red); font-style: normal; }
+
+    .p6__url { font-family: var(--sub); font-size: 8.5pt; font-weight: 700; color: rgba(255,255,255,0.38); display: block; margin-bottom: 5mm; letter-spacing: 0.02em; }
+
+    .p6__info { display: flex; flex-direction: column; gap: 2.5mm; }
+    .p6__row  { display: flex; align-items: flex-start; gap: 3mm; }
+
+    .p6__label { font-family: var(--sub); font-size: 7pt; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.08em; min-width: 15mm; padding-top: 0.3mm; }
+    .p6__val   { font-family: var(--sub); font-size: 8pt; color: rgba(255,255,255,0.68); line-height: 1.45; }
+    .p6__val--green { color: #5cb85c; font-weight: 600; }
+
+    .p6__bottom { display: flex; align-items: center; gap: 4mm; padding-top: 3.5mm; border-top: 0.25mm solid rgba(255,255,255,0.08); }
+    .p6__logo { height: 7mm; width: auto; display: block; }
+    .p6__logo--mke { filter: brightness(0) invert(1); opacity: 0.55; }
+    .p6__logo--poe { filter: brightness(0) saturate(100%) invert(15%) sepia(100%) saturate(4500%) hue-rotate(338deg) brightness(88%) contrast(100%); }
+
+    .p6__right {
+      width: 58mm; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; padding: 7mm 6mm; gap: 4mm;
+      background: rgba(200,16,46,0.04);
+    }
+
+    .p6__qr-wrap { width: 40mm; height: 40mm; background: #fff; padding: 2.5mm; display: flex; align-items: center; justify-content: center; }
+
+    .p6__qr-placeholder {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1mm;
+      border: 1px dashed #ccc;
+      background: repeating-linear-gradient(45deg, rgba(0,0,0,0.04) 0px, rgba(0,0,0,0.04) 2px, transparent 2px, transparent 8px);
+    }
+
+    .p6__qr-placeholder span { font-family: var(--body); font-size: 6pt; color: #999; text-align: center; line-height: 1.4; }
+
+    .p6__qr-label { font-family: var(--sub); font-size: 7.5pt; font-weight: 700; color: rgba(255,255,255,0.35); text-align: center; letter-spacing: 0.1em; text-transform: uppercase; }
+
+    .p6__cta-box { background: var(--red); padding: 2.5mm 4mm; font-family: var(--head); font-size: 11.5pt; color: #fff; text-align: center; line-height: 1.15; width: 100%; }
+
+  </style>
+</head>
+<body>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 1 — COVER
+═══════════════════════════════════════════════════════ -->
+<div class="page p1">
+  <img src="../assets/images/truck_hd.png" alt="" class="p1__truck" onerror="this.style.display='none'">
+  <div class="p1__gradient"></div>
+  <div class="p1__accent"></div>
+
+  <div class="p1__content">
+    <div>
+      <p class="p1__partner">Pöppel &nbsp;×&nbsp; Milwaukee Tool</p>
+      <h1 class="p1__title">
+        <span class="big">BIG RED</span>
+        <span class="tour">TOUR</span>
+        <span class="year">2026</span>
+      </h1>
+      <p class="p1__city">kommt nach Memmingen</p>
+      <div class="p1__badge">
+        <span class="p1__badge-date">10. APRIL 2026</span>
+        <span class="p1__badge-sub">08:00 – 17:00 Uhr &nbsp;·&nbsp; Alpenstraße 45, Memmingen</span>
+      </div>
+      <p class="p1__tagline">Einer der größten Milwaukee-Truck-Stops im Allgäu</p>
+    </div>
+    <div class="p1__footer">
+      <img src="../assets/images/MILWAUKEE_TOOL_LOGO-50.svg" alt="Milwaukee Tool" class="p1__logo p1__logo--mke" onerror="this.style.display='none'">
+      <div class="p1__sep"></div>
+      <img src="../assets/images/logo_poeppel_NEU.svg" alt="Pöppel" class="p1__logo p1__logo--poe" onerror="this.src='../assets/images/logo_poeppel.png'">
+      <div class="p1__free">Kostenloser Eintritt</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 2 — WAS ERWARTET DICH?
+═══════════════════════════════════════════════════════ -->
+<div class="page p2">
+  <div class="p2__header">
+    <h2 class="p2__h">Was erwartet dich?</h2>
+    <span class="p2__hsub">10. April 2026 · Pöppel Memmingen</span>
+  </div>
+
+  <div class="p2__grid">
+
+    <!-- 1: Live-Demos -->
+    <div class="p2__card p2__card--hl">
+      <div class="p2__img-wrap">
+        <img src="../assets/images/gallery/BIG_RED_SLIDER/m18.png" alt="Milwaukee M18" class="p2__img">
+        <div class="p2__img-overlay"></div>
+      </div>
+      <div class="p2__body">
+        <div class="p2__card-top">
+          <div class="p2__card-icon icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <div class="p2__card-h">Live-Demos</div>
+        </div>
+        <div class="p2__card-t">M12™, M18™ &amp; MX FUEL™ direkt in die Hand nehmen. Milwaukee-Spezialisten live vor Ort.</div>
+      </div>
+    </div>
+
+    <!-- 2: Feuerwehr -->
+    <div class="p2__card">
+      <div class="p2__img-wrap">
+        <img src="../assets/images/feuerwehrmann.png" alt="Feuerwehr" class="p2__img" style="object-position: top center;">
+        <div class="p2__img-overlay"></div>
+      </div>
+      <div class="p2__body">
+        <div class="p2__card-top">
+          <div class="p2__card-icon icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+            </svg>
+          </div>
+          <div class="p2__card-h">Feuerwehr-Spektakel</div>
+        </div>
+        <div class="p2__card-t">Fahrzeugrettung live: Ein Auto wird mit Milwaukee-Werkzeug aufgeschnitten. Unvergesslich.</div>
+      </div>
+    </div>
+
+    <!-- 3: Deals -->
+    <div class="p2__card">
+      <div class="p2__img-wrap">
+        <img src="../assets/images/schluessel_ratsche.png" alt="Milwaukee Ratsche" class="p2__img">
+        <div class="p2__img-overlay"></div>
+      </div>
+      <div class="p2__body">
+        <div class="p2__card-top">
+          <div class="p2__card-icon icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.41 0l7.29-7.29a1 1 0 0 0 0-1.41z"/>
+              <circle cx="7" cy="7" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="p2__card-h">Exklusive Deals</div>
+        </div>
+        <div class="p2__card-t">Bucket Deals 250 / 500 / 1.000 € mit Goodies. Exklusive Truck-Preise – nur an diesem Tag.</div>
+      </div>
+    </div>
+
+    <!-- 4: Gregor Prinz -->
+    <div class="p2__card">
+      <div class="p2__img-wrap">
+        <img src="../assets/images/Georg_prinz_frei.png" alt="Gregor Prinz" class="p2__img" style="object-position: top center;" onerror="this.src='../assets/images/Georg_prinz.png'">
+        <div class="p2__img-overlay"></div>
+      </div>
+      <div class="p2__body">
+        <div class="p2__card-top">
+          <div class="p2__card-icon icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58a2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+              <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="p2__card-h">Gregor Prinz <span style="color:var(--red)">Live</span></div>
+        </div>
+        <div class="p2__card-t">Forstwirt &amp; YouTuber, 55K Abonnenten. Demonstriert M18 FUEL™ Kettensäge live am Truck.</div>
+      </div>
+    </div>
+
+    <!-- 5: Food & Drinks -->
+    <div class="p2__card">
+      <div class="p2__img-wrap">
+        <img src="../assets/images/food/Heigl_Stand.png" alt="Heigl Stand" class="p2__img">
+        <div class="p2__img-overlay"></div>
+      </div>
+      <div class="p2__body">
+        <div class="p2__card-top">
+          <div class="p2__card-icon icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="2" x2="18" y2="22"/>
+              <path d="M22 7H14v3a4 4 0 0 0 8 0V7z"/>
+              <path d="M6 2v4a2 2 0 0 0 2 2h1v14"/>
+            </svg>
+          </div>
+          <div class="p2__card-h">Food &amp; Drinks</div>
+        </div>
+        <div class="p2__card-t">Kostenlose Verpflegung ganztägig. Metzgerei Heigl &amp; Der Schachen – Allgäuer Spezialitäten. Gratis!</div>
+      </div>
+    </div>
+
+    <!-- 6: Cap für Top-100 (Platzhalter) -->
+    <div class="p2__card p2__card--hl">
+      <div class="p2__img-wrap">
+        <div class="p2__cap-placeholder">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(200,16,46,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12 12 7 2 12"/>
+            <path d="M6 10.5v6.5a6 6 0 0 0 12 0v-6.5"/>
+            <path d="M22 12v5"/>
+          </svg>
+          <span class="p2__cap-ph-text">Cap-Bild<br>folgt</span>
+        </div>
+      </div>
+      <div class="p2__body">
+        <div class="p2__card-top">
+          <div class="p2__card-icon icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div class="p2__card-h">Cap für Top-100</div>
+        </div>
+        <div class="p2__card-t">Erste 100 Anmeldungen erhalten eine exklusive bestickte Milwaukee-Cap. Jetzt sichern!</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="p2__bar">
+    10. April 2026 · 08:00–17:00 Uhr · VIP Stammkunden 08:00–09:00 Uhr · R. Pöppel GmbH, Alpenstraße 45, Memmingen
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 3 — FÜR DEIN GEWERK
+═══════════════════════════════════════════════════════ -->
+<div class="page p3">
+  <div class="p3__header">
+    <span class="eyebrow">Für dein Gewerk</span>
+    <h2 class="p3__h">Was steckt drin <span style="color:var(--red)">für dich?</span></h2>
+    <p class="p3__hsub">Live-Demos · Passende Deals · Fachkundige Beratung vor Ort</p>
+  </div>
+
+  <div class="p3__grid">
+
+    <!-- Holz & Zimmerei -->
+    <div class="p3__col">
+      <div class="p3__col-img-wrap">
+        <img src="../assets/images/gewerke/zimmermann.png" alt="Holzbau" class="p3__col-img" onerror="this.src='../assets/images/gewerke/holz.png'">
+        <div class="p3__col-img-overlay"></div>
+        <div class="p3__col-img-title">Holz &amp;<br><span>Zimmerei</span></div>
+      </div>
+      <div class="p3__col-body">
+        <ul class="p3__list">
+          <li>Handkreissäge M18 FUEL™</li>
+          <li>Kappsäge &amp; Stichsäge live</li>
+          <li>M18 FUEL™ Kettensäge</li>
+          <li>Akkubohrschrauber</li>
+        </ul>
+        <span class="p3__tag">M18 FUEL™ · M12™</span>
+      </div>
+    </div>
+
+    <!-- Metall & Zerspanung -->
+    <div class="p3__col">
+      <div class="p3__col-img-wrap">
+        <img src="../assets/images/gallery/BIG_RED_SLIDER/m18.png" alt="Milwaukee M18" class="p3__col-img" style="object-position: center;">
+        <div class="p3__col-img-overlay"></div>
+        <div class="p3__col-img-title">Metall &amp;<br><span>Zerspanung</span></div>
+      </div>
+      <div class="p3__col-body">
+        <ul class="p3__list">
+          <li>Winkelschleifer 125/230 mm</li>
+          <li>Metall-Trennschneider</li>
+          <li>Säbelsäge Praxistest</li>
+          <li>Kernbohrung live</li>
+        </ul>
+        <span class="p3__tag">M18 FUEL™ · MX FUEL™</span>
+      </div>
+    </div>
+
+    <!-- KFZ -->
+    <div class="p3__col">
+      <div class="p3__col-img-wrap">
+        <img src="../assets/images/kfz_challenge.png" alt="KFZ Pit-Stop" class="p3__col-img">
+        <div class="p3__col-img-overlay"></div>
+        <div class="p3__col-img-title">KFZ &amp;<br><span>Werkstatt</span></div>
+      </div>
+      <div class="p3__col-body">
+        <ul class="p3__list">
+          <li>High-Torque Schlagschrauber</li>
+          <li>M12™ Unterhaubenleuchten</li>
+          <li>KFZ Pit-Stop Challenge</li>
+          <li>Werkstatt-Bundle-Deals</li>
+        </ul>
+        <span class="p3__tag">M18™ High Torque</span>
+      </div>
+    </div>
+
+    <!-- SHK -->
+    <div class="p3__col">
+      <div class="p3__col-img-wrap">
+        <img src="../assets/images/gallery/BIG_RED_SLIDER/m12.png" alt="Milwaukee M12" class="p3__col-img" style="object-position: center;">
+        <div class="p3__col-img-overlay"></div>
+        <div class="p3__col-img-title">SHK</div>
+      </div>
+      <div class="p3__col-body">
+        <ul class="p3__list">
+          <li>Presszangen Kupfer/Edelstahl</li>
+          <li>Akku-Rohrabschneider live</li>
+          <li>Inspektionskameras testen</li>
+          <li>SHK-Beratung vor Ort</li>
+        </ul>
+        <span class="p3__tag">M12™ · M18™</span>
+      </div>
+    </div>
+
+    <!-- Bau & Abbruch -->
+    <div class="p3__col">
+      <div class="p3__col-img-wrap">
+        <img src="../assets/images/gewerke/bau.png" alt="Bau" class="p3__col-img">
+        <div class="p3__col-img-overlay"></div>
+        <div class="p3__col-img-title">Bau &amp;<br><span>Abbruch</span></div>
+      </div>
+      <div class="p3__col-body">
+        <ul class="p3__list">
+          <li>Abbruchhammer MX FUEL™</li>
+          <li>Kernbohrung an echter Betonplatte</li>
+          <li>Bewehrungsschneider live</li>
+          <li>Bucket Deals ab 1.000 €</li>
+        </ul>
+        <span class="p3__tag">MX FUEL™ · M18™</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="p3__footer">
+    Feuerwehr &amp; Rettungsdienste: Rettungsschere, Säbelsäge, Spreizer live in Aktion &nbsp;·&nbsp; Milwaukee BIG RED TOUR 2026 &nbsp;·&nbsp; Memmingen, Allgäu
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 4 — HIGHLIGHTS
+═══════════════════════════════════════════════════════ -->
+<div class="page p4">
+
+  <!-- LEFT: Feuerwehr-Spektakel -->
+  <div class="p4__left">
+    <img src="../assets/images/Feuerwehrmann_rechts_frei.png" alt="" class="p4__fw-img"
+         onerror="this.src='../assets/images/feuerwehrmann.png'">
+    <div class="p4__fw-overlay"></div>
+    <div class="p4__left-content">
+      <div>
+        <div class="p4__eyebrow">Das Highlight des Tages</div>
+        <h2 class="p4__h">Feuerwehr-<br><span style="color:var(--red)">Spektakel</span></h2>
+        <p class="p4__desc">
+          Ein echtes Fahrzeug wird mit Milwaukee-Rettungswerkzeug in Aktion gebracht. Säbelsäge, Spreizer, Schneidegerät – live und laut. Die Freiwillige Feuerwehr zeigt, was möglich ist.
+        </p>
+      </div>
+      <div class="p4__specs">
+        <div class="p4__spec">
+          <span class="p4__spec-val">M18</span>
+          <span class="p4__spec-key">FUEL™ Säbelsäge<br>live im Einsatz</span>
+        </div>
+        <div class="p4__spec">
+          <span class="p4__spec-val">Live</span>
+          <span class="p4__spec-key">Vorführung<br>ganztägig</span>
+        </div>
+        <div class="p4__spec">
+          <span class="p4__spec-val">100%</span>
+          <span class="p4__spec-key">Spektakel<br>garantiert</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Gregor Prinz + KFZ Pit-Stop -->
+  <div class="p4__right">
+
+    <div class="p4__gregor">
+      <img src="../assets/images/Georg_prinz_frei.png" alt="Gregor Prinz" class="p4__gregor-img"
+           onerror="this.src='../assets/images/Georg_prinz.png'">
+      <div class="p4__gregor-overlay"></div>
+      <div class="p4__gregor-content">
+        <div class="p4__eyebrow">Gast-Star</div>
+        <h3 class="p4__gregor-h">Gregor<br><span style="color:var(--red)">Prinz</span></h3>
+        <p class="p4__gregor-desc">Forstwirt, YouTuber &amp; Sicherheitsexperte. Demonstriert <strong style="color:var(--white)">M18 FUEL™ Kettensäge</strong> und Forstwerkzeuge live am Truck.</p>
+        <p class="p4__yt">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          55.000 Abonnenten · @wald-arbeit-sicherheit
+        </p>
+      </div>
+    </div>
+
+    <div class="p4__pitstop">
+      <img src="../assets/images/kfz_challenge.png" alt="" class="p4__pitstop-img"
+           onerror="this.style.display='none'">
+      <div class="p4__pitstop-content">
+        <div class="p4__pitstop-h">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/>
+            <line x1="12" y1="9.5" x2="12" y2="3"/>
+            <line x1="9.84" y1="10.25" x2="4.59" y2="7.5"/>
+            <line x1="14.16" y1="10.25" x2="19.41" y2="7.5"/>
+          </svg>
+          KFZ Pit-Stop Challenge
+        </div>
+        <p class="p4__pitstop-t">Wie schnell bist du mit dem Milwaukee High-Torque Schlagschrauber? Druckluft war gestern!</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 5 — DEALS & FOOD
+═══════════════════════════════════════════════════════ -->
+<div class="page p5">
+  <div class="p5__header">
+    <h2 class="p5__h">Deals &amp; Goodies</h2>
+    <span class="p5__hsub">Exklusiv am 10. April 2026 – nur bei Pöppel Memmingen</span>
+  </div>
+
+  <div class="p5__body">
+
+    <div class="p5__cap">
+      <div class="p5__cap-icon icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 12 12 7 2 12"/>
+          <path d="M6 10.5v6.5a6 6 0 0 0 12 0v-6.5"/>
+          <path d="M22 12v5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="p5__cap-h">Milwaukee Cap – für die ersten 100!</div>
+        <div class="p5__cap-sub">Jetzt kostenlos anmelden und die exklusive bestickte Milwaukee-Cap sichern. Nur für die ersten 100 Anmeldungen – solange der Vorrat reicht.</div>
+      </div>
+    </div>
+
+    <div class="p5__deals">
+      <div class="p5__deal">
+        <div class="p5__deal-price">250 €</div>
+        <div class="p5__deal-label">Einkaufswert</div>
+        <div class="p5__deal-goodies">Goodies &amp;<br>Extras inklusive</div>
+      </div>
+      <div class="p5__deal p5__deal--hl">
+        <div class="p5__deal-badge">Beliebt</div>
+        <div class="p5__deal-price">500 €</div>
+        <div class="p5__deal-label">Einkaufswert</div>
+        <div class="p5__deal-goodies">Mehr Goodies &amp;<br>Überraschungs-Bonus</div>
+      </div>
+      <div class="p5__deal">
+        <div class="p5__deal-price">1.000 €</div>
+        <div class="p5__deal-label">Einkaufswert</div>
+        <div class="p5__deal-goodies">Premium-Paket<br>Top-Goodies</div>
+      </div>
+    </div>
+
+    <div class="p5__food">
+      <div class="p5__food-icon icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="2" x2="18" y2="22"/>
+          <path d="M22 7H14v3a4 4 0 0 0 8 0V7z"/>
+          <path d="M6 2v4a2 2 0 0 0 2 2h1v14"/>
+        </svg>
+      </div>
+      <div class="p5__food-label">Essen &amp; Trinken</div>
+      <div class="p5__food-logos">
+        <img src="../assets/images/food/heigl-logo-rgb-full-neg.webp" alt="Metzgerei Heigl"
+             class="p5__food-logo" onerror="this.style.display='none'">
+        <span style="color:rgba(255,255,255,0.15); font-size:12pt; line-height:1;">|</span>
+        <span class="p5__food-name">Der Schachen</span>
+      </div>
+      <span class="p5__food-note">Allgäuer Spezialitäten · Getränke · Snacks · kostenlos</span>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SEITE 6 — RÜCKSEITE / ANMELDUNG
+═══════════════════════════════════════════════════════ -->
+<div class="page p6">
+
+  <div class="p6__left">
+    <div>
+      <span class="eyebrow">Jetzt kostenlos anmelden</span>
+      <h2 class="p6__title">Dein Ticket.<br><em>Dein Cap.</em></h2>
+      <span class="p6__url">svenn8n-a11y.github.io/big-red-tour-2026/</span>
+    </div>
+
+    <div class="p6__info">
+      <div class="p6__row">
+        <span class="p6__label">Datum</span>
+        <span class="p6__val">
+          10. April 2026 · 08:00–17:00 Uhr<br>
+          <span style="opacity:0.55; font-size:6.5pt;">VIP Stammkunden: 08:00–09:00 Uhr</span>
+        </span>
+      </div>
+      <div class="p6__row">
+        <span class="p6__label">Location</span>
+        <span class="p6__val">R. Pöppel GmbH &amp; Co. KG<br>Alpenstraße 45 · 87700 Memmingen</span>
+      </div>
+      <div class="p6__row">
+        <span class="p6__label">Eintritt</span>
+        <span class="p6__val p6__val--green">Kostenlos ✓</span>
+      </div>
+    </div>
+
+    <div class="p6__bottom">
+      <img src="../assets/images/MILWAUKEE_TOOL_LOGO-50.svg" alt="Milwaukee" class="p6__logo p6__logo--mke" onerror="this.style.display='none'">
+      <img src="../assets/images/logo_poeppel_NEU.svg" alt="Pöppel" class="p6__logo p6__logo--poe" onerror="this.src='../assets/images/logo_poeppel.png'">
+    </div>
+  </div>
+
+  <div class="p6__right">
+    <div class="p6__qr-wrap">
+      <div class="p6__qr-placeholder">
+        <span>QR-Code<br>Anmeldung<br>hier einfügen</span>
+      </div>
+    </div>
+    <div class="p6__qr-label">Scan &amp; Anmelden</div>
+    <div class="p6__cta-box">KOSTENLOSER<br>EINTRITT</div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

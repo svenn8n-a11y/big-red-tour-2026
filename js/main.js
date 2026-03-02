@@ -491,9 +491,12 @@ shakeStyle.textContent = `
 document.head.appendChild(shakeStyle);
 
 // ─── 14. MUSIC CONTROL ──────────────────────────────────────────────────────
-// Muted Autoplay: Browser erlaubt stummes Autoplay immer.
-// Direktes play() – Browser queued intern bis Audio bereit (kein canplay-Race).
-//
+// Strategie:
+//   1. Zuerst UNMUTED play() versuchen (klappt wenn User die Seite kennt /
+//      Browser-Autoplay-Erlaubnis bereits erteilt wurde)
+//   2. Bei Block: muted starten (Browser erlaubt muted-Autoplay immer)
+//   3. Beim ersten Scroll automatisch aufdrehen (Standard-UX-Pattern)
+//   4. Fallback: bei erstem Click/Touch entsperren
 function initMusic() {
   const heroBtn   = document.getElementById('musicBtn');
   const headerBtn = document.getElementById('headerMuteBtn');
@@ -501,9 +504,8 @@ function initMusic() {
   if (!audio) return;
 
   audio.volume = 0.35;
-  audio.muted  = true;
+  // KEIN audio.muted = true hier – wir versuchen zuerst mit Ton
 
-  // Reaktiv: UI immer auf echten Audio-Events basieren, nie auf Timing
   function updateUI() {
     const playing = !audio.paused && !audio.muted;
     heroBtn?.classList.toggle('is-playing', playing);
@@ -515,12 +517,20 @@ function initMusic() {
   audio.addEventListener('pause',        updateUI);
   audio.addEventListener('volumechange', updateUI);
 
-  // Muted Autoplay – Browser erlaubt stummes Abspielen immer
+  // 1. Unmuted Autoplay versuchen
   audio.play().catch(() => {
-    // Autoplay geblockt → beim ersten Gesture starten (muted)
-    const unlockOnce = () => { audio.play().catch(() => {}); };
-    document.addEventListener('click',      unlockOnce, { once: true, capture: true });
-    document.addEventListener('touchstart', unlockOnce, { once: true, capture: true });
+    // 2. Browser blockt Ton → stumm starten (immer erlaubt)
+    audio.muted = true;
+    audio.play().catch(() => {
+      // 3. Auch muted geblockt (sehr restriktive Einstellung) → auf Gesture warten
+      const unlock = () => { audio.muted = true; audio.play().catch(() => {}); };
+      document.addEventListener('click',      unlock, { once: true, capture: true });
+      document.addEventListener('touchstart', unlock, { once: true, capture: true });
+    });
+    // 4. Beim ersten Scroll automatisch aufdrehen
+    window.addEventListener('scroll', () => {
+      if (!audio.paused && audio.muted) audio.muted = false;
+    }, { passive: true, once: true });
   });
 
   function toggleMute() {
@@ -530,7 +540,6 @@ function initMusic() {
     } else {
       audio.muted = !audio.muted;
     }
-    // updateUI wird durch 'play'/'volumechange' Events ausgelöst
   }
 
   heroBtn?.addEventListener('click',   toggleMute);
