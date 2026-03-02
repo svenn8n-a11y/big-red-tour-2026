@@ -1634,6 +1634,37 @@ ul { list-style: none; }
   margin-inline: auto;
 }
 
+/* ── DEALS DIVIDER (Mobile only) ────────────────────────────────────────────── */
+.deals-divider {
+  display: none; /* Desktop: versteckt */
+}
+@media (max-width: 768px) {
+  .deals-divider {
+    display: block;
+    background: var(--red);
+    position: relative;
+    overflow: hidden;
+    padding: 2.25rem 1.5rem;
+    clip-path: polygon(0 12%, 100% 0%, 100% 88%, 0% 100%);
+    margin: -1rem 0;
+    z-index: 2;
+  }
+  .deals-divider__inner {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .deals-divider__label {
+    font-family: var(--font-head);
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+    line-height: 1;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+}
+
 /* 14. VIDEO
    ===================================================== */
 .video-sec { background: var(--black); }
