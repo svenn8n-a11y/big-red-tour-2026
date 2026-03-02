@@ -2736,7 +2736,7 @@ ul { list-style: none; }
 }
 .heigl__stand-img {
   width: 100%;
-  max-width: 400px;
+  max-width: 580px;
   height: auto;
   object-fit: contain;
   border-radius: 12px;
