@@ -11,10 +11,10 @@
 | **Datum** | 10. April 2026 |
 | **Uhrzeit** | 08:00 – 17:00 Uhr |
 | **VIP Stammkunden** | 08:00 – 09:00 Uhr (exklusiv) |
-| **Ort** | Pöppel, Memmingen (Allgäu, Bayern) |
+| **Ort** | R. Pöppel GmbH & Co. KG · Alpenstraße 45 · 87700 Memmingen |
 | **Eintritt** | Kostenlos |
 
-Der Milwaukee **BIG RED TRUCK** kommt direkt nach Memmingen. Live-Demos, exklusive Bucket-Deals, Feuerwehr-Spektakel, Gregor Prinz Live-Demo und kulinarisches Rahmenprogramm.
+Der Milwaukee **BIG RED TRUCK** kommt direkt nach Memmingen. Live-Demos, exklusive Bucket-Deals, Feuerwehr-Spektakel, Gregor Prinz Live-Demo und kulinarisches Rahmenprogramm mit „Der Schachen".
 
 ---
 
@@ -30,17 +30,30 @@ Der Milwaukee **BIG RED TRUCK** kommt direkt nach Memmingen. Live-Demos, exklusi
 |---|---|
 | HTML5 / CSS3 / Vanilla JS | Gesamte Landingpage |
 | [GSAP 3.12](https://gsap.com/) + ScrollTrigger | Animationen, Parallax, Scroll-Trigger |
-| [Formspree](https://formspree.io/) | Anmeldeformular (Platzhalter: `YOUR_FORM_ID`) |
-| Google Fonts | Bebas Neue · Barlow Condensed · Inter |
+| PHP `mail()` (Pöppel-Server) | Anmeldeformular → `submit-anmeldung.php` |
+| [bunny.net Fonts](https://fonts.bunny.net/) | Bebas Neue · Barlow Condensed · Inter (DSGVO-konform, EU-Server) |
 | GitHub Pages | Hosting & Deployment |
 
 Kein Build-System, keine Dependencies, keine Node.js – reines HTML/CSS/JS.
 
 ---
 
+## Formular-Setup
+
+Das Anmeldeformular (`index.html`) sendet via **POST** an `submit-anmeldung.php`, das auf dem Pöppel-Server liegt. Die PHP-Datei muss dort hochgeladen werden (nicht Teil von GitHub Pages).
+
+**Empfänger:** `support@poeppel-wkz.de` · `s.muellers@poeppel-wkz.de`
+
+```
+submit-anmeldung.php → auf Pöppel-Server hochladen
+index.html (form action) → zeigt bereits auf submit-anmeldung.php
+```
+
+---
+
 ## Seitenstruktur
 
-Die Landingpage besteht aus 21 Sektionen:
+Die Landingpage besteht aus mehreren Sektionen sowie eigenen rechtlichen Unterseiten:
 
 | # | Sektion | ID | Beschreibung |
 |---|---|---|---|
@@ -59,12 +72,33 @@ Die Landingpage besteht aus 21 Sektionen:
 | 13 | **Gregor Prinz** | `#georg` | Forstwirtschaft Live-Demo im Allgäu |
 | 14 | **SHK Aktionen** | `#shk` | Sanitär, Heizung, Klima |
 | 15 | **Deals** | `#deals` | Bucket-Deal-Stufen (250 / 500 / 1000 €) + Top-Secret-Stempel |
-| 16 | **Video** | `#video-sec` | YouTube-Embed: Was dich im Truck erwartet |
+| 16 | **Video** | `#video-sec` | YouTube-Embed (youtube-nocookie.com, DSGVO-konform) |
 | 17 | **Food – Der Schachen** | `#food` | Kostenlose Verpflegung durch Der Schachen |
 | 18 | **Food – Heigl** | `#heigl` | Fleisch-Spezialitäten (Selbstzahlerbasis) |
 | 19 | **Wetterfest** | `#wetterfest` | Das Event findet bei jedem Wetter statt |
-| 20 | **Anmeldung** | `#anmeldung` | Kostenlose Anmeldung via Formspree |
+| 20 | **Anmeldung** | `#anmeldung` | Kostenlose Anmeldung – PHP-Mailer |
 | 21 | **FAQ** | `#faq` | Häufige Fragen – Accordion |
+
+---
+
+## Rechtliche Unterseiten
+
+| Datei | Inhalt |
+|---|---|
+| `datenschutz.html` | DSGVO-konforme Datenschutzerklärung |
+| `impressum.html` | Impressum gem. § 5 TMG |
+| `agb.html` | Event-Teilnahmebedingungen |
+
+---
+
+## E-Mail-Templates
+
+| Datei | Beschreibung |
+|---|---|
+| `email-templates/bestaetigung-kunde.html` | Vorschau: Bestätigungs-E-Mail an Teilnehmer |
+| `email-templates/intern-benachrichtigung.html` | Vorschau: Interne Benachrichtigung (Pöppel-Team) |
+
+Die tatsächlich versendeten E-Mails werden von `submit-anmeldung.php` generiert (gleicher Inhalt).
 
 ---
 
@@ -72,26 +106,34 @@ Die Landingpage besteht aus 21 Sektionen:
 
 ```
 big-red-tour-2026/
-├── index.html                  Haupt-Landingpage (~1430 Zeilen)
+├── index.html                        Haupt-Landingpage
+├── datenschutz.html                  Datenschutzerklärung (DSGVO)
+├── impressum.html                    Impressum (§ 5 TMG)
+├── agb.html                          Teilnahmebedingungen
+├── submit-anmeldung.php              PHP-Mailer (auf Pöppel-Server hochladen!)
 ├── css/
-│   └── style.css               Alle Styles (~3000 Zeilen)
+│   └── style.css                     Alle Styles
 ├── js/
-│   └── main.js                 Animationen & Interaktionen (~650 Zeilen)
+│   └── main.js                       Animationen, Interaktionen, Cookie-Banner
+├── email-templates/
+│   ├── bestaetigung-kunde.html       E-Mail-Vorschau Kunde
+│   └── intern-benachrichtigung.html  E-Mail-Vorschau intern
 ├── assets/
 │   ├── images/
-│   │   ├── logo_poeppel_NEU.svg
-│   │   ├── MILWAUKEE_TOOL_LOGO-50.svg
+│   │   ├── logo_poeppel.svg / .png
+│   │   ├── Milwaukee-Symbol-500x281.png
+│   │   ├── favicon_poeppel.svg
 │   │   ├── truck_hd.png
-│   │   ├── gewerke/            Bilder je Gewerk (bau.png, zimmermann.png, holz.png)
-│   │   ├── food/               Catering-Bilder (Heigl, Der Schachen)
-│   │   └── gallery/            Produkt-Galerie-Bilder & Videos
+│   │   ├── gewerke/                  Bilder je Gewerk
+│   │   ├── food/                     Catering-Bilder
+│   │   └── gallery/                  Produkt-Galerie-Bilder
 │   └── music/
 │       └── rockmusik-BIG-RED.mp3
 ├── docs/
-│   └── DOKUMENTATION.md       Technische Referenz-Dokumentation
-├── Konzepte/                   Briefings, SEO-Mapping, Marketing-Ideen
-├── Recherchen/                 Research & Best Practices
-└── README.md                   Diese Datei
+│   └── DOKUMENTATION.md             Technische Referenz-Dokumentation
+├── Konzepte/                         Briefings, Marketing-Ideen
+├── Recherchen/                       Research & Best Practices
+└── README.md                         Diese Datei
 ```
 
 ---
@@ -118,25 +160,27 @@ Die Seite wird automatisch via **GitHub Actions** auf **GitHub Pages** deployed.
 - Action: `pages-build-deployment` (automatisch bei jedem Push)
 - URL: `https://svenn8n-a11y.github.io/big-red-tour-2026/`
 
+> **Hinweis:** `submit-anmeldung.php` funktioniert **nicht** auf GitHub Pages (statisch).
+> Die PHP-Datei muss auf dem Webserver von Pöppel (`poeppel-wkz.de`) hochgeladen werden.
+
 ---
 
 ## Partner & Catering
 
 | Partner | Info |
 |---|---|
-| **Der Schachen** | Kostenlose Verpflegung (Getränke, Snacks) |
-| **Metzgerei Heigl** | Fleisch-Spezialitäten aus Benningen im Allgäu (Selbstzahlerbasis) – Allgäuer Chorizo, Dry Aged Ribeye, Spare Ribs |
+| **Der Schachen** | Kostenlose Verpflegung (Getränke, Snacks, Barbecue) |
+| **Metzgerei Heigl** | Fleisch-Spezialitäten aus Benningen im Allgäu (Selbstzahlerbasis) |
 
 ---
 
 ## Offene TODOs
 
-- [ ] **Formspree Form-ID einsetzen** – `YOUR_FORM_ID` in `index.html` (Zeile ~334) durch echte ID ersetzen
+- [ ] **submit-anmeldung.php auf Pöppel-Server hochladen** – damit das Formular live funktioniert
 - [ ] **Bucket Deal Goodies** – Prämien für 250 / 500 / 1000 € konkretisieren
-- [ ] **Google Maps Link** – Händler-Adresse + Karte im Footer
-- [ ] **Datenschutz & Impressum** – separate Seiten anlegen
 - [ ] **Feuerwehr-Zeitslot** – genaue Uhrzeit im Programm
 - [ ] **Milwaukee Collab** – Listung auf Milwaukee-Website beantragen
+- [ ] **Custom Domain** – optional
 
 ---
 
@@ -146,9 +190,9 @@ Die Seite wird automatisch via **GitHub Actions** auf **GitHub Pages** deployed.
 |---|---|
 | **Milwaukee Rot** | `#C8102E` |
 | **Hintergrund** | `#0D0D0D` |
-| **Headline-Font** | Bebas Neue |
-| **Sub-Font** | Barlow Condensed |
-| **Body-Font** | Inter |
+| **Headline-Font** | Bebas Neue (via bunny.net) |
+| **Sub-Font** | Barlow Condensed (via bunny.net) |
+| **Body-Font** | Inter (via bunny.net) |
 | **Max-Container** | 1280px |
 
 ---

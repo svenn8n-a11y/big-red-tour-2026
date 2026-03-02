@@ -234,7 +234,7 @@ if ($mailSent) {
   <div class="logo-bar">
     <table><tr>
       <td><img src="https://svenn8n-a11y.github.io/big-red-tour-2026/assets/images/logo_poeppel.png" alt="Pöppel"></td>
-      <td style="text-align:right;"><img src="https://svenn8n-a11y.github.io/big-red-tour-2026/assets/images/MILWAUKEE_TOOL_LOGO_50_weiss.png" alt="Milwaukee Tool" style="filter:brightness(0);"></td>
+      <td style="text-align:right;"><img src="https://svenn8n-a11y.github.io/big-red-tour-2026/assets/images/Milwaukee-Symbol-500x281.png" alt="Milwaukee Tool" style="height:32px;width:auto;display:block;"></td>
     </tr></table>
   </div>
 
@@ -291,8 +291,8 @@ if ($mailSent) {
       <div class="step">
         <div class="step-num">1</div>
         <div class="step-text">
-          <h4>Live-Demos &amp; Neuheiten</h4>
-          <p>Die neuesten Milwaukee M18/M12 Tools im Live-Einsatz – erproben statt nur anschauen.</p>
+          <h4>Live-Stationen &amp; Gewerk-Challenges</h4>
+          <p>Interaktive Stationen für jedes Gewerk – teste selbst und miss dich mit anderen. Anwendungstechniker &amp; Spezialisten vor Ort beantworten deine Fragen.</p>
         </div>
       </div>
       <div class="step">
@@ -305,15 +305,22 @@ if ($mailSent) {
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-text">
-          <h4>Bucket Deals bis 1.000 €</h4>
-          <p>Exklusive Tages-Deals: Werkzeugpakete ab 250 €, 500 € und 1.000 € – nur an diesem Tag.</p>
+          <h4>Gregor Prinz live</h4>
+          <p>Forstwirt, Sicherheitsexperte &amp; YouTuber (55K Abonnenten) – live auf der Bühne mit M18 FUEL Kettensäge.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div class="step-text">
-          <h4>Food &amp; Getränke</h4>
-          <p>Für Verpflegung ist gesorgt: Metzgerei Heigl &amp; Barbecue-Spezialitäten den ganzen Tag.</p>
+          <h4>Bucket Deals bis 1.000 €</h4>
+          <p>Exklusive Tages-Deals: Werkzeugpakete ab 250 €, 500 € und 1.000 € – nur an diesem Tag.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-text">
+          <h4>Food &amp; Getränke – Der Schachen</h4>
+          <p>Für Verpflegung ist gesorgt: Barbecue-Spezialitäten von Der Schachen den ganzen Tag.</p>
         </div>
       </div>
     </div>
