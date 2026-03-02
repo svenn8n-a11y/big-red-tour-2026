@@ -126,9 +126,10 @@ function alignLogoToH1() {
     if (img) img.style.height = line1Rect.height + 'px';
   }
   if (milwaukeeWrap) {
-    milwaukeeWrap.style.height = line2Rect.height + 'px';
+    const mkeH = line2Rect.height * 1.3;
+    milwaukeeWrap.style.height = mkeH + 'px';
     const img = milwaukeeWrap.querySelector('.hero__logo-img');
-    if (img) img.style.height = line2Rect.height + 'px';
+    if (img) img.style.height = mkeH + 'px';
   }
 }
 // Nochmal nach Font-Load aufrufen (Bebas Neue ändert die Maße)
