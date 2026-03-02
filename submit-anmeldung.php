@@ -74,7 +74,8 @@ $name      = "$vorname $nachname";
 $firma     = htmlspecialchars(strip_tags(trim($data['firma'])));
 $email     = htmlspecialchars(strip_tags(trim($data['email'])));
 $branche   = htmlspecialchars(strip_tags(trim($data['branche'])));
-$stammkunde = !empty($data['stammkunde']) ? 'Ja – VIP 8–9 Uhr' : 'Nein';
+$stammkunde  = !empty($data['stammkunde']) ? 'Ja – VIP 8–9 Uhr' : 'Nein';
+$personen    = htmlspecialchars(strip_tags(trim($data['personen'] ?? '1')));
 
 // Branchenbezeichnung leserlich machen
 $branchenMap = [
@@ -146,6 +147,10 @@ $internMail = '
       <div class="info-value">' . $brancheLabel . '</div>
     </div>
     <div class="info-row">
+      <div class="info-label">Personen:</div>
+      <div class="info-value">' . $personen . '</div>
+    </div>
+    <div class="info-row">
       <div class="info-label">Stammkunde:</div>
       <div class="info-value">' . ($stammkunde === 'Ja – VIP 8–9 Uhr' ? '<span class="stammkunden-badge">VIP STAMMKUNDE</span>' : 'Nein') . '</div>
     </div>
@@ -190,7 +195,12 @@ if ($mailSent) {
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f4f4f4; margin: 0; padding: 0; color: #333; font-size: 16px; line-height: 1.7; }
     .container { max-width: 640px; margin: 0 auto; background: #fff; }
-    .header { background: linear-gradient(135deg, #C8102E 0%, #1a1a1a 100%); color: #fff; padding: 40px 35px; text-align: center; }
+    .logo-bar { background: #fff; padding: 16px 30px; border-bottom: 1px solid #f0f0f0; }
+    .logo-bar table { width: 100%; border-collapse: collapse; }
+    .logo-bar img { height: 28px; width: auto; display: block; }
+    .header { background: linear-gradient(135deg, rgba(0,0,0,0.72) 0%, rgba(200,16,46,0.68) 100%),
+              url(https://svenn8n-a11y.github.io/big-red-tour-2026/assets/images/truck_hd.png) center/cover no-repeat;
+              color: #fff; padding: 48px 35px; text-align: center; }
     .header h1 { margin: 0 0 8px 0; font-size: 28px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
     .header p { margin: 0; font-size: 16px; opacity: 0.9; }
     .checkmark { width: 60px; height: 60px; background: rgba(255,255,255,0.15); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; }
@@ -220,6 +230,13 @@ if ($mailSent) {
 </head>
 <body>
 <div class="container">
+
+  <div class="logo-bar">
+    <table><tr>
+      <td><img src="https://svenn8n-a11y.github.io/big-red-tour-2026/assets/images/logo_poeppel.png" alt="Pöppel"></td>
+      <td style="text-align:right;"><img src="https://svenn8n-a11y.github.io/big-red-tour-2026/assets/images/MILWAUKEE_TOOL_LOGO_50_weiss.png" alt="Milwaukee Tool" style="filter:brightness(0);"></td>
+    </tr></table>
+  </div>
 
   <div class="header">
     <div class="checkmark">

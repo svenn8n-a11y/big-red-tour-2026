@@ -489,8 +489,33 @@
     .p5__deal-goodies { font-family: var(--sub); font-size: 7pt; font-weight: 600; color: rgba(255,255,255,0.42); line-height: 1.4; }
 
     .p5__food {
-      border-top: 0.25mm solid rgba(255,255,255,0.08); padding-top: 3mm;
-      display: flex; align-items: center; gap: 5mm; flex-shrink: 0;
+      flex: 1;
+      border-top: 0.25mm solid rgba(255,255,255,0.08);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 5mm;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .p5__food-car {
+      display: flex; align-items: flex-end;
+      padding-top: 2mm;
+      overflow: hidden;
+    }
+
+    .p5__food-car-img {
+      height: 100%;
+      max-height: 38mm;
+      width: auto;
+      object-fit: contain;
+      object-position: left bottom;
+      filter: drop-shadow(0 2px 12px rgba(200,16,46,0.25));
+    }
+
+    .p5__food-info {
+      display: flex; flex-direction: column; justify-content: center; gap: 3mm;
+      padding: 3mm 0;
     }
 
     .p5__food-icon { color: var(--red); flex-shrink: 0; }
@@ -498,9 +523,9 @@
 
     .p5__food-logos { display: flex; align-items: center; gap: 5mm; }
 
-    .p5__food-logo { height: 7.5mm; width: auto; filter: brightness(0) invert(1); opacity: 0.6; }
-    .p5__food-name { font-family: var(--sub); font-size: 8pt; font-weight: 700; color: rgba(255,255,255,0.38); }
-    .p5__food-note { margin-left: auto; font-family: var(--sub); font-size: 7pt; color: rgba(255,255,255,0.22); }
+    .p5__food-logo { height: 8mm; width: auto; filter: brightness(0) invert(1); opacity: 0.65; }
+    .p5__food-name { font-family: var(--sub); font-size: 9pt; font-weight: 700; color: rgba(255,255,255,0.42); }
+    .p5__food-note { font-family: var(--sub); font-size: 7pt; color: rgba(255,255,255,0.22); }
 
 
     /* ═══════════════════════════════════════════════════════════════
@@ -962,21 +987,31 @@
     </div>
 
     <div class="p5__food">
-      <div class="p5__food-icon icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="2" x2="18" y2="22"/>
-          <path d="M22 7H14v3a4 4 0 0 0 8 0V7z"/>
-          <path d="M6 2v4a2 2 0 0 0 2 2h1v14"/>
-        </svg>
+      <!-- Heigl Catering-Wagen -->
+      <div class="p5__food-car">
+        <img src="../assets/images/food/heigl_Auto.png" alt="Heigl Catering-Wagen"
+             class="p5__food-car-img" onerror="this.style.display='none'">
       </div>
-      <div class="p5__food-label">Essen &amp; Trinken</div>
-      <div class="p5__food-logos">
-        <img src="../assets/images/food/heigl-logo-rgb-full-neg.webp" alt="Metzgerei Heigl"
-             class="p5__food-logo" onerror="this.style.display='none'">
-        <span style="color:rgba(255,255,255,0.15); font-size:12pt; line-height:1;">|</span>
-        <span class="p5__food-name">Der Schachen</span>
+      <!-- Info -->
+      <div class="p5__food-info">
+        <div style="display:flex; align-items:center; gap:2.5mm;">
+          <div class="p5__food-icon icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="2" x2="18" y2="22"/>
+              <path d="M22 7H14v3a4 4 0 0 0 8 0V7z"/>
+              <path d="M6 2v4a2 2 0 0 0 2 2h1v14"/>
+            </svg>
+          </div>
+          <div class="p5__food-label">Essen &amp; Trinken kostenlos</div>
+        </div>
+        <div class="p5__food-logos">
+          <img src="../assets/images/food/heigl-logo-rgb-full-neg.webp" alt="Metzgerei Heigl"
+               class="p5__food-logo" onerror="this.style.display='none'">
+          <span style="color:rgba(255,255,255,0.15); font-size:12pt; line-height:1;">|</span>
+          <span class="p5__food-name">Der Schachen</span>
+        </div>
+        <span class="p5__food-note">Allgäuer Chorizo · Dry Aged Ribeye · Spare Ribs · Getränke</span>
       </div>
-      <span class="p5__food-note">Allgäuer Spezialitäten · Getränke · Snacks · kostenlos</span>
     </div>
 
   </div>

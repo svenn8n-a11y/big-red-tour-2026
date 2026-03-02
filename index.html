@@ -13,10 +13,13 @@
   <meta property="og:image" content="assets/images/truck_hd.png">
   <meta property="og:type" content="website">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon_poeppel.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="assets/images/favicon_poeppel.svg">
+
+  <!-- Fonts (bunny.net – DSGVO-konform, EU-Server) -->
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -1088,7 +1091,7 @@
         <div class="video-sec__wrap reveal-up" style="--delay:0.1s">
           <div class="video-sec__frame">
             <iframe
-              src="https://www.youtube.com/embed/GQ0OVEmIYp8"
+              src="https://www.youtube-nocookie.com/embed/GQ0OVEmIYp8"
               title="Milwaukee BIG RED TOUR Vorschau"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -1254,6 +1257,7 @@
                 <span class="cap-box__text">Limitierte<br>Milwaukee Caps</span>
               </div>
               <p>Die ersten 100 Gäste erhalten beim Check-in eine exklusiv bestickte Milwaukee-Cap – gratis.</p>
+              <p class="cap-disclaimer">* Nur persönlich anwesende Gäste erhalten beim Check-in ein Geschenk. Eine Reservierung ohne Anwesenheit ist nicht möglich.</p>
             </div>
             <div class="anmeldung__benefits">
               <div class="benefit">
@@ -1306,6 +1310,18 @@
                 <option value="bau">Baufirma (Hoch-/Tiefbau)</option>
                 <option value="feuerwehr">Feuerwehr / Rettungsdienst</option>
                 <option value="sonstige">Sonstige</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="personen">Anzahl Personen *</label>
+              <select id="personen" name="personen" required>
+                <option value="" disabled selected>Bitte wählen...</option>
+                <option value="1">1 Person</option>
+                <option value="2">2 Personen</option>
+                <option value="3">3 Personen</option>
+                <option value="4">4 Personen</option>
+                <option value="5">5 Personen</option>
+                <option value="6+">6 oder mehr</option>
               </select>
             </div>
             <div class="form-group form-group--check">
@@ -1422,6 +1438,21 @@
       </div>
     </div>
   </footer>
+
+  <!-- ========== COOKIE BANNER ========== -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Cookie-Hinweis" aria-live="polite">
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__text">
+        <strong>Diese Website verwendet Cookies.</strong>
+        Wir setzen technisch notwendige Cookies ein. Externe Medien (YouTube) werden erst nach deiner Zustimmung geladen.
+        <a href="datenschutz.html" class="cookie-banner__link">Datenschutzerklärung</a>
+      </div>
+      <div class="cookie-banner__actions">
+        <button id="cookieAcceptAll" class="cookie-banner__btn cookie-banner__btn--primary">Alle akzeptieren</button>
+        <button id="cookieAcceptNecessary" class="cookie-banner__btn cookie-banner__btn--secondary">Nur notwendige</button>
+      </div>
+    </div>
+  </div>
 
   <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
