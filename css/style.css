@@ -1863,6 +1863,10 @@ ul { list-style: none; }
 }
 
 @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .form-group input,
+  .form-group select { min-height: 44px; padding: 0.85rem 1rem; font-size: 1rem; }
+}
 
 .form-group {
   display: flex;
@@ -2150,6 +2154,12 @@ ul { list-style: none; }
 /* 21. RESPONSIVE TWEAKS
    ===================================================== */
 @media (max-width: 600px) {
+  /* Hero darf wachsen – verhindert Countdown-Overlap mit Ticker */
+  .hero {
+    height: auto;
+    min-height: 100svh;
+  }
+
   .hero__countdown {
     position: static;
     margin-top: 2rem;
@@ -2170,7 +2180,7 @@ ul { list-style: none; }
   .hero__desc-detail,
   .hero__desc-br { display: none; }
   /* Gesamtinhalt weit genug unter dem Header */
-  .hero__content { padding-top: 11rem; }
+  .hero__content { padding-top: 11rem; padding-bottom: 3rem; }
 
   .hero__scroll { display: none; }
 
