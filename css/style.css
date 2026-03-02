@@ -1118,6 +1118,7 @@ ul { list-style: none; }
   align-items: center;
   justify-content: center;
   border: none;
+  padding-block: clamp(3rem, 6vw, 4.5rem);
 }
 .erlebnis__card--cta::before { display: none; }
 .erlebnis__card--cta:hover { background: #a80e26; }
@@ -1482,7 +1483,11 @@ ul { list-style: none; }
 }
 
 @media (max-width: 600px) {
-  .highlight__firefighter { display: none; }
+  .highlight__firefighter {
+    max-width: 52%;
+    opacity: 0.45;
+    right: 0;
+  }
 }
 
 .highlight__spec-key {
@@ -1585,11 +1590,11 @@ ul { list-style: none; }
   justify-content: center;
   align-items: center;
   margin-bottom: 1.5rem;
-  min-height: 160px;
+  min-height: 180px;
 }
 
 .deals__img {
-  height: clamp(110px, 16vw, 170px);
+  height: clamp(160px, 20vw, 220px);
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -2128,7 +2133,8 @@ ul { list-style: none; }
 }
 
 @media (max-width: 480px) {
-  .hero__h1 .hero__line { font-size: clamp(4rem, 22vw, 6rem); }
+  .hero__h1 .hero__line { font-size: clamp(2.8rem, 16vw, 4.5rem); }
+  .hero__content { padding-top: 5.5rem; }
   .countdown__num { font-size: 1.75rem; }
   .countdown__sep { font-size: 1.5rem; }
   .hero__line--sub { flex-wrap: wrap; }
