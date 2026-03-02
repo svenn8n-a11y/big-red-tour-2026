@@ -619,9 +619,12 @@ ul { list-style: none; }
 }
 
 .hero__logo-img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
   display: block;
+  object-fit: contain;
+  object-position: left center;
 }
 
 /* Pöppel: rot */
@@ -634,8 +637,25 @@ ul { list-style: none; }
   filter: brightness(0) invert(1);
 }
 
+/* "Allgäu" Schreibschrift nach TOUR */
+.hero__allgaeu {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.37em;
+  font-style: normal;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+  display: inline-block;
+  transform: rotate(-8deg) translateY(-0.1em);
+  transform-origin: left bottom;
+  margin-left: 0.18em;
+  vertical-align: middle;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 24px rgba(200,16,46,0.45), 0 0 8px rgba(200,16,46,0.2);
+}
+
 @media (max-width: 768px) {
   .hero__logo-right { display: none; }
+  .hero__allgaeu { font-size: 0.32em; }
 }
 
 /* Glitch-Duplikate */

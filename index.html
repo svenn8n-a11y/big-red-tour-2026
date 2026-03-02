@@ -16,7 +16,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -99,7 +99,7 @@
         </div>
         <h1 class="hero__h1">
           <span class="hero__line glitch" data-text="BIG RED" id="heroLine1">BIG RED</span>
-          <span class="hero__line hero__line--accent glitch" data-text="TOUR" id="heroLine2">TOUR</span>
+          <span class="hero__line hero__line--accent glitch" data-text="TOUR" id="heroLine2">TOUR<em class="hero__allgaeu">Allgäu</em></span>
           <span class="hero__line hero__line--sub" id="heroLine3">
             <span class="hero__sub-text">kommt nach Memmingen</span>
           </span>
@@ -399,7 +399,11 @@
           <div class="tabs__nav" role="tablist">
             <button class="tab-btn active" data-tab="holz" role="tab" aria-selected="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M17 8c0-2.76-2.24-5-5-5S7 5.24 7 8c0 1.86 1.01 3.47 2.5 4.35V21h5v-8.65C15.99 11.47 17 9.86 17 8z"/><path d="M9.5 16h5"/></svg>
-              Gregor Prinz
+              Holz
+            </button>
+            <button class="tab-btn" data-tab="metall" role="tab">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="8"/><line x1="12" y1="4" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="20"/><line x1="4" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="20" y2="12"/><circle cx="12" cy="12" r="2"/></svg>
+              Metall/Zerspanung
             </button>
             <button class="tab-btn" data-tab="kfz" role="tab">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><line x1="12" y1="9.5" x2="12" y2="3"/><line x1="9.84" y1="10.25" x2="4.59" y2="7.5"/><line x1="14.16" y1="10.25" x2="19.41" y2="7.5"/></svg>
@@ -413,10 +417,6 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M4 17a8 8 0 0 1 16 0"/><rect x="2" y="17" width="20" height="2.5" rx="1.25"/><path d="M12 9V5"/><path d="M8.5 10A4 4 0 0 1 15.5 10"/></svg>
               Bau
             </button>
-            <button class="tab-btn" data-tab="fw" role="tab">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24" height="24"><path d="M12 2c0 0-5 5-5 10a5 5 0 0 0 10 0C17 7 12 2 12 2z"/><path d="M12 12c0 0-2 2-2 4a2 2 0 0 0 4 0C14 14 12 12 12 12z"/></svg>
-              Feuerwehr
-            </button>
           </div>
 
           <!-- Tab Panels -->
@@ -424,26 +424,54 @@
             <div class="tab-panel active" id="tab-holz" role="tabpanel">
               <div class="tab-panel__inner">
                 <div class="tab-panel__text">
-                  <h3>Holzabteilung &amp; Metall-/Zerspanung</h3>
-                  <p class="tab-panel__hook">"Deine Säge- und Bohrhalle auf 16 Metern."</p>
+                  <h3>Holzbau, Zimmerei &amp; Schreinerei</h3>
+                  <p class="tab-panel__hook">"Deine Sägehalle auf 16 Metern."</p>
                   <ul class="check-list">
-                    <li>Handkreissägen, Tauchkreissägen &amp; Bandsägen live testen</li>
-                    <li>Metall-Trennschneider &amp; Winkelschleifer in Aktion</li>
-                    <li>Präzisionsbohrungen direkt an der Demostation</li>
-                    <li>Milwaukee-Spezialisten für Holz &amp; Metall persönlich vor Ort</li>
+                    <li>Handkreissägen &amp; Tauchkreissägen M18 FUEL™ live testen</li>
+                    <li>Kappsäge &amp; Stichsäge – Präzisionsschnitte für Zimmerer und Schreiner</li>
+                    <li>M18 FUEL™ Akkubohrschrauber – kraftvoll, ein Akku für alle Maschinen</li>
+                    <li>Milwaukee-Spezialisten für Holzbearbeitung persönlich vor Ort</li>
                   </ul>
                   <div class="tab-panel__tags">
-                    <span class="tag">M12™</span><span class="tag">M18™</span><span class="tag">MX FUEL™</span>
-                    <span class="tag">Sägen</span><span class="tag">Bohren</span><span class="tag">Schleifen</span>
+                    <span class="tag">M18 FUEL™</span><span class="tag">Kettensäge</span>
+                    <span class="tag">Kappsäge</span><span class="tag">Tischler</span><span class="tag">Zimmerer</span>
                   </div>
                   <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
                 </div>
                 <div class="tab-panel__visual">
                   <div class="tab-panel__spec-card">
-                    <div class="spec-line"><span>Produktlinie</span><strong>M12™ · M18™ · MX FUEL™</strong></div>
+                    <div class="spec-line"><span>Produktlinie</span><strong>M18 FUEL™ · M12™</strong></div>
                     <div class="spec-line"><span>Demofläche</span><strong>Truck + Outdoor</strong></div>
                     <div class="spec-line"><span>Beste Zeit</span><strong>9–12 Uhr</strong></div>
-                    <div class="spec-line"><span>Gewerke</span><strong>Tischler · Metallbauer · CNC</strong></div>
+                    <div class="spec-line"><span>Gewerke</span><strong>Tischler · Zimmerer · Schreiner</strong></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="tab-metall" role="tabpanel">
+              <div class="tab-panel__inner">
+                <div class="tab-panel__text">
+                  <h3>Metall &amp; Zerspanung</h3>
+                  <p class="tab-panel__hook">"Trennleistung ohne Steckdose."</p>
+                  <ul class="check-list">
+                    <li>M18 FUEL™ Winkelschleifer 125 &amp; 230 mm – live an Stahl und Edelstahl</li>
+                    <li>Metall-Trennschneider &amp; Säbelsäge in echtem Praxistest</li>
+                    <li>Präzisionsbohrungen &amp; Kernbohrung direkt an der Demostation</li>
+                    <li>Bundle-Deals für Metallbauer &amp; Schlosser – nur am 10. April</li>
+                  </ul>
+                  <div class="tab-panel__tags">
+                    <span class="tag">M18 FUEL™</span><span class="tag">Winkelschleifer</span>
+                    <span class="tag">Trennschneider</span><span class="tag">Bohren</span><span class="tag">Schleifen</span>
+                  </div>
+                  <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
+                </div>
+                <div class="tab-panel__visual">
+                  <div class="tab-panel__spec-card">
+                    <div class="spec-line"><span>Produktlinie</span><strong>M18 FUEL™ · MX FUEL™</strong></div>
+                    <div class="spec-line"><span>Demofläche</span><strong>Truck + Metall-Station</strong></div>
+                    <div class="spec-line"><span>Beste Zeit</span><strong>10–14 Uhr</strong></div>
+                    <div class="spec-line"><span>Gewerke</span><strong>Schlosser · Metallbauer · CNC</strong></div>
                   </div>
                 </div>
               </div>
@@ -528,34 +556,6 @@
                     <div class="spec-line"><span>Demofläche</span><strong>Truck + Beton-Station</strong></div>
                     <div class="spec-line"><span>Beste Zeit</span><strong>10–15 Uhr</strong></div>
                     <div class="spec-line"><span>Gewerke</span><strong>Hoch- · Tiefbau · Abbruch</strong></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="tab-panel" id="tab-fw" role="tabpanel">
-              <div class="tab-panel__inner">
-                <div class="tab-panel__text">
-                  <h3>Feuerwehr &amp; Rettungsdienste</h3>
-                  <p class="tab-panel__hook">"Einsatzbereit ohne Steckdose."</p>
-                  <ul class="check-list">
-                    <li>M18 FUEL™ Super-Säbelsägen für Rettungseinsätze live testen</li>
-                    <li>Milwaukee Flutlichtsysteme – kein Generator nötig</li>
-                    <li>Fahrzeugaufschnitt live mit der lokalen Feuerwehr</li>
-                    <li>Exklusives Blue-Light-Zeitfenster 8–9 Uhr</li>
-                  </ul>
-                  <div class="tab-panel__tags">
-                    <span class="tag">Rettungssäge</span><span class="tag">Akku-Flutlicht</span>
-                    <span class="tag">MX FUEL™</span><span class="tag tag--red">Blue-Light Hour</span>
-                  </div>
-                  <a href="#anmeldung" class="btn btn--primary mag-btn"><span>Slot sichern</span></a>
-                </div>
-                <div class="tab-panel__visual">
-                  <div class="tab-panel__spec-card">
-                    <div class="spec-line"><span>Produktlinie</span><strong>M18 FUEL™ · MX FUEL™</strong></div>
-                    <div class="spec-line"><span>VIP-Fenster</span><strong>8:00 – 9:00 Uhr</strong></div>
-                    <div class="spec-line"><span>Spektakel</span><strong>Fahrzeugaufschnitt live</strong></div>
-                    <div class="spec-line"><span>Gewerke</span><strong>Feuerwehr · THW · Rettung</strong></div>
                   </div>
                 </div>
               </div>
@@ -935,13 +935,13 @@
           <div class="highlight__content reveal-up" style="--delay:0.15s">
             <span class="eyebrow eyebrow--light">Holz &amp; Forst</span>
             <h2 class="highlight__h2">
-              Georg<br><em class="red">Prinz</em>
+              Gregor<br><em class="red">Prinz</em>
             </h2>
             <p class="highlight__desc">
               Gregor Prinz ist Forstwirt, YouTuber und Sicherheitsexperte. Mit 55.000 Abonnenten zeigt er auf seinem Kanal <strong>„Wald-Arbeit-Sicherheit"</strong>, wie professionelle Baum- und Waldarbeit richtig geht – unfallsicher, effizient und mit dem richtigen Werkzeug.
             </p>
             <p class="highlight__desc">
-              Bei der BIG RED TOUR demonstriert Georg live die neuesten Milwaukee Akku-Kettensägen und Forstwerkzeuge. Sein Credo: <em>„Unfallfreie Wald- und Baumarbeiten!"</em>
+              Bei der BIG RED TOUR demonstriert Gregor live die neuesten Milwaukee Akku-Kettensägen und Forstwerkzeuge. Sein Credo: <em>„Unfallfreie Wald- und Baumarbeiten!"</em>
             </p>
             <div class="highlight__specs">
               <div class="highlight__spec">

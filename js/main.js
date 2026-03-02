@@ -103,7 +103,7 @@ function initHeroAnimation() {
     .call(alignLogoToH1);
 }
 
-// ─── 2b. LOGO-ALIGNMENT: Pöppel-OK = BIG RED-OK · Milwaukee-UK = TOUR-UK ────
+// ─── 2b. LOGO-ALIGNMENT: Pöppel-Höhe = BIG RED-Höhe · Milwaukee-Höhe = TOUR-Höhe ────
 function alignLogoToH1() {
   const line1    = document.getElementById('heroLine1');
   const line2    = document.getElementById('heroLine2');
@@ -111,11 +111,17 @@ function alignLogoToH1() {
   if (!line1 || !line2 || !logoWrap) return;
   const parent = logoWrap.offsetParent;
   if (!parent) return;
-  const parentRect = parent.getBoundingClientRect();
-  const line1Rect  = line1.getBoundingClientRect();
-  const line2Rect  = line2.getBoundingClientRect();
+  const parentRect    = parent.getBoundingClientRect();
+  const line1Rect     = line1.getBoundingClientRect();
+  const line2Rect     = line2.getBoundingClientRect();
+  // Container: von Oberkante BIG RED bis Unterkante TOUR
   logoWrap.style.top    = (line1Rect.top    - parentRect.top) + 'px';
   logoWrap.style.height = (line2Rect.bottom - line1Rect.top)  + 'px';
+  // Einzelne Logos auf Buchstabenhöhe der jeweiligen Zeile skalieren
+  const poeppelWrap   = logoWrap.querySelector('.hero__logo-wrap--poeppel');
+  const milwaukeeWrap = logoWrap.querySelector('.hero__logo-wrap--milwaukee');
+  if (poeppelWrap)   poeppelWrap.style.height   = line1Rect.height + 'px';
+  if (milwaukeeWrap) milwaukeeWrap.style.height  = line2Rect.height + 'px';
 }
 window.addEventListener('resize', alignLogoToH1, { passive: true });
 
