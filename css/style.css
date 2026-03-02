@@ -2125,16 +2125,19 @@ ul { list-style: none; }
     text-align: left;
   }
 
-  /* BIG RED / TOUR – größer und klar lesbar */
+  /* BIG RED / TOUR – ca. 2/3 Bildschirmbreite */
   .hero__h1 .hero__line:not(.hero__line--sub) {
-    font-size: clamp(3.2rem, 18vw, 5.5rem);
+    font-size: clamp(4.5rem, 21vw, 7rem);
     line-height: 0.92;
   }
-  /* "kommt nach Memmingen" – sehr klein, gibt Platz frei */
+  /* "kommt nach Memmingen" – etwas größer als zuvor */
   .hero__line--sub {
-    font-size: clamp(0.75rem, 3.2vw, 1rem) !important;
-    margin-top: 0.5rem;
+    font-size: clamp(1rem, 4.5vw, 1.4rem) !important;
+    margin-top: 0.6rem;
   }
+  /* Zweiter Satz im Desc auf Mobile ausblenden */
+  .hero__desc-detail,
+  .hero__desc-br { display: none; }
   /* Gesamtinhalt weit genug unter dem Header */
   .hero__content { padding-top: 11rem; }
 
@@ -2147,12 +2150,12 @@ ul { list-style: none; }
 
 @media (max-width: 480px) {
   .hero__h1 .hero__line:not(.hero__line--sub) {
-    font-size: clamp(3rem, 16vw, 5rem);
+    font-size: clamp(4rem, 20vw, 6rem);
     line-height: 0.92;
   }
   .hero__line--sub {
-    font-size: clamp(0.7rem, 3vw, 0.9rem) !important;
-    margin-top: 0.4rem;
+    font-size: clamp(0.95rem, 4.2vw, 1.3rem) !important;
+    margin-top: 0.5rem;
   }
   .hero__content { padding-top: 12rem; }
   .countdown__num { font-size: 1.75rem; }
