@@ -224,6 +224,9 @@ if ($mailSent) {
     .contact-item { font-size: 15px; margin-bottom: 6px; }
     .contact-item a { color: #C8102E; text-decoration: none; font-weight: 500; }
     .cta-btn { display: inline-block; background: #C8102E; color: #fff !important; text-decoration: none; padding: 14px 32px; border-radius: 6px; font-weight: 700; font-size: 15px; margin: 16px 0; }
+    .cal-box { text-align: center; padding: 4px 0 8px 0; }
+    .cal-box p { font-weight: 600; color: #1a1a1a; margin-bottom: 14px; }
+    .cal-btn { display: inline-block; border: 2px solid #C8102E; color: #C8102E !important; text-decoration: none; padding: 9px 18px; border-radius: 6px; font-weight: 600; font-size: 13px; margin: 4px 4px; font-family: -apple-system, sans-serif; }
     .footer-bar { background: #1a1a1a; color: #888; padding: 24px 35px; text-align: center; font-size: 13px; line-height: 1.8; }
     .footer-bar a { color: #999; text-decoration: underline; }
   </style>
@@ -298,31 +301,47 @@ if ($mailSent) {
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-text">
+          <h4>Vorstellung der Neuheiten</h4>
+          <p>Die neuesten Milwaukee M18/M12 Innovationen – exklusiv präsentiert, bevor sie in den regulären Handel kommen.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
           <h4>Feuerwehr-Spektakel</h4>
           <p>Dramatische Vorführung: Rettungskräfte zeigen live, was Milwaukee Werkzeug in Extremsituationen leistet.</p>
         </div>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
+        <div class="step-num">4</div>
         <div class="step-text">
           <h4>Gregor Prinz live</h4>
           <p>Forstwirt, Sicherheitsexperte &amp; YouTuber (55K Abonnenten) – live auf der Bühne mit M18 FUEL Kettensäge.</p>
         </div>
       </div>
       <div class="step">
-        <div class="step-num">4</div>
+        <div class="step-num">5</div>
         <div class="step-text">
           <h4>Bucket Deals bis 1.000 €</h4>
           <p>Exklusive Tages-Deals: Werkzeugpakete ab 250 €, 500 € und 1.000 € – nur an diesem Tag.</p>
         </div>
       </div>
       <div class="step">
-        <div class="step-num">5</div>
+        <div class="step-num">6</div>
         <div class="step-text">
           <h4>Food &amp; Getränke – Der Schachen</h4>
           <p>Für Verpflegung ist gesorgt: Barbecue-Spezialitäten von Der Schachen den ganzen Tag.</p>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="body-section">
+    <div class="cal-box">
+      <p>&#128197; Termin in deinen Kalender eintragen:</p>
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Milwaukee+BIG+RED+TOUR+2026+%E2%80%93+P%C3%B6ppel+Memmingen&dates=20260410T060000Z%2F20260410T150000Z&details=Live-Demos%2C+Vorstellung+der+Neuheiten%2C+Feuerwehr-Spektakel%2C+Gregor+Prinz+live%2C+Bucket+Deals+bis+1.000+%E2%82%AC&location=R.+P%C3%B6ppel+GmbH+%26+Co.+KG%2C+Alpenstra%C3%9Fe+45%2C+87700+Memmingen" target="_blank" class="cal-btn">Google Kalender</a>
+      <a href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Milwaukee+BIG+RED+TOUR+2026+%E2%80%93+P%C3%B6ppel+Memmingen&startdt=2026-04-10T08%3A00%3A00%2B02%3A00&enddt=2026-04-10T17%3A00%3A00%2B02%3A00&location=R.+P%C3%B6ppel+GmbH+%26+Co.+KG%2C+Alpenstra%C3%9Fe+45%2C+87700+Memmingen&body=Live-Demos%2C+Feuerwehr-Spektakel+und+mehr." target="_blank" class="cal-btn">Outlook</a>
+      <a href="https://svenn8n-a11y.github.io/big-red-tour-2026/assets/calendar/big-red-tour-2026.ics" class="cal-btn">ICS-Datei (Apple / Alle)</a>
     </div>
   </div>
 

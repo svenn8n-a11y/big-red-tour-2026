@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Poeppel//BIG RED TOUR 2026//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20260410T060000Z
+DTEND:20260410T150000Z
+SUMMARY:Milwaukee BIG RED TOUR 2026 – Pöppel Memmingen
+DESCRIPTION:Live-Stationen & Gewerk-Challenges\, Vorstellung der Neuheiten\, Feuerwehr-Spektakel\, Gregor Prinz live\, Bucket Deals bis 1.000 €\n\nMehr Infos: https://svenn8n-a11y.github.io/big-red-tour-2026/
+LOCATION:R. Pöppel GmbH & Co. KG\, Alpenstraße 45\, 87700 Memmingen
+URL:https://svenn8n-a11y.github.io/big-red-tour-2026/
+END:VEVENT
+END:VCALENDAR
