@@ -329,8 +329,8 @@ if ($mailSent) {
       <div class="step">
         <div class="step-num">6</div>
         <div class="step-text">
-          <h4>Food &amp; Getränke – Der Schachen</h4>
-          <p>Für Verpflegung ist gesorgt: Jeder Gast erhält <strong>4 Freigetränke inklusive</strong>. Dazu erwarten dich Barbecue-Spezialitäten und weitere kulinarische Schmankerl von Der Schachen den ganzen Tag.</p>
+          <h4>Food &amp; Getränke</h4>
+          <p><strong>Der Schachen</strong> versorgt dich den ganzen Tag kostenlos mit Allgäuer Spezialitäten – inklusive <strong>4 Freigetränken pro Gast</strong>. Darüber hinaus warten kulinarische Schmankerl von weiteren Ausstellern auf dich.</p>
         </div>
       </div>
     </div>
