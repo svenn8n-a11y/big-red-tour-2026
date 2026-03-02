@@ -202,7 +202,7 @@ if ($mailSent) {
               url(https://svenn8n-a11y.github.io/big-red-tour-2026/assets/images/truck_hd.png) center/cover no-repeat;
               color: #fff; padding: 48px 35px; text-align: center; }
     .header h1 { margin: 0 0 8px 0; font-size: 28px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
-    .header p { margin: 0; font-size: 16px; opacity: 0.9; }
+    .header p { margin: 0; font-size: 16px; opacity: 0.9; color: #fff; }
     .checkmark { width: 60px; height: 60px; background: rgba(255,255,255,0.15); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 20px; }
     .body-section { padding: 32px 35px; border-bottom: 1px solid #f0f0f0; }
     .body-section:last-of-type { border-bottom: none; }
@@ -330,7 +330,7 @@ if ($mailSent) {
         <div class="step-num">6</div>
         <div class="step-text">
           <h4>Food &amp; Getränke – Der Schachen</h4>
-          <p>Für Verpflegung ist gesorgt: Barbecue-Spezialitäten von Der Schachen den ganzen Tag.</p>
+          <p>Für Verpflegung ist gesorgt: Jeder Gast erhält <strong>4 Freigetränke inklusive</strong>. Dazu erwarten dich Barbecue-Spezialitäten und weitere kulinarische Schmankerl von Der Schachen den ganzen Tag.</p>
         </div>
       </div>
     </div>

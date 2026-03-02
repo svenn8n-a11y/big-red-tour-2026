@@ -169,7 +169,7 @@ Die Seite wird automatisch via **GitHub Actions** auf **GitHub Pages** deployed.
 
 | Partner | Info |
 |---|---|
-| **Der Schachen** | Kostenlose Verpflegung (Getränke, Snacks, Barbecue) |
+| **Der Schachen** | Kostenlose Verpflegung – 4 Freigetränke pro Gast inklusive, Barbecue-Spezialitäten & kulinarische Schmankerl |
 | **Metzgerei Heigl** | Fleisch-Spezialitäten aus Benningen im Allgäu (Selbstzahlerbasis) |
 
 ---
