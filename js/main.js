@@ -505,7 +505,6 @@ function initMusic() {
   if (!audio) return;
 
   audio.volume = 0.35;
-  // KEIN audio.muted = true hier – wir versuchen zuerst mit Ton
 
   function updateUI() {
     const playing = !audio.paused && !audio.muted;
@@ -518,22 +517,15 @@ function initMusic() {
   audio.addEventListener('pause',        updateUI);
   audio.addEventListener('volumechange', updateUI);
 
-  // 1. Unmuted Autoplay versuchen
-  audio.play().catch(() => {
-    // 2. Browser blockt Ton → stumm starten (immer erlaubt)
-    audio.muted = true;
-    audio.play().then(() => {
-      // Jetzt läuft Audio wirklich stumm → Scroll-Handler sicher aufsetzen
-      window.addEventListener('scroll', () => {
-        audio.muted = false;
-      }, { passive: true, once: true });
-    }).catch(() => {
-      // 3. Auch muted geblockt (sehr restriktive Einstellung) → auf Gesture warten
-      const unlock = () => { audio.muted = true; audio.play().catch(() => {}); };
-      document.addEventListener('click',      unlock, { once: true, capture: true });
-      document.addEventListener('touchstart', unlock, { once: true, capture: true });
-    });
-  });
+  // Audio startet bereits stumm via HTML-Attribut (muted autoplay).
+  // Sicherheitsnetz: falls autoplay dennoch nicht lief, nochmals anstoßen.
+  audio.play().catch(() => {});
+
+  // Beim ersten Scroll: Ton einschalten
+  window.addEventListener('scroll', () => {
+    audio.muted = false;
+    audio.play().catch(() => {});
+  }, { passive: true, once: true });
 
   function toggleMute() {
     if (audio.paused) {
