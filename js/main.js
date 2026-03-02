@@ -521,16 +521,17 @@ function initMusic() {
   audio.play().catch(() => {
     // 2. Browser blockt Ton → stumm starten (immer erlaubt)
     audio.muted = true;
-    audio.play().catch(() => {
+    audio.play().then(() => {
+      // Jetzt läuft Audio wirklich stumm → Scroll-Handler sicher aufsetzen
+      window.addEventListener('scroll', () => {
+        audio.muted = false;
+      }, { passive: true, once: true });
+    }).catch(() => {
       // 3. Auch muted geblockt (sehr restriktive Einstellung) → auf Gesture warten
       const unlock = () => { audio.muted = true; audio.play().catch(() => {}); };
       document.addEventListener('click',      unlock, { once: true, capture: true });
       document.addEventListener('touchstart', unlock, { once: true, capture: true });
     });
-    // 4. Beim ersten Scroll automatisch aufdrehen
-    window.addEventListener('scroll', () => {
-      if (!audio.paused && audio.muted) audio.muted = false;
-    }, { passive: true, once: true });
   });
 
   function toggleMute() {
