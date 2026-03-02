@@ -1018,6 +1018,8 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
   .erlebnis__card { flex: 0 0 auto; }
+  /* CTA-Karte: im Column-Mode wird flex-basis zur Höhe → auto setzen */
+  .erlebnis__card--cta { flex: 0 0 auto; min-height: 260px; }
 }
 
 .erlebnis__card::before {
@@ -1590,11 +1592,11 @@ ul { list-style: none; }
   justify-content: center;
   align-items: center;
   margin-bottom: 1.5rem;
-  min-height: 180px;
+  min-height: 220px;
 }
 
 .deals__img {
-  height: clamp(160px, 20vw, 220px);
+  height: clamp(200px, 24vw, 260px);
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -2123,12 +2125,18 @@ ul { list-style: none; }
     text-align: left;
   }
 
-  /* Schrift auf Mobile deutlich kleiner – verhindert Überlappung mit Header */
-  .hero__h1 .hero__line {
-    font-size: clamp(2.5rem, 13vw, 4rem);
-    line-height: 0.95;
+  /* BIG RED / TOUR – größer und klar lesbar */
+  .hero__h1 .hero__line:not(.hero__line--sub) {
+    font-size: clamp(3.2rem, 18vw, 5.5rem);
+    line-height: 0.92;
   }
-  .hero__content { padding-top: 8.5rem; }
+  /* "kommt nach Memmingen" – sehr klein, gibt Platz frei */
+  .hero__line--sub {
+    font-size: clamp(0.75rem, 3.2vw, 1rem) !important;
+    margin-top: 0.5rem;
+  }
+  /* Gesamtinhalt weit genug unter dem Header */
+  .hero__content { padding-top: 11rem; }
 
   .hero__scroll { display: none; }
 
@@ -2138,14 +2146,17 @@ ul { list-style: none; }
 }
 
 @media (max-width: 480px) {
-  .hero__h1 .hero__line {
-    font-size: clamp(2.2rem, 12vw, 3.5rem);
-    line-height: 0.95;
+  .hero__h1 .hero__line:not(.hero__line--sub) {
+    font-size: clamp(3rem, 16vw, 5rem);
+    line-height: 0.92;
   }
-  .hero__content { padding-top: 9rem; }
+  .hero__line--sub {
+    font-size: clamp(0.7rem, 3vw, 0.9rem) !important;
+    margin-top: 0.4rem;
+  }
+  .hero__content { padding-top: 12rem; }
   .countdown__num { font-size: 1.75rem; }
   .countdown__sep { font-size: 1.5rem; }
-  .hero__line--sub { flex-wrap: wrap; font-size: clamp(0.9rem, 3.5vw, 1.25rem); }
 }
 
 /* =====================================================
