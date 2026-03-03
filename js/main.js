@@ -517,14 +517,19 @@ function initMusic() {
   audio.addEventListener('pause',        updateUI);
   audio.addEventListener('volumechange', updateUI);
 
-  // Audio startet bereits stumm via HTML-Attribut (muted autoplay).
-  // Sicherheitsnetz: falls autoplay dennoch nicht lief, nochmals anstoßen.
+  // Muted-Autoplay versuchen (klappt Desktop + Android Chrome)
   audio.play().catch(() => {});
 
-  // Beim ersten Scroll: Ton einschalten
+  // iOS-Fallback: erster Touch entsperrt Audio (iOS blockiert Autoplay auch für muted Audio)
+  document.addEventListener('touchstart', () => {
+    audio.play().catch(() => {});
+  }, { passive: true, once: true });
+
+  // Beim ersten Scroll: unmuten + sicherstellen dass Audio läuft
   window.addEventListener('scroll', () => {
     audio.muted = false;
     audio.play().catch(() => {});
+    updateUI();
   }, { passive: true, once: true });
 
   function toggleMute() {
