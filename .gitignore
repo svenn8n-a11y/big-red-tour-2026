@@ -2,3 +2,6 @@
 *.DS_Store
 Thumbs.db
 big-red-tour-2026/
+node_modules/
+package.json
+package-lock.json
