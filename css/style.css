@@ -3138,62 +3138,6 @@ ul { list-style: none; }
 .highlights-divider__icon-item svg { color: var(--white); }
 .highlights-divider .eyebrow--light { color: rgba(255,255,255,0.6); margin-bottom: 0.25rem; }
 
-/* ─── COOKIE BANNER ────────────────────────────────────────────────────────── */
-.cookie-banner {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  z-index: 9999;
-  background: #111;
-  border-top: 2px solid var(--red);
-  padding: clamp(1rem, 2vw, 1.25rem) clamp(1rem, 4vw, 2rem);
-  box-shadow: 0 -4px 24px rgba(0,0,0,0.5);
-  transform: translateY(0);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.cookie-banner.is-hidden {
-  transform: translateY(110%);
-  pointer-events: none;
-}
-.cookie-banner__inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; gap: 1.5rem;
-  flex-wrap: wrap;
-}
-.cookie-banner__text {
-  flex: 1; min-width: 240px;
-  font-family: var(--font-body);
-  font-size: 0.88rem; line-height: 1.6;
-  color: var(--muted-light);
-}
-.cookie-banner__text strong { color: var(--white); }
-.cookie-banner__link {
-  color: var(--red); text-decoration: none;
-  margin-left: 0.4rem; white-space: nowrap;
-}
-.cookie-banner__link:hover { text-decoration: underline; }
-.cookie-banner__actions {
-  display: flex; gap: 0.75rem; flex-shrink: 0;
-  flex-wrap: wrap;
-}
-.cookie-banner__btn {
-  font-family: var(--font-sub);
-  font-size: 0.8rem; font-weight: 700;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  border: none; border-radius: 4px;
-  padding: 0.6rem 1.25rem; cursor: pointer;
-  transition: opacity 0.2s, transform 0.15s;
-  white-space: nowrap;
-}
-.cookie-banner__btn:hover { opacity: 0.85; transform: translateY(-1px); }
-.cookie-banner__btn--primary {
-  background: var(--red); color: #fff;
-}
-.cookie-banner__btn--secondary {
-  background: transparent; color: var(--muted-light);
-  border: 1px solid var(--border);
-}
-.cookie-banner__btn--secondary:hover { color: var(--white); border-color: var(--muted); }
-
 /* ─── CAP DISCLAIMER ───────────────────────────────────────────────────────── */
 .cap-disclaimer {
   font-size: 0.78rem !important;
@@ -3224,12 +3168,20 @@ ul { list-style: none; }
   cursor: pointer; transition: transform 0.2s, background 0.2s;
 }
 .yt-placeholder__btn:hover { background: var(--red); transform: scale(1.1); border-color: var(--red); }
+.yt-placeholder__title {
+  position: relative; z-index: 2;
+  margin-bottom: 1rem; font-size: 0.9rem; font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  font-family: var(--font-sub); text-align: center; letter-spacing: 0.04em;
+}
 .yt-placeholder__note {
   position: relative; z-index: 2;
   margin-top: 1rem; font-size: 0.75rem;
   color: rgba(255,255,255,0.6);
-  font-family: var(--font-body); text-align: center;
+  font-family: var(--font-body); text-align: center; line-height: 1.5;
 }
+.yt-placeholder__note a { color: var(--red); text-decoration: none; }
+.yt-placeholder__note a:hover { text-decoration: underline; }
 
 /* ── DJ / MUSIK SEKTION ──────────────────────────────────────────────────── */
 .dj-music {
