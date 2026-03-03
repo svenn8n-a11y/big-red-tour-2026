@@ -2235,6 +2235,12 @@ ul { list-style: none; }
     min-height: 100svh;
   }
 
+  /* Hochformat-Bild füllt den Hero vollflächig aus */
+  .hero__img {
+    object-fit: cover;
+    object-position: center center;
+  }
+
   .hero__countdown {
     position: static;
     margin-top: 3rem;
