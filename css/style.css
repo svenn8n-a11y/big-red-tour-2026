@@ -3214,11 +3214,6 @@ ul { list-style: none; }
   cursor: pointer; overflow: hidden;
   border-radius: 8px;
 }
-.yt-placeholder img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; opacity: 0.55;
-}
 .yt-placeholder__btn {
   position: relative; z-index: 2;
   background: rgba(0,0,0,0.6);
