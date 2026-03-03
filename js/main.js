@@ -521,10 +521,13 @@ function initMusic() {
   // Sicherheitsnetz: falls autoplay dennoch nicht lief, nochmals anstoßen.
   audio.play().catch(() => {});
 
-  // Beim ersten Scroll: Ton einschalten
+  // Beim ersten Scroll: nur unmuten wenn Audio bereits läuft (muted autoplay hat geklappt).
+  // play() hier weglassen – Scroll ist kein User-Gesture, der Aufruf würde still fehlschlagen
+  // und das Icon fälschlicherweise auf "spielt" setzen obwohl kein Ton kommt.
   window.addEventListener('scroll', () => {
-    audio.muted = false;
-    audio.play().catch(() => {});
+    if (!audio.paused) {
+      audio.muted = false;
+    }
   }, { passive: true, once: true });
 
   function toggleMute() {
