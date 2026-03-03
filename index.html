@@ -8,10 +8,57 @@
   <meta name="keywords" content="Milwaukee BIG RED TOUR, Memmingen, Pöppel, Milwaukee Werkzeug, Event 2026">
 
   <!-- Open Graph -->
+  <!-- Canonical -->
+  <link rel="canonical" href="https://milwaukee-big-red-tour-2026.poeppel-wkz.de/">
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Milwaukee BIG RED TOUR 2026 – Memmingen">
   <meta property="og:description" content="10. April 2026 bei Pöppel in Memmingen. Live-Demos, exklusive Deals & Feuerwehr-Spektakel. Jetzt kostenlos anmelden!">
-  <meta property="og:image" content="assets/images/truck_hd.png">
+  <meta property="og:image" content="https://milwaukee-big-red-tour-2026.poeppel-wkz.de/assets/images/truck_hd.png">
+  <meta property="og:url" content="https://milwaukee-big-red-tour-2026.poeppel-wkz.de/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Schema.org Event -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Milwaukee BIG RED TOUR 2026 – Memmingen",
+    "description": "Der größte Milwaukee-Truck-Stop im Allgäu. Live-Demos, exklusive Truck-Deals, Feuerwehr-Spektakel & Live-DJ. Kostenloser Eintritt.",
+    "startDate": "2026-04-10T08:00:00+02:00",
+    "endDate": "2026-04-10T17:00:00+02:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Pöppel Werkzeuge & Maschinen GmbH",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Memmingen",
+        "addressRegion": "Bayern",
+        "postalCode": "87700",
+        "addressCountry": "DE"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Pöppel Werkzeuge & Maschinen GmbH",
+      "url": "https://www.poeppel-wkz.de"
+    },
+    "image": "https://milwaukee-big-red-tour-2026.poeppel-wkz.de/assets/images/truck_hd.png",
+    "url": "https://milwaukee-big-red-tour-2026.poeppel-wkz.de/",
+    "isAccessibleForFree": true,
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "url": "https://milwaukee-big-red-tour-2026.poeppel-wkz.de/#anmeldung"
+    },
+    "keywords": "Milwaukee, BIG RED TOUR, Memmingen, Allgäu, Werkzeug, Event, 2026, Pöppel, Live-Demo, Feuerwehr"
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" href="assets/images/favicon_poeppel.svg" type="image/svg+xml">
@@ -45,6 +92,7 @@
         <a href="#zielgruppen" class="header__link">Gewerke</a>
         <a href="#highlight" class="header__link">Highlights</a>
         <a href="#deals" class="header__link">Deals</a>
+        <a href="https://shop.poeppel-wkz.de/home" target="_blank" rel="noopener" class="header__link">Shop</a>
         <a href="#anmeldung" class="btn btn--nav mag-btn">
           <span>Jetzt anmelden</span>
         </a>
@@ -1100,14 +1148,20 @@
         </div>
         <div class="video-sec__wrap reveal-up" style="--delay:0.1s">
           <div class="video-sec__frame">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/GQ0OVEmIYp8"
-              title="Milwaukee BIG RED TOUR Vorschau"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              loading="lazy">
-            </iframe>
+            <a href="https://www.youtube.com/watch?v=GQ0OVEmIYp8"
+               target="_blank" rel="noopener"
+               class="video-thumb"
+               aria-label="Milwaukee BIG RED TOUR Video auf YouTube ansehen">
+              <img src="https://img.youtube.com/vi/GQ0OVEmIYp8/maxresdefault.jpg"
+                   alt="Milwaukee BIG RED TOUR 2026 – Video Vorschau"
+                   loading="lazy" class="video-thumb__img">
+              <div class="video-thumb__overlay">
+                <div class="video-thumb__play" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <span class="video-thumb__label">Auf YouTube ansehen</span>
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -1136,7 +1190,7 @@
                     <rect x="2" y="14" width="20" height="3" rx="1.5"/>
                   </svg>
                 </div>
-                <div><strong>Kostenfreie Speisen</strong><p>Für alle Besucher – kein Hunger am Eventtag. Serviert von Der Schachen.</p></div>
+                <div><strong>Kostenfreie Speisen</strong><p>Für alle Besucher – kein Hunger am Eventtag. Serviert von <a href="https://derschachen.com/" target="_blank" rel="noopener" class="link">Der Schachen</a>.</p></div>
               </div>
               <div class="food__item">
                 <div class="food__item-icon">
@@ -1156,9 +1210,11 @@
           </div>
 
           <div class="food__figure food__figure--schachen reveal-up" style="--delay:0.1s">
-            <img src="assets/images/food/der_schachen_logo.png"
-                 alt="Der Schachen – Catering Partner BIG RED TOUR 2026"
-                 class="food__schachen-logo" loading="lazy">
+            <a href="https://derschachen.com/" target="_blank" rel="noopener" aria-label="Der Schachen – Website öffnen">
+              <img src="assets/images/food/der_schachen_logo.png"
+                   alt="Der Schachen – Catering Partner BIG RED TOUR 2026"
+                   class="food__schachen-logo" loading="lazy">
+            </a>
           </div>
         </div>
       </div>
@@ -1472,6 +1528,7 @@
         <div class="footer__col">
           <h4 class="footer__h4">Links</h4>
           <a href="#anmeldung" class="footer__link">Jetzt anmelden</a>
+          <a href="https://shop.poeppel-wkz.de/home" target="_blank" rel="noopener" class="footer__link">Online-Shop</a>
           <a href="datenschutz.html" class="footer__link">Datenschutz</a>
           <a href="impressum.html" class="footer__link">Impressum</a>
           <a href="agb.html" class="footer__link">Teilnahmebedingungen</a>

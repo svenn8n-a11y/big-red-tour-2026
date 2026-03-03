@@ -517,8 +517,7 @@ function initMusic() {
   audio.addEventListener('pause',        updateUI);
   audio.addEventListener('volumechange', updateUI);
 
-  // Audio startet bereits stumm via HTML-Attribut (muted autoplay).
-  // Sicherheitsnetz: falls autoplay dennoch nicht lief, nochmals anstoßen.
+  // Muted-Autoplay versuchen (klappt Desktop + Android Chrome)
   audio.play().catch(() => {});
 
   // Beim ersten Scroll: nur unmuten wenn Audio bereits läuft (muted autoplay hat geklappt).

@@ -1694,6 +1694,81 @@ ul { list-style: none; }
   height: 100%;
 }
 
+/* Thumbnail-Fallback (kein Embed) */
+.video-thumb {
+  display: block;
+  position: absolute;
+  inset: 0;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+.video-thumb__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s var(--ease);
+}
+
+.video-thumb:hover .video-thumb__img,
+.video-thumb:focus .video-thumb__img {
+  transform: scale(1.04);
+}
+
+.video-thumb__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.38);
+  transition: background 0.3s ease;
+}
+
+.video-thumb:hover .video-thumb__overlay,
+.video-thumb:focus .video-thumb__overlay {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.video-thumb__play {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease), background 0.3s ease;
+  box-shadow: 0 4px 24px rgba(200, 16, 46, 0.55);
+}
+
+.video-thumb:hover .video-thumb__play,
+.video-thumb:focus .video-thumb__play {
+  transform: scale(1.12);
+  background: var(--red-light);
+}
+
+.video-thumb__play svg {
+  width: 36px;
+  height: 36px;
+  fill: var(--white);
+  margin-left: 4px; /* play-icon optisch zentrieren */
+}
+
+.video-thumb__label {
+  font-family: var(--font-sub);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+
 /* 15. WETTERFEST
    ===================================================== */
 .wetterfest { background: var(--bg-alt); }
@@ -2162,8 +2237,10 @@ ul { list-style: none; }
 
   .hero__countdown {
     position: static;
-    margin-top: 2rem;
-    text-align: left;
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    align-self: center;
   }
 
   /* BIG RED / TOUR – ca. 2/3 Bildschirmbreite */
