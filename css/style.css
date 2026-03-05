@@ -2596,13 +2596,25 @@ ul { list-style: none; }
   flex: none;   /* flex-basis überschreibt style.width → daher none; JS setzt Breite */
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .gallery__slide img {
   width: 100%;
-  height: clamp(280px, 55vw, 620px);
+  height: clamp(400px, 65vw, 780px);
   object-fit: cover;
   display: block;
+  transform-origin: center center;
+  transform: scale(1.08);
+}
+
+.gallery__slide.is-active img {
+  animation: galleryKenBurns 6s ease-out forwards;
+}
+
+@keyframes galleryKenBurns {
+  0%   { transform: scale(1.08); }
+  100% { transform: scale(1);    }
 }
 
 .gallery__btn {

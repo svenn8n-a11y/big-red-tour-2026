@@ -580,66 +580,103 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // ─── 17. GALLERY SLIDER ──────────────────────────────────────────────────────
 function initGallery() {
-  const track  = document.getElementById('galleryTrack');
+  const track    = document.getElementById('galleryTrack');
   const dotsWrap = document.getElementById('galleryDots');
   const prevBtn  = document.getElementById('galleryPrev');
   const nextBtn  = document.getElementById('galleryNext');
   if (!track) return;
 
-  const slides = track.querySelectorAll('.gallery__slide');
-  const total  = slides.length;
-  let current  = 0;
+  const origSlides = Array.from(track.querySelectorAll('.gallery__slide'));
+  const total      = origSlides.length;
+
+  // Clone first and last slide for seamless infinite loop
+  const firstClone = origSlides[0].cloneNode(true);
+  const lastClone  = origSlides[total - 1].cloneNode(true);
+  firstClone.setAttribute('aria-hidden', 'true');
+  lastClone.setAttribute('aria-hidden', 'true');
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, origSlides[0]);
+
+  const allSlides = Array.from(track.querySelectorAll('.gallery__slide'));
+  // Layout: [clone-of-last, real-0 … real-(n-1), clone-of-first]
+
+  let current = 1; // start at first real slide
   let timer;
 
-  // Set each slide to exact viewport width (flex: none in CSS, Breite per JS)
   function setWidths() {
     const w = track.parentElement.offsetWidth;
-    slides.forEach(s => {
+    allSlides.forEach(s => {
       s.style.width     = w + 'px';
       s.style.flexBasis = w + 'px';
     });
-    // Position nach Resize korrigieren
-    const slideW = track.parentElement.offsetWidth;
-    track.style.transform = `translateX(-${current * slideW}px)`;
+    track.style.transition = 'none';
+    track.style.transform  = `translateX(-${current * w}px)`;
   }
   setWidths();
   window.addEventListener('resize', setWidths, { passive: true });
 
-  // Create dot buttons
-  slides.forEach((_, i) => {
+  // Dot buttons (one per real slide)
+  origSlides.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.className = 'gallery__dot' + (i === 0 ? ' active' : '');
     dot.setAttribute('aria-label', `Bild ${i + 1}`);
-    dot.addEventListener('click', () => goTo(i));
+    dot.addEventListener('click', () => { goTo(i + 1); resetTimer(); });
     dotsWrap?.appendChild(dot);
   });
 
-  function goTo(index) {
-    current = ((index % total) + total) % total;
-    const slideW = track.parentElement.offsetWidth;
-    track.style.transform = `translateX(-${current * slideW}px)`;
+  function updateDots() {
+    let realIdx = current - 1;
+    if (current === 0)         realIdx = total - 1;
+    if (current === total + 1) realIdx = 0;
     dotsWrap?.querySelectorAll('.gallery__dot').forEach((d, i) => {
-      d.classList.toggle('active', i === current);
+      d.classList.toggle('active', i === realIdx);
     });
-    resetTimer();
   }
+
+  function updateActive() {
+    allSlides.forEach(s => s.classList.remove('is-active'));
+    // Force CSS animation restart on incoming slide
+    void allSlides[current]?.offsetWidth;
+    allSlides[current]?.classList.add('is-active');
+  }
+
+  function goTo(index, instant = false) {
+    current = index;
+    const slideW = track.parentElement.offsetWidth;
+    track.style.transition = instant ? 'none' : 'transform 0.75s cubic-bezier(0.25, 0.8, 0.25, 1)';
+    track.style.transform  = `translateX(-${current * slideW}px)`;
+    updateDots();
+    if (!instant) updateActive();
+  }
+
+  // After animated transition: silently teleport if we landed on a clone
+  track.addEventListener('transitionend', () => {
+    if (current === 0) {
+      goTo(total, true);
+      updateActive();
+    } else if (current === total + 1) {
+      goTo(1, true);
+      updateActive();
+    }
+  });
 
   function resetTimer() {
     clearInterval(timer);
-    timer = setInterval(() => goTo(current + 1), 5000);
+    timer = setInterval(() => goTo(current + 1), 5500);
   }
 
-  prevBtn?.addEventListener('click', () => goTo(current - 1));
-  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  prevBtn?.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+  nextBtn?.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
 
   // Touch/swipe support
   let touchStartX = 0;
   track.parentElement.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
   track.parentElement.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 40) goTo(dx < 0 ? current + 1 : current - 1);
+    if (Math.abs(dx) > 40) { goTo(dx < 0 ? current + 1 : current - 1); resetTimer(); }
   });
 
+  updateActive();
   resetTimer();
 }
 
