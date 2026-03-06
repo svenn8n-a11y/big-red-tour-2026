@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initErlebnisScroll();
   initGallery();
   initDealStamp();
+  initGalaParticles();
   initHeiglCar();
   initYouTubePlaceholder();
 });
@@ -690,6 +691,45 @@ function initDealStamp() {
     once: true,
     onEnter: () => stamp.classList.add('is-stamped')
   });
+}
+
+// ─── GALA-BAU SÄGESPÄNE ──────────────────────────────────────────────────────
+function initGalaParticles() {
+  const container = document.querySelector('.gala__sparks');
+  if (!container) return;
+
+  const colors = ['#c8902a', '#a06e1e', '#e0aa40', '#d4a030', '#b87820', '#deb040'];
+  const count  = 42;
+
+  for (let i = 0; i < count; i++) {
+    const span = document.createElement('span');
+    span.className = 'gala__spark';
+
+    // Keil-Korridor 200°–240° (standard math) → links-unten in CSS
+    const angleDeg = 200 + Math.random() * 40;
+    const angleRad = angleDeg * Math.PI / 180;
+    const dist = 100 + Math.random() * 280;           // 100–380px
+
+    const tx = Math.round(Math.cos(angleRad) * dist); // negativ = links
+    const ty = Math.round(-Math.sin(angleRad) * dist);// positiv = unten (CSS)
+
+    const size  = (3 + Math.random() * 9).toFixed(1); // 3–12px
+    const delay = (Math.random() * 3.8).toFixed(2);
+    const dur   = (1.3 + Math.random() * 2.4).toFixed(2);
+    const rot   = Math.round(120 + Math.random() * 500);
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
+    span.style.setProperty('--tx',    tx    + 'px');
+    span.style.setProperty('--ty',    ty    + 'px');
+    span.style.setProperty('--tr',    rot   + 'deg');
+    span.style.setProperty('--size',  size  + 'px');
+    span.style.setProperty('--delay', delay + 's');
+    span.style.setProperty('--dur',   dur   + 's');
+    span.style.setProperty('--color', color);
+    if (Math.random() > 0.5) span.classList.add('gala__spark--round');
+
+    container.appendChild(span);
+  }
 }
 
 // ─── HEIGL AUTO EINFAHRT ────────────────────────────────────────────────────
