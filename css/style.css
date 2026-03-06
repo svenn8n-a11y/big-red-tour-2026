@@ -2959,6 +2959,16 @@ ul { list-style: none; }
   margin-top: 2rem;
   filter: drop-shadow(0 10px 40px rgba(0,0,0,0.8));
 }
+/* Laptop: Auto und Padding synchron halten, damit kein Überlappen entsteht */
+@media (min-width: 861px) and (max-width: 1280px) {
+  .heigl__car-wrap {
+    width: clamp(320px, 40vw, 510px);
+  }
+  .heigl__inner {
+    padding-left: clamp(270px, 42vw, 540px);
+  }
+}
+
 @media (max-width: 860px) {
   .heigl__inner {
     grid-template-columns: 1fr;
