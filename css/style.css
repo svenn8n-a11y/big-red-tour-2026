@@ -2431,9 +2431,9 @@ ul { list-style: none; }
 
 .gala__sparks {
   position: absolute;
-  /* Emitter: Sägeblatt-Kontaktpunkt mit dem Holz – 23vw von rechts, 29% von unten */
+  /* Emitter: Sägeblatt-Kontaktpunkt mit dem Holz – 23vw von rechts, 22% von unten */
   right: clamp(180px, 23vw, 360px);
-  bottom: 29%;
+  bottom: 22%;
   width: 0;
   height: 0;
   z-index: 3;
@@ -2442,24 +2442,18 @@ ul { list-style: none; }
 
 .gala__spark {
   position: absolute;
-  width: var(--size, 6px);
-  height: calc(var(--size, 6px) * 0.45);
+  width: var(--w, 14px);
+  height: var(--h, 3px);
   background: var(--color, #c8902a);
-  border-radius: 2px;
+  border-radius: 1px;
   opacity: 0;
-  animation: galaSpark var(--dur, 2.2s) ease-out var(--delay, 0s) infinite;
-}
-
-.gala__spark--round {
-  border-radius: 50%;
-  width: calc(var(--size, 6px) * 0.8);
-  height: calc(var(--size, 6px) * 0.8);
+  animation: galaSpark var(--dur, 1s) ease-out var(--delay, 0s) infinite;
 }
 
 @keyframes galaSpark {
   0%   { opacity: 0;    transform: translate(0, 0) rotate(0deg) scale(1); }
-  10%  { opacity: 0.95; }
-  100% { opacity: 0;    transform: translate(var(--tx, -80px), var(--ty, 90px)) rotate(var(--tr, 360deg)) scale(0.25); }
+  8%   { opacity: 1; }
+  100% { opacity: 0;    transform: translate(var(--tx, -120px), var(--ty, -120px)) rotate(var(--tr, 360deg)) scale(0.4); }
 }
 
 @media (max-width: 860px) {
