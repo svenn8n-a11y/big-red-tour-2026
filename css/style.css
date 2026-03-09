@@ -3492,11 +3492,12 @@ ul { list-style: none; }
 .gewerk-strip {
   position: relative;
   overflow: hidden;
-  height: 180px;
+  height: 160px;
   background: #030508;
-  transform: skewY(-3deg);
-  margin: -30px 0;
-  padding: 16px 0;
+  transform: rotate(-3deg);
+  margin: -20px -8vw;
+  padding: 0;
+  z-index: 2;
 }
 
 .gewerk-strip__track {
@@ -3528,8 +3529,8 @@ ul { list-style: none; }
 }
 
 @keyframes gewerk-strip-scroll {
-  0%   { transform: skewY(3deg) translateX(0); }
-  100% { transform: skewY(3deg) translateX(-50%); }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 @media (max-width: 768px) {
