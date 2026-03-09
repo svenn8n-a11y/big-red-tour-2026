@@ -26,8 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMusic();
   initErlebnisScroll();
   initGallery();
-  initDealStamp();
-  initGalaParticles();
   initHeiglCar();
   initYouTubePlaceholder();
 });
@@ -681,63 +679,6 @@ function initGallery() {
   resetTimer();
 }
 
-// ─── TOP SECRET STEMPEL ─────────────────────────────────────────────────────
-function initDealStamp() {
-  const stamp = document.getElementById('dealsStamp');
-  if (!stamp) return;
-  ScrollTrigger.create({
-    trigger: stamp,
-    start: 'top 80%',
-    once: true,
-    onEnter: () => stamp.classList.add('is-stamped')
-  });
-}
-
-// ─── GALA-BAU SÄGESPÄNE ──────────────────────────────────────────────────────
-function initGalaParticles() {
-  const container = document.querySelector('.gala__sparks');
-  if (!container) return;
-
-  const colors = ['#c8902a', '#a06e1e', '#e0aa40', '#d4a030', '#b87820', '#deb040', '#f0c060', '#8a5c14'];
-  const count  = 90;
-
-  for (let i = 0; i < count; i++) {
-    const span = document.createElement('span');
-    span.className = 'gala__spark';
-
-    // 45°-Korridor links-oben: 120°–150° (standard math)
-    // cos(120–150°) < 0 → links, -sin(120–150°) < 0 → oben in CSS
-    const angleDeg = 120 + Math.random() * 30;
-    const angleRad = angleDeg * Math.PI / 180;
-    const dist = 80 + Math.random() * 320;            // 80–400px
-
-    const tx = Math.round(Math.cos(angleRad) * dist); // negativ = links
-    const ty = Math.round(-Math.sin(angleRad) * dist);// negativ = oben (CSS)
-
-    const w     = (8  + Math.random() * 22).toFixed(1); // 8–30px Breite
-    const h     = (2  + Math.random() * 3 ).toFixed(1); // 2–5px Höhe (Splitter)
-    const delay = (Math.random() * 2.5).toFixed(2);
-    const dur   = (0.5 + Math.random() * 1.3).toFixed(2); // 0.5–1.8s
-    const rot   = Math.round(Math.random() * 360);
-    const color = colors[Math.floor(Math.random() * colors.length)];
-
-    span.style.setProperty('--tx',    tx    + 'px');
-    span.style.setProperty('--ty',    ty    + 'px');
-    span.style.setProperty('--tr',    rot   + 'deg');
-    span.style.setProperty('--w',     w     + 'px');
-    span.style.setProperty('--h',     h     + 'px');
-    span.style.setProperty('--delay', delay + 's');
-    span.style.setProperty('--dur',   dur   + 's');
-    span.style.setProperty('--color', color);
-
-    // 50% als Trapez (Splitter-Optik), Rest als scharfes Rechteck
-    if (Math.random() > 0.5) {
-      span.style.clipPath = 'polygon(0 0, 100% 20%, 100% 80%, 0 100%)';
-    }
-
-    container.appendChild(span);
-  }
-}
 
 // ─── HEIGL AUTO EINFAHRT ────────────────────────────────────────────────────
 function initHeiglCar() {

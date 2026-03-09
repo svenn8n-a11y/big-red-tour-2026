@@ -2429,36 +2429,6 @@ ul { list-style: none; }
   .highlight__gala-figure { max-width: 54%; opacity: 0.45; right: 0; }
 }
 
-.gala__sparks {
-  position: absolute;
-  /* Emitter: Sägeblatt-Kontaktpunkt mit dem Holz – 23vw von rechts, 22% von unten */
-  right: clamp(180px, 23vw, 360px);
-  bottom: 22%;
-  width: 0;
-  height: 0;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.gala__spark {
-  position: absolute;
-  width: var(--w, 14px);
-  height: var(--h, 3px);
-  background: var(--color, #c8902a);
-  border-radius: 1px;
-  opacity: 0;
-  animation: galaSpark var(--dur, 1s) ease-out var(--delay, 0s) infinite;
-}
-
-@keyframes galaSpark {
-  0%   { opacity: 0;    transform: translate(0, 0) rotate(0deg) scale(1); }
-  8%   { opacity: 1; }
-  100% { opacity: 0;    transform: translate(var(--tx, -120px), var(--ty, -120px)) rotate(var(--tr, 360deg)) scale(0.4); }
-}
-
-@media (max-width: 860px) {
-  .gala__sparks { display: none; }
-}
 
 .highlight__inner--split {
   display: grid;
@@ -2736,92 +2706,139 @@ ul { list-style: none; }
   border-radius: 4px;
 }
 
-/* ── DEALS: 10% BONUS BADGE ──────────────────────────────────────────────── */
-.deals__bonus {
+/* ── DEALS: BLOCK 1 – BUCKET DEALS ──────────────────────────────────────── */
+.deals__bucket-block {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  background: linear-gradient(135deg, rgba(200,16,46,0.18), rgba(200,16,46,0.06));
-  border: 1.5px solid rgba(200,16,46,0.5);
-  border-radius: 10px;
-  padding: 1.5rem 2.5rem;
-  margin-bottom: 2.5rem;
-  box-shadow: 0 0 40px rgba(200,16,46,0.2), 0 0 80px rgba(200,16,46,0.1);
+  justify-content: space-between;
+  gap: 3rem;
+  background: linear-gradient(135deg, rgba(200,16,46,0.12) 0%, rgba(200,16,46,0.04) 100%);
+  border: 1.5px solid rgba(200,16,46,0.4);
+  border-radius: 12px;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
   position: relative;
   overflow: hidden;
 }
-.deals__bonus::before {
+.deals__bucket-block::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 20% 50%, rgba(200,16,46,0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 15% 50%, rgba(200,16,46,0.1) 0%, transparent 65%);
 }
-.deals__bonus-pct {
-  font-family: var(--font-head);
-  font-size: clamp(5rem, 12vw, 8rem);
-  line-height: 1;
-  color: var(--red);
-  text-shadow: 0 0 30px rgba(200,16,46,0.7), 0 0 60px rgba(200,16,46,0.4);
-  animation: bonus-pulse 2.5s ease-in-out infinite;
+.deals__bucket-text {
   position: relative;
   z-index: 1;
+  flex: 1;
 }
+.deals__bucket-lead {
+  color: var(--muted-light);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  line-height: 1.65;
+  margin: 1rem 0 1.75rem;
+  max-width: 560px;
+}
+.deals__bucket-stamp {
+  position: relative;
+  flex-shrink: 0;
+  width: clamp(130px, 18vw, 200px);
+  z-index: 1;
+}
+@media (max-width: 700px) {
+  .deals__bucket-block { flex-direction: column; gap: 1.5rem; }
+  .deals__bucket-stamp { width: 120px; align-self: flex-end; }
+}
+
+/* ── DEALS: TOP SECRET STEMPEL ───────────────────────────────────────────── */
+.deals__stamp {
+  width: 100%;
+  color: var(--red);
+  opacity: 0.9;
+  transform: rotate(-15deg);
+  filter: drop-shadow(0 0 12px rgba(200,16,46,0.5));
+}
+.deals__stamp svg { width: 100%; height: auto; display: block; }
+
+/* ── DEALS: BLOCK 2 – 10% RABATT BANNER ─────────────────────────────────── */
+.deals__rabatt-banner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--red);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+.deals__rabatt-pct {
+  font-family: var(--font-head);
+  font-size: clamp(4rem, 9vw, 6.5rem);
+  line-height: 1;
+  color: var(--red);
+  text-shadow: 0 0 20px rgba(200,16,46,0.5);
+  flex-shrink: 0;
+}
+.deals__rabatt-info {
+  flex: 1;
+}
+.deals__rabatt-info strong {
+  display: block;
+  font-family: var(--font-sub);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.deals__rabatt-info > span {
+  font-size: 0.9rem;
+  color: var(--muted-light);
+  line-height: 1.5;
+  display: block;
+  margin-top: 0.2rem;
+}
+.deals__rabatt-exclusion {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.6rem;
+  line-height: 1.4;
+}
+.deals__rabatt-exclusion svg { flex-shrink: 0; color: var(--muted); }
+@media (max-width: 600px) {
+  .deals__rabatt-banner { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .deals__rabatt-pct { font-size: clamp(3rem, 15vw, 5rem); }
+}
+
+/* ── DEALS: BLOCK 3 – PRÄMIEN HEADER ────────────────────────────────────── */
+.deals__praemien-head {
+  text-align: center;
+  padding: 1rem 0 1.5rem;
+}
+.deals__praemien-h3 {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  margin: 0.4rem 0 0.6rem;
+  text-transform: uppercase;
+}
+.deals__praemien-sub {
+  color: var(--muted-light);
+  font-size: 0.95rem;
+}
+
+/* ── DEALS: BONUS-SIGN (shared) ──────────────────────────────────────────── */
 .deals__bonus-sign {
   font-size: 0.55em;
   vertical-align: top;
   margin-top: 0.4em;
   display: inline-block;
-}
-.deals__bonus-info {
-  position: relative;
-  z-index: 1;
-}
-.deals__bonus-info strong {
-  display: block;
-  font-family: var(--font-sub);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-.deals__bonus-info span {
-  font-size: 0.9rem;
-  color: var(--muted-light);
-  line-height: 1.5;
-}
-@keyframes bonus-pulse {
-  0%, 100% { text-shadow: 0 0 30px rgba(200,16,46,0.7), 0 0 60px rgba(200,16,46,0.4); }
-  50%       { text-shadow: 0 0 50px rgba(200,16,46,0.9), 0 0 100px rgba(200,16,46,0.5), 0 0 140px rgba(200,16,46,0.2); }
-}
-
-/* ── DEALS: TOP SECRET STEMPEL ───────────────────────────────────────────── */
-.deals__bonus {
-  position: relative; /* sicherstellen */
-}
-.deals__stamp {
-  position: absolute;
-  right: clamp(1rem, 5%, 4rem);
-  top: 50%;
-  transform: translateY(-50%) rotate(-22deg) scale(0);
-  transform-origin: center center;
-  width: clamp(120px, 18vw, 180px);
-  color: var(--red);
-  opacity: 0;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  filter: drop-shadow(0 0 12px rgba(200,16,46,0.5));
-  z-index: 2;
-}
-.deals__stamp svg { width: 100%; height: auto; display: block; }
-.deals__stamp.is-stamped {
-  animation: stamp-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-@keyframes stamp-in {
-  0%   { transform: translateY(-50%) rotate(-22deg) scale(2.4); opacity: 0; }
-  60%  { transform: translateY(-50%) rotate(-22deg) scale(0.9); opacity: 0.9; }
-  80%  { transform: translateY(-50%) rotate(-22deg) scale(1.05); opacity: 1; }
-  100% { transform: translateY(-50%) rotate(-22deg) scale(1); opacity: 1; }
 }
 
 /* ── FOOD & DRINKS ───────────────────────────────────────────────────────── */

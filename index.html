@@ -863,9 +863,6 @@
         <div class="highlight__overlay"></div>
       </div>
 
-      <!-- Animierte Sägespäne – werden per JS generiert -->
-      <div class="gala__sparks" aria-hidden="true"></div>
-
       <div class="container">
         <div class="highlight__inner">
           <div class="highlight__content reveal-up">
@@ -1120,33 +1117,56 @@
     <!-- ========== BUCKET DEALS ========== -->
     <section class="section deals" id="deals">
       <div class="container">
-        <div class="section__head reveal-up">
-          <span class="eyebrow">Exklusive Tages-Deals</span>
-          <h2 class="section__h2">Nur an <em class="red">diesem Tag</em></h2>
-          <p class="section__lead">Bucket Deals, die es nur während der BIG RED TOUR bei uns gibt. Investiere, und wir legen drauf.</p>
+
+        <!-- ── Block 1: Bucket Deals ─────────────────────────────────────────── -->
+        <div class="deals__bucket-block reveal-up">
+          <div class="deals__bucket-text">
+            <span class="eyebrow">Nur am 10. April 2026 · Pöppel Memmingen</span>
+            <h2 class="section__h2">Bucket <em class="red">Deals</em></h2>
+            <p class="deals__bucket-lead">
+              Unsere Elektro-Abteilung hat geschnürt, was du brauchst – fertige Pakete aus Maschinen,
+              Akku und Zubehör, direkt auf der Palette, zu Preisen, die wir sonst nicht machen.
+              Was genau drinsteckt? Das siehst du am 10. April. Vor Ort. Bei Pöppel in Memmingen.
+            </p>
+            <a href="#anmeldung" class="btn btn--primary btn--lg mag-btn"><span>Slot sichern – kostenlos anmelden</span></a>
+          </div>
+          <div class="deals__bucket-stamp" aria-hidden="true">
+            <!-- TOP SECRET Stempel -->
+            <div class="deals__stamp is-visible" id="dealsStamp">
+              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="6"/>
+                <circle cx="100" cy="100" r="78" stroke="currentColor" stroke-width="2.5"/>
+                <text x="100" y="90" text-anchor="middle" dominant-baseline="middle"
+                      font-family="'Bebas Neue', sans-serif" font-size="36" fill="currentColor"
+                      letter-spacing="4">TOP</text>
+                <text x="100" y="122" text-anchor="middle" dominant-baseline="middle"
+                      font-family="'Bebas Neue', sans-serif" font-size="36" fill="currentColor"
+                      letter-spacing="4">SECRET</text>
+                <line x1="24" y1="108" x2="76" y2="108" stroke="currentColor" stroke-width="2.5"/>
+                <line x1="124" y1="108" x2="176" y2="108" stroke="currentColor" stroke-width="2.5"/>
+              </svg>
+            </div>
+          </div>
         </div>
 
-        <div class="deals__bonus reveal-up" style="--delay:0.05s">
-          <div class="deals__bonus-pct">10<span class="deals__bonus-sign">%</span></div>
-          <div class="deals__bonus-info">
-            <strong>Zusatzrabatt</strong>
-            <span>auf alle BIG RED DEALS<br>– exklusiv an diesem Tag</span>
+        <!-- ── Block 2: 10% Zusatzrabatt ──────────────────────────────────────── -->
+        <div class="deals__rabatt-banner reveal-up" style="--delay:0.1s">
+          <div class="deals__rabatt-pct">10<span class="deals__bonus-sign">%</span></div>
+          <div class="deals__rabatt-info">
+            <strong>Zusatzrabatt auf unser gesamtes Sortiment</strong>
+            <span>Exklusiv am 10. April 2026 – direkt bei Pöppel in Memmingen</span>
+            <p class="deals__rabatt-exclusion">
+              <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="5" y1="5" x2="11" y2="11"/><line x1="11" y1="5" x2="5" y2="11"/></svg>
+              Nicht gültig auf Bucket Deals und laufende Aktionen aus dem Frühjahr-Sommer Katalog
+            </p>
           </div>
-          <!-- Top Secret Stempel -->
-          <div class="deals__stamp" id="dealsStamp" aria-hidden="true">
-            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="6"/>
-              <circle cx="100" cy="100" r="78" stroke="currentColor" stroke-width="2.5"/>
-              <text x="100" y="90" text-anchor="middle" dominant-baseline="middle"
-                    font-family="'Bebas Neue', sans-serif" font-size="36" fill="currentColor"
-                    letter-spacing="4">TOP</text>
-              <text x="100" y="122" text-anchor="middle" dominant-baseline="middle"
-                    font-family="'Bebas Neue', sans-serif" font-size="36" fill="currentColor"
-                    letter-spacing="4">SECRET</text>
-              <line x1="24" y1="108" x2="76" y2="108" stroke="currentColor" stroke-width="2.5"/>
-              <line x1="124" y1="108" x2="176" y2="108" stroke="currentColor" stroke-width="2.5"/>
-            </svg>
-          </div>
+        </div>
+
+        <!-- ── Block 3: Prämien ────────────────────────────────────────────────── -->
+        <div class="deals__praemien-head reveal-up" style="--delay:0.15s">
+          <span class="eyebrow">Deine Prämien</span>
+          <h3 class="deals__praemien-h3">Investiere – und wir legen <em class="red">drauf.</em></h3>
+          <p class="deals__praemien-sub">Je mehr du investierst, desto mehr kriegst du obendrauf – als Geschenk, direkt vor Ort.</p>
         </div>
 
         <div class="deals__grid">
@@ -1159,7 +1179,7 @@
                      class="deals__img" loading="lazy" width="262" height="420">
               </picture>
             </div>
-            <div class="deals__tier-label">ab</div>
+            <div class="deals__tier-label">Geschenk ab</div>
             <div class="deals__amount">250 €</div>
             <h3 class="deals__name">SHOCKWAVE Karabiner-Bitset</h3>
             <p class="deals__desc">10-teiliges Milwaukee SHOCKWAVE Impact Duty Bit-Set mit praktischem Karabinerclip – immer griffbereit am Gürtel. PH, PZ &amp; TX inklusive.</p>
@@ -1174,11 +1194,11 @@
               <picture>
                 <source media="(max-width: 480px)" srcset="assets/images/milwaukee_merchandise/milwaukee-torpedo-360-wasserwaage-magnetisch-mobile.png">
                 <img src="assets/images/milwaukee_merchandise/milwaukee-torpedo-360-wasserwaage-magnetisch.png"
-                     alt="Milwaukee Torpedo 360° Wasserwaage magnetisch – kompakte Profi-Wasserwaage mit Winkelmesser, Art.-Nr. 4932459096"
+                     alt="Milwaukee Torpedo 360° Wasserwaage magnetisch – kompakte Profi-Wasserwaage mit Winkelmesser"
                      class="deals__img" loading="lazy" width="262" height="420">
               </picture>
             </div>
-            <div class="deals__tier-label">ab</div>
+            <div class="deals__tier-label">Geschenk ab</div>
             <div class="deals__amount">500 €</div>
             <h3 class="deals__name">Torpedo 360° Wasserwaage</h3>
             <p class="deals__desc">Magnetische Milwaukee Torpedo-Wasserwaage mit 360°-Winkelmesser – präzise, kompakt, unentbehrlich auf der Baustelle.</p>
@@ -1196,17 +1216,18 @@
                      class="deals__img" loading="lazy" width="420" height="420">
               </picture>
             </div>
-            <div class="deals__tier-label">ab</div>
+            <div class="deals__tier-label">Geschenk ab</div>
             <div class="deals__amount">1.000 €</div>
             <h3 class="deals__name">Milwaukee Ratschensatz</h3>
-            <p class="deals__desc">Professioneller Milwaukee Ratschensatz im Koffer – Steckschlüssel, Nüsse &amp; Bits komplett. Das Premium-Goodie für Investitionen ab 1.000 €.</p>
+            <p class="deals__desc">Professioneller Milwaukee Ratschensatz im Koffer – Steckschlüssel, Nüsse &amp; Bits komplett.</p>
             <div class="deals__cta">
               <a href="#anmeldung" class="btn btn--outline btn--sm">Anmelden</a>
             </div>
           </div>
         </div>
+
         <p class="deals__disclaimer reveal-up" style="--delay:0.3s">
-          * Alle Deals gelten ausschließlich am 10.04.2026 vor Ort bei Pöppel Memmingen. Nicht kombinierbar mit anderen Aktionen. Solange der Vorrat reicht.
+          * Prämien solange Vorrat reicht. Alle Angebote gelten ausschließlich am 10.04.2026 vor Ort bei Pöppel Werkzeuge, Memmingen. Nicht kombinierbar mit anderen Aktionen. 10 % Zusatzrabatt gilt nicht auf Bucket Deals und laufende Aktionen aus dem Frühjahr-Sommer Katalog.
         </p>
       </div>
     </section>
