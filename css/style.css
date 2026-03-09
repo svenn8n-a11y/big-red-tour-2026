@@ -3547,6 +3547,9 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
+  /* Abstand zwischen BAU-Button und KFZ-Mann reduzieren (Strip ist ausgeblendet) */
+  .gewerk--kfz { padding-top: 1rem; }
+
   .gewerk-strip { display: none; }
   .gewerk-strip__track {
     animation-duration: 20s;
