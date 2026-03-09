@@ -2399,6 +2399,8 @@ ul { list-style: none; }
 /* ── HIGHLIGHT GALA-BAU ──────────────────────────────────────────────────── */
 .highlight--gala {
   background: #030508;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .highlight--gala::before {
@@ -3502,6 +3504,13 @@ ul { list-style: none; }
 
 .gewerk-strip--reverse {
   transform: rotate(3deg);
+}
+
+/* GaLa-Strip: läuft über den Highlights-Divider */
+.gewerk-strip--over-divider {
+  z-index: 5;
+  margin-top: -40px;
+  margin-bottom: -90px;
 }
 
 .gewerk-strip__track {
