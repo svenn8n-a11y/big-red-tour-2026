@@ -10,7 +10,6 @@
 |---|---|
 | **Datum** | 10. April 2026 |
 | **Uhrzeit** | 08:00 – 17:00 Uhr |
-| **VIP Stammkunden** | 08:00 – 09:00 Uhr (exklusiv) |
 | **Ort** | R. Pöppel GmbH & Co. KG · Alpenstraße 45 · 87700 Memmingen |
 | **Eintritt** | Kostenlos |
 
