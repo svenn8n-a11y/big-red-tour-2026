@@ -3538,6 +3538,7 @@ ul { list-style: none; }
 }
 
 @media (max-width: 768px) {
+  .gewerk-strip { display: none; }
   .gewerk-strip__track {
     animation-duration: 20s;
   }
