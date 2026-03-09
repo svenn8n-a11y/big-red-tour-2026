@@ -3487,3 +3487,57 @@ ul { list-style: none; }
   .dj-music__visual { margin-bottom: 1rem; }
   .dj-music__tags { justify-content: center; }
 }
+
+/* ── GEWERK-BILDSTREIFEN ──────────────────────────────────────────────── */
+.gewerk-strip {
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  background: #030508;
+  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
+  margin: -1px 0;
+  padding: 16px 0;
+}
+
+.gewerk-strip__track {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  height: 100%;
+  animation: gewerk-strip-scroll 35s linear infinite;
+  will-change: transform;
+}
+
+.gewerk-strip__track:hover {
+  animation-play-state: paused;
+}
+
+.gewerk-strip__img {
+  height: 140px;
+  width: auto;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 4px;
+  filter: brightness(0.85) saturate(0.9);
+  transition: filter 0.3s;
+}
+
+.gewerk-strip__img:hover {
+  filter: brightness(1) saturate(1);
+}
+
+@keyframes gewerk-strip-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .gewerk-strip__track {
+    animation-duration: 20s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gewerk-strip__track { animation: none; }
+}
