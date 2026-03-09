@@ -74,8 +74,8 @@ $name      = "$vorname $nachname";
 $firma     = htmlspecialchars(strip_tags(trim($data['firma'])));
 $email     = htmlspecialchars(strip_tags(trim($data['email'])));
 $branche   = htmlspecialchars(strip_tags(trim($data['branche'])));
-$stammkunde  = !empty($data['stammkunde']) ? 'Ja – VIP 8–9 Uhr' : 'Nein';
-$personen    = htmlspecialchars(strip_tags(trim($data['personen'] ?? '1')));
+$personen        = htmlspecialchars(strip_tags(trim($data['personen'] ?? '1')));
+$kein_newsletter = !empty($data['kein_newsletter']) ? true : false;
 
 // Branchenbezeichnung leserlich machen
 $branchenMap = [
@@ -117,7 +117,8 @@ $internMail = '
     .info-value { color: #1a1a1a; font-size: 15px; }
     .info-value strong { color: #C8102E; }
     .info-value a { color: #C8102E; text-decoration: none; }
-    .stammkunden-badge { background: #C8102E; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; }
+    .newsletter-ja { background: #e8f5e9; border: 2px solid #2e7d32; border-radius: 8px; padding: 14px 20px; margin: 16px 0; color: #1b5e20; font-weight: 700; font-size: 15px; }
+    .newsletter-nein { background: #fff3e0; border: 2px solid #e65100; border-radius: 8px; padding: 14px 20px; margin: 16px 0; color: #bf360c; font-weight: 700; font-size: 15px; }
     .footer-bar { background: #1a1a1a; color: #888; padding: 20px 35px; text-align: center; font-size: 13px; }
   </style>
 </head>
@@ -150,10 +151,13 @@ $internMail = '
       <div class="info-label">Personen:</div>
       <div class="info-value">' . $personen . '</div>
     </div>
-    <div class="info-row">
-      <div class="info-label">Stammkunde:</div>
-      <div class="info-value">' . ($stammkunde === 'Ja – VIP 8–9 Uhr' ? '<span class="stammkunden-badge">VIP STAMMKUNDE</span>' : 'Nein') . '</div>
-    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">Newsletter</div>
+    ' . ($kein_newsletter
+        ? '<div class="newsletter-nein">&#10060; KEIN Newsletter gewünscht – diese Person NICHT in den Verteiler aufnehmen!</div>'
+        : '<div class="newsletter-ja">&#10003; Newsletter erwünscht – Person darf in den Verteiler aufgenommen werden.</div>'
+    ) . '
   </div>
   <div class="section">
     <div class="section-title">Details</div>
@@ -261,7 +265,7 @@ if ($mailSent) {
       </div>
       <div class="event-row">
         <span class="event-icon">&#128336;</span>
-        <span><strong>Uhrzeit:</strong> 8:00 – 17:00 Uhr (reguläre Öffnung ab 9:00 Uhr)</span>
+        <span><strong>Uhrzeit:</strong> 10:00 – 17:00 Uhr</span>
       </div>
       <div class="event-row">
         <span class="event-icon">&#128205;</span>
@@ -273,11 +277,6 @@ if ($mailSent) {
       </div>
     </div>
 
-    ' . ($stammkunde === 'Ja – VIP 8–9 Uhr' ? '
-    <div class="vip-box">
-      <strong>&#11088; VIP-Frühöffnung für Stammkunden: 8:00 – 9:00 Uhr</strong><br>
-      Als Stammkunde hast du exklusiven Frühzugang – eine Stunde vor der regulären Öffnung!
-    </div>' : '') . '
 
   </div>
 
@@ -308,8 +307,8 @@ if ($mailSent) {
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-text">
-          <h4>Feuerwehr-Spektakel</h4>
-          <p>Dramatische Vorführung: Rettungskräfte zeigen live, was Milwaukee Werkzeug in Extremsituationen leistet.</p>
+          <h4>Blaulicht-Spektakel mit Feuerwehr &amp; THW</h4>
+          <p>Dramatische Vorführung: Feuerwehr und THW schneiden ein Schrottauto live auf – mit Milwaukee M18 FUEL™ Rettungsgeräten. Das sieht man nicht alle Tage.</p>
         </div>
       </div>
       <div class="step">
@@ -328,6 +327,13 @@ if ($mailSent) {
       </div>
       <div class="step">
         <div class="step-num">6</div>
+        <div class="step-text">
+          <h4>&#127881; Überraschungen</h4>
+          <p>Wir haben noch ein paar Extras vorbereitet, die wir noch nicht verraten wollen. Komm vorbei und lass dich überraschen!</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">7</div>
         <div class="step-text">
           <h4>Food &amp; Getränke</h4>
           <p><strong>Der Schachen</strong> versorgt dich den ganzen Tag kostenlos mit Allgäuer Spezialitäten – inklusive <strong>4 Freigetränken pro Gast</strong>. Darüber hinaus warten kulinarische Schmankerl von weiteren Ausstellern auf dich.</p>

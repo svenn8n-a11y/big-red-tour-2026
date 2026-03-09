@@ -178,6 +178,7 @@ Die Seite wird automatisch via **GitHub Actions** auf **GitHub Pages** deployed.
 | Tag | Stand | Inhalt |
 |---|---|---|
 | `backup-2026-03-09` | 09. März 2026 | Gewerk-Bildstreifen, Bucket Deals 3-Block, Blaulicht-Sektion, GaLa-Bau, Heigl deaktiviert |
+| `backup-2026-03-09b` | 09. März 2026 | Newsletter Opt-out im Formular, Benefits-Block entfernt, E-Mail-Templates aktualisiert |
 
 Backup wiederherstellen: `git checkout backup-2026-03-09`
 
@@ -195,8 +196,6 @@ Backup wiederherstellen: `git checkout backup-2026-03-09`
 ## Offene TODOs
 
 - [ ] **submit-anmeldung.php auf Pöppel-Server hochladen** – damit das Formular live funktioniert
-- [ ] **Holz/Zimmermann Bilder** – Sven liefert Bilder für den Gewerk-Bildstreifen (dann Platzhalter in `index.html` aktivieren)
-- [ ] **GaLa-Bau Bilder** – Sven liefert Bilder für den Gewerk-Bildstreifen (dann Platzhalter in `index.html` aktivieren)
 - [ ] **Hero-Bild** – Hochkantbild 1080×1350px (4:5), WebP, max. 300 KB, Truck mittig (`truck_hero.webp`)
 - [ ] **Feuerwehr-Zeitslot** – genaue Uhrzeit im Programm
 - [ ] **Heigl-Sektion** – reaktivieren oder dauerhaft entfernen (aktuell auskommentiert)

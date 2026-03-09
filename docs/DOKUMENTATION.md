@@ -310,9 +310,36 @@ git push origin v1.0-backup-YYYY-MM-DD
 
 ---
 
+## Formular & PHP-Mailer
+
+### Anmeldeformular (`#anmeldung`)
+
+- Sendet via `fetch()` POST an `submit-anmeldung.php` auf dem Pöppel-Server
+- Felder: Vorname, Nachname, Firma, E-Mail, Branche, Personenanzahl
+- **Newsletter Opt-out:** Checkbox `name="kein_newsletter"` – wenn gesetzt, möchte der Kunde **keinen** Newsletter. Standard (nicht gesetzt) = Newsletter erwünscht.
+- Datenschutz-Checkbox: Pflichtfeld (`required`)
+
+### `submit-anmeldung.php`
+
+- Versendet zwei E-Mails: interne Benachrichtigung + Kundenbestätigung
+- **Interne Mail:** Newsletter-Status erscheint als farbiger Block:
+  - 🟢 Grün = Newsletter erwünscht (in Verteiler aufnehmen)
+  - 🟠 Orange = KEIN Newsletter – **nicht** in Verteiler aufnehmen!
+- **Kundenmail:** Bestätigung mit 7 Programm-Punkten (inkl. Blaulicht-Spektakel, Überraschungen)
+- Empfänger intern: `support@poeppel-wkz.de`, `s.muellers@poeppel-wkz.de`
+
+### E-Mail-Templates (Vorschau)
+
+| Datei | Beschreibung |
+|---|---|
+| `email-templates/bestaetigung-kunde.html` | Kundenbestätigung – 7 Programm-Schritte, Kalender-Links, Datenschutz/Impressum verlinkt |
+| `email-templates/intern-benachrichtigung.html` | Interne Benachrichtigung (Vorschau) |
+
+---
+
 ## Offene technische TODOs
 
-- [ ] **Formspree ID** – `YOUR_FORM_ID` in `index.html` ~Zeile 334 ersetzen
+- [ ] **submit-anmeldung.php auf Pöppel-Server hochladen** – Formular funktioniert erst dann live
 - [ ] **Video-Thumbnail** – YouTube Embed kann durch eigenes Thumbnail ersetzt werden
 - [ ] **Performance** – Große Bilder (truck_hd.png, gewerke/) könnten als WebP optimiert werden
 - [ ] **Meta OG-Image** – `assets/images/truck_hd.png` als OG-Image (ideal: 1200×630px)
