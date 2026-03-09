@@ -3500,6 +3500,10 @@ ul { list-style: none; }
   z-index: 2;
 }
 
+.gewerk-strip--reverse {
+  transform: rotate(3deg);
+}
+
 .gewerk-strip__track {
   display: flex;
   align-items: center;
