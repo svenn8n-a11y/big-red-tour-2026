@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGallery();
   initHeiglCar();
   initYouTubePlaceholder();
+  initCookieBanner();
 });
 
 // ─── 1. COUNTDOWN ───────────────────────────────────────────────────────────
@@ -693,8 +694,6 @@ function initHeiglCar() {
 }
 
 // ─── YOUTUBE CLICK-TO-LOAD (DSGVO) ───────────────────────────────────────────
-// Kein Cookie-Banner nötig – YouTube lädt erst nach aktivem Klick des Nutzers.
-// Der Klick gilt als informierte Einwilligung (TTDSG § 25).
 function initYouTubePlaceholder() {
   const iframes = document.querySelectorAll('iframe[src*="youtube"]');
   iframes.forEach(iframe => {
@@ -714,6 +713,68 @@ function initYouTubePlaceholder() {
       const newIframe = document.createElement('iframe');
       newIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
       newIframe.title = title;
+      newIframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      newIframe.allowFullscreen = true;
+      newIframe.style.cssText = 'width:100%;height:100%;border:0;';
+      wrap.innerHTML = '';
+      wrap.appendChild(newIframe);
+    });
+    iframe.replaceWith(placeholder);
+  });
+}
+
+// ─── COOKIE BANNER ───────────────────────────────────────────────────────────
+function initCookieBanner() {
+  const banner = document.getElementById('cookieBanner');
+  const btnAll = document.getElementById('cookieAcceptAll');
+  const btnNec = document.getElementById('cookieAcceptNecessary');
+  if (!banner) return;
+
+  const CONSENT_KEY = 'cookie_consent';
+
+  function dismissBanner() {
+    banner.classList.add('is-hidden');
+  }
+
+  // Bereits entschieden → sofort ausblenden
+  if (localStorage.getItem(CONSENT_KEY)) {
+    banner.classList.add('is-hidden');
+    return;
+  }
+
+  btnAll?.addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'all');
+    dismissBanner();
+  });
+
+  btnNec?.addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'necessary');
+    dismissBanner();
+    replaceYouTubeWithPlaceholder();
+  });
+
+  // Erster Besuch: Banner nach kurzer Verzögerung einblenden
+  setTimeout(() => banner.classList.remove('is-hidden'), 800);
+}
+
+function replaceYouTubeWithPlaceholder() {
+  const iframes = document.querySelectorAll('iframe[src*="youtube"]');
+  iframes.forEach(iframe => {
+    const wrap = iframe.closest('.video-sec__frame') || iframe.parentElement;
+    const videoId = (iframe.src.match(/embed\/([^?]+)/) || [])[1] || 'GQ0OVEmIYp8';
+    const placeholder = document.createElement('div');
+    placeholder.className = 'yt-placeholder';
+    placeholder.innerHTML = `
+      <img src="https://i.ytimg.com/vi/${videoId}/hqdefault.jpg" alt="Video Vorschau">
+      <button class="yt-placeholder__btn" aria-label="Video laden">
+        <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7c-.8-2.9-2.9-5.1-5.8-5.9C55.8 0 34 0 34 0S12.2 0 7.3 1.8C4.4 2.6 2.3 4.8 1.5 7.7 0 12.7 0 24 0 24s0 11.3 1.5 16.3c.8 2.9 2.9 5.1 5.8 5.9C12.2 48 34 48 34 48s21.8 0 26.7-1.8c2.9-.8 5-3 5.8-5.9C68 35.3 68 24 68 24s0-11.3-1.5-16.3z" fill="#fff" fill-opacity=".9"/><path d="M45 24 27 14v20" fill="#C8102E"/></svg>
+        Video laden (YouTube)
+      </button>
+      <p class="yt-placeholder__note">Erst nach dem Klick werden YouTube-Cookies gesetzt.</p>`;
+    placeholder.querySelector('button').addEventListener('click', () => {
+      const newIframe = document.createElement('iframe');
+      newIframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`;
+      newIframe.title = iframe.title || 'YouTube Video';
       newIframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       newIframe.allowFullscreen = true;
       newIframe.style.cssText = 'width:100%;height:100%;border:0;';
