@@ -3502,15 +3502,20 @@ ul { list-style: none; }
   z-index: 2;
 }
 
-.gewerk-strip--reverse {
+.gewerk-strip.gewerk-strip--reverse {
   transform: rotate(3deg);
 }
 
 /* GaLa-Strip: läuft über den Highlights-Divider */
-.gewerk-strip--over-divider {
+.gewerk-strip.gewerk-strip--over-divider {
   z-index: 5;
   margin-top: -40px;
   margin-bottom: -90px;
+}
+
+/* GaLa-Strip ist auch reverse – explizit kombiniert für sichere Spezifität */
+.gewerk-strip.gewerk-strip--reverse.gewerk-strip--over-divider {
+  transform: rotate(3deg);
 }
 
 .gewerk-strip__track {
