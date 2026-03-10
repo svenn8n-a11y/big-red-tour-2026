@@ -3506,10 +3506,6 @@ ul { list-style: none; }
   transform: rotate(3deg);
 }
 
-.gewerk-strip--reverse .gewerk-strip__track {
-  animation-direction: reverse;
-}
-
 /* GaLa-Strip: läuft über den Highlights-Divider */
 .gewerk-strip.gewerk-strip--over-divider {
   z-index: 5;
