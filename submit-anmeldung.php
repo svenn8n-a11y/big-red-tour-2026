@@ -75,7 +75,7 @@ $firma     = htmlspecialchars(strip_tags(trim($data['firma'])));
 $email     = htmlspecialchars(strip_tags(trim($data['email'])));
 $branche   = htmlspecialchars(strip_tags(trim($data['branche'])));
 $personen        = htmlspecialchars(strip_tags(trim($data['personen'] ?? '1')));
-$kein_newsletter = !empty($data['kein_newsletter']) ? true : false;
+$newsletter = !empty($data['newsletter']) ? true : false;
 
 // Branchenbezeichnung leserlich machen
 $branchenMap = [
@@ -154,9 +154,9 @@ $internMail = '
   </div>
   <div class="section">
     <div class="section-title">Newsletter</div>
-    ' . ($kein_newsletter
-        ? '<div class="newsletter-nein">&#10060; KEIN Newsletter gewünscht – diese Person NICHT in den Verteiler aufnehmen!</div>'
-        : '<div class="newsletter-ja">&#10003; Newsletter erwünscht – Person darf in den Verteiler aufgenommen werden.</div>'
+    ' . ($newsletter
+        ? '<div class="newsletter-ja">&#10003; Newsletter Double Opt-In ausgelöst – Bestätigungsmail geht an den Teilnehmer.</div>'
+        : '<div class="newsletter-nein">— Kein Newsletter gewünscht.</div>'
     ) . '
   </div>
   <div class="section">
@@ -185,6 +185,61 @@ $headers .= "X-Priority: 1" . $eol;
 
 $internMailEncoded = quoted_printable_encode($internMail);
 $mailSent = mail($to, $subject, $internMailEncoded, $headers, '-f noreply@poeppel-wkz.de');
+
+// ─── Newsletter2Go Double Opt-In (wenn gewünscht) ───────────────────────────
+if ($newsletter) {
+    // Zugangsdaten aus Newsletter2Go Backend (https://ui.newsletter2go.com/api-client)
+    $n2gAuthKey  = 'AUTH_KEY_HIER';      // Auth-Key (wird Base64-kodiert gesendet)
+    $n2gUser     = 'USER_EMAIL_HIER';    // Newsletter2Go Login-E-Mail
+    $n2gPassword = 'PASSWORT_HIER';      // Newsletter2Go Login-Passwort
+    $n2gFormCode = 'FORM_CODE_HIER';     // DOI-Formular-Code (Developer Mode → Formular-ID)
+
+    // Schritt 1: OAuth2 Access-Token holen
+    $ch = curl_init('https://api.newsletter2go.com/oauth/v2/token');
+    curl_setopt_array($ch, [
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => json_encode([
+            'username'   => $n2gUser,
+            'password'   => $n2gPassword,
+            'grant_type' => 'https://nl2go.com/jwt'
+        ]),
+        CURLOPT_HTTPHEADER     => [
+            'Authorization: Basic ' . base64_encode($n2gAuthKey),
+            'Content-Type: application/json'
+        ],
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 10,
+    ]);
+    $tokenResponse = json_decode(curl_exec($ch), true);
+    curl_close($ch);
+
+    $accessToken = $tokenResponse['access_token'] ?? null;
+
+    // Schritt 2: DOI-Formular absenden → Newsletter2Go sendet Bestätigungsmail
+    if ($accessToken) {
+        $ch = curl_init('https://api.newsletter2go.com/forms/submit/' . $n2gFormCode);
+        curl_setopt_array($ch, [
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => json_encode([
+                'recipient' => [
+                    'email'      => $data['email'],
+                    'first_name' => $data['vorname'],
+                    'last_name'  => $data['nachname'],
+                    'company'    => $data['firma'],
+                ]
+            ]),
+            CURLOPT_HTTPHEADER     => [
+                'Authorization: Bearer ' . $accessToken,
+                'Content-Type: application/json'
+            ],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT        => 10,
+        ]);
+        curl_exec($ch);
+        curl_close($ch);
+    }
+    // Fehler blockieren nicht die Event-Registrierung (graceful degradation)
+}
 
 // ─── Bestätigungs-E-Mail an Teilnehmer ──────────────────────────────────────
 if ($mailSent) {
